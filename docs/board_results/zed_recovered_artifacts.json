@@ -1,0 +1,20 @@
+[
+  {
+    "file": "zed_low_cpu.csv",
+    "bytes": 40002,
+    "sha256": "d1eb56166f420db8cb5b8fa8ebd00d5956fe4bbc7de08e2b090a5a2e50d9b77d",
+    "nul_bytes": 534,
+    "trailing_nul_bytes": 534,
+    "original_archive": "zed_low_cpu_raw.csv.gz",
+    "normalization": "Remove NUL bytes from text copy; preserve original bytes in gzip archive"
+  },
+  {
+    "file": "zed_live.log",
+    "bytes": 6079,
+    "sha256": "c4db86df649af9b608e473c311818fe9c69addeae99c9d73142a7c64db19b9c5",
+    "nul_bytes": 142,
+    "trailing_nul_bytes": 142,
+    "original_archive": "zed_live_raw.log.gz",
+    "normalization": "Remove NUL bytes from text copy; preserve original bytes in gzip archive"
+  }
+]

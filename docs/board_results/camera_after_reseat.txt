@@ -1,0 +1,67 @@
+Sat Oct 10 13:42:28 UTC 2026
+ 13:42:28 up 2 min,  1 user,  load average: 0.74, 0.69, 0.29
+91d008f8-529f-4932-be0e-b3b7f16af3d7
+Available cameras:
+Oct 10 13:39:56 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:39:56 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 13:39:56 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:39:56 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:39:57 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 13:39:57 VIVIC kernel: platform 5c11000.camss: Adding to iommu group 4
+Oct 10 13:39:57 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 13:39:57 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 13:40:01 VIVIC kernel: imx219 1-0010: Error reading reg 0x0000: -6
+Oct 10 13:40:01 VIVIC kernel: imx219 1-0010: error -ENXIO: failed to read chip id 219
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator
+active
+user:crosswalk_mcu                                                                             OCCHIO crosswalk MCU                                     🚦   stopped       false   
+/sys/bus/i2c/devices/1-0010 imx219
+/sys/bus/i2c/devices/1-0026 pca9555
+/sys/bus/i2c/devices/2-002a dummy
+/sys/bus/i2c/devices/2-002c dummy
+/sys/bus/i2c/devices/2-0038 dummy
+/sys/bus/i2c/devices/2-0039 dummy
+/sys/bus/i2c/devices/2-003d dummy
+/sys/bus/i2c/devices/2-003f dummy
+/sys/bus/i2c/devices/2-0042 dummy
+/sys/bus/i2c/devices/2-0058 anx7625
+/sys/bus/i2c/devices/i2c-0 Geni-I2C
+/sys/bus/i2c/devices/i2c-1 Qualcomm-CCI
+/sys/bus/i2c/devices/i2c-2 Geni-I2C
+/sys/bus/i2c/devices/i2c-3 Qualcomm-CCI
+/sys/bus/i2c/devices/i2c-4 anx7625-aux
+Oct 10 13:39:56 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:39:56 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 13:39:56 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:39:56 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:39:57 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 13:39:57 VIVIC kernel: SCSI subsystem initialized
+Oct 10 13:39:57 VIVIC kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 243)
+Oct 10 13:39:57 VIVIC kernel: platform 5c11000.camss: Adding to iommu group 4
+Oct 10 13:39:57 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 13:39:57 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 13:40:01 VIVIC kernel: imx219 1-0010: Error reading reg 0x0000: -6
+Oct 10 13:40:01 VIVIC kernel: imx219 1-0010: error -ENXIO: failed to read chip id 219
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 13:40:01 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator
+crw-rw----+ 1 root video 504, 0 Oct 10 13:40 /dev/media0
+crw-rw----+ 1 root video  81, 0 Oct 10 13:40 /dev/video0
+crw-rw----+ 1 root video  81, 1 Oct 10 13:40 /dev/video1
+crw-rw----+ 1 root video  81, 2 Oct 10 13:40 /dev/video2
+crw-rw----+ 1 root video  81, 3 Oct 10 13:40 /dev/video3
+crw-rw----+ 1 root video  81, 4 Oct 10 13:40 /dev/video4
+crw-rw----+ 1 root video  81, 5 Oct 10 13:40 /dev/video5
+crw-rw----+ 1 root video  81, 6 Oct 10 13:40 /dev/video6
+crw-rw----+ 1 root video  81, 7 Oct 10 13:40 /dev/video7
+crw-rw----+ 1 root video  81, 8 Oct 10 13:40 /dev/video8
+crw-rw----+ 1 root video  81, 9 Oct 10 13:40 /dev/video9
+bind
+module
+uevent
+unbind
+root         763       1  0 13:40 ?        00:00:00 /usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyHS1 --serial-baudrate 115200 --after-ready /usr/bin/gpioset -c /dev/gpiochip1 -t0 70=1

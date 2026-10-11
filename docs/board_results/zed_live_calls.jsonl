@@ -1,0 +1,14 @@
+{"type": "ped_button", "t": 264.286, "log_only": true, "id": 1, "node": "cw-01-zed", "wall": "13:58:57"}
+{"type": "signal", "t": 264.286, "from": "veh_green", "to": "veh_yellow", "veh": "yellow", "ped": "red", "rule": "S1", "why": "push button for 0.0 s; vehicles green for 264 s; no vehicle about to cross", "log_only": true, "id": 2, "node": "cw-01-zed", "wall": "13:58:57"}
+{"type": "signal", "t": 267.376, "from": "veh_yellow", "to": "all_red_1", "veh": "red", "ped": "red", "rule": "S1", "why": "yellow 3 s elapsed", "log_only": true, "id": 3, "node": "cw-01-zed", "wall": "13:59:00"}
+{"type": "signal", "t": 268.895, "from": "all_red_1", "to": "ped_green", "veh": "red", "ped": "green", "rule": "S1", "why": "all-red 1.5 s elapsed - walk", "log_only": true, "id": 4, "node": "cw-01-zed", "wall": "13:59:01"}
+{"type": "signal", "t": 274.01, "from": "ped_green", "to": "ped_clear", "veh": "red", "ped": "flash", "rule": "S2", "why": "walk 5 s, nobody else waiting", "log_only": true, "id": 5, "node": "cw-01-zed", "wall": "13:59:06"}
+{"type": "signal", "t": 280.697, "from": "ped_clear", "to": "all_red_2", "veh": "red", "ped": "red", "rule": "S3", "why": "clearance 6.7 s elapsed", "log_only": true, "id": 6, "node": "cw-01-zed", "wall": "13:59:13"}
+{"type": "signal", "t": 282.298, "from": "all_red_2", "to": "veh_green", "veh": "green", "ped": "red", "rule": "S4", "why": "crosswalk empty", "log_only": true, "id": 7, "node": "cw-01-zed", "wall": "13:59:15"}
+{"type": "ped_button", "t": 294.387, "log_only": true, "id": 8, "node": "cw-01-zed", "wall": "13:59:27"}
+{"type": "signal", "t": 294.387, "from": "veh_green", "to": "veh_yellow", "veh": "yellow", "ped": "red", "rule": "S1", "why": "push button for 0.0 s; vehicles green for 12 s; no vehicle about to cross", "log_only": true, "id": 9, "node": "cw-01-zed", "wall": "13:59:27"}
+{"type": "signal", "t": 297.399, "from": "veh_yellow", "to": "all_red_1", "veh": "red", "ped": "red", "rule": "S1", "why": "yellow 3 s elapsed", "log_only": true, "id": 10, "node": "cw-01-zed", "wall": "13:59:30"}
+{"type": "signal", "t": 299.02, "from": "all_red_1", "to": "ped_green", "veh": "red", "ped": "green", "rule": "S1", "why": "all-red 1.5 s elapsed - walk", "log_only": true, "id": 11, "node": "cw-01-zed", "wall": "13:59:31"}
+{"type": "signal", "t": 304.085, "from": "ped_green", "to": "ped_clear", "veh": "red", "ped": "flash", "rule": "S2", "why": "walk 5 s, nobody else waiting", "log_only": true, "id": 12, "node": "cw-01-zed", "wall": "13:59:36"}
+{"type": "signal", "t": 310.884, "from": "ped_clear", "to": "all_red_2", "veh": "red", "ped": "red", "rule": "S3", "why": "clearance 6.7 s elapsed", "log_only": true, "id": 13, "node": "cw-01-zed", "wall": "13:59:43"}
+{"type": "signal", "t": 312.393, "from": "all_red_2", "to": "veh_green", "veh": "green", "ped": "red", "rule": "S4", "why": "crosswalk empty", "log_only": true, "id": 14, "node": "cw-01-zed", "wall": "13:59:45"}

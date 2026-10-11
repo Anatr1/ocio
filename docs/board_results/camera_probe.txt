@@ -1,0 +1,14 @@
+Oct 10 12:58:52 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 12:58:52 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 12:58:52 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 12:58:52 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 12:58:52 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 12:58:52 VIVIC kernel: platform 5c11000.camss: Adding to iommu group 4
+Oct 10 12:58:52 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 12:58:52 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 12:58:56 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 12:58:56 VIVIC kernel: imx219 0-0010: Error reading reg 0x0000: -6
+Oct 10 12:58:56 VIVIC kernel: imx219 0-0010: error -ENXIO: failed to read chip id 219
+Oct 10 12:58:56 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator
+Oct 10 12:58:56 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 12:58:56 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator

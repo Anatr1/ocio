@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>òcio · Record</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="utility-page">
+  <header class="topbar">
+    <div class="brand"><div><div class="brand-name">òcio</div><div class="brand-sub">Camera recording</div></div></div>
+  </header>
+  <main class="utility-wrap">
+    <div class="card">
+      <h1>Camera recording</h1><p id="status">Connecting…</p>
+      <label>Clip name <input id="name" value="traffic" maxlength="40"></label>
+      <p><button id="start">● Rec</button><button id="stop" disabled>■ Stop</button></p>
+      <pre id="detail"></pre><p><a href="/recordings" target="_blank">Download recordings</a> · <a href="/">Full dashboard</a></p>
+      <button id="preview">Show camera</button><p><img id="video" hidden alt="Camera preview"></p>
+      <p class="muted">Raw footage stays on the board and team laptop.</p>
+    </div>
+  </main>
+<script>
+const el=id=>document.getElementById(id);let busy=false;
+async function request(path,data){const r=await fetch(path,{cache:'no-store',signal:AbortSignal.timeout(8000),...(data?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}:{})});if(!r.ok)throw Error('HTTP '+r.status);return r.json()}
+async function refresh(){try{const s=await request('/api/state');const r=s.record||{};el('status').textContent='Camera connected · '+(r.recording?'RECORDING':'Ready');el('detail').textContent=r.recording?`${r.name}\n${r.seconds} seconds · ${r.frames} frames`:r.files?.length?'Saved: '+r.files.join(', '):'Ready to record';el('start').disabled=!!r.recording||busy;el('stop').disabled=!r.recording||busy}catch(e){el('status').textContent='Connection interrupted — retrying';}}
+async function control(action){busy=true;el('start').disabled=el('stop').disabled=true;try{await request('/api/record',{action,name:el('name').value})}catch(e){el('detail').textContent='Request failed: '+e.message}finally{busy=false;await refresh()}}
+el('start').onclick=()=>control('start');el('stop').onclick=()=>control('stop');el('preview').onclick=()=>{const v=el('video');v.hidden=!v.hidden;v.src=v.hidden?'':'/video.mjpg';el('preview').textContent=v.hidden?'Show camera':'Hide camera'};
+refresh();setInterval(refresh,2000);
+</script>
+
+</body>
+</html>

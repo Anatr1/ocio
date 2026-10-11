@@ -1,0 +1,43 @@
+{
+  "software_checks_passed": true,
+  "functional_acceptance": false,
+  "physical_outputs": "UNMEASURED: operator must verify LEDs, buzzer and OLED",
+  "allow_uncalibrated": false,
+  "profile": "grove",
+  "requested_seconds": 120.0,
+  "elapsed_seconds": 120.001,
+  "samples": 59,
+  "failures": [],
+  "performance": {
+    "det_hz": {
+      "min": 1.1,
+      "median": 3.8,
+      "max": 6.2
+    },
+    "infer_ms": {
+      "min": 133.9,
+      "median": 148.1,
+      "max": 223.3
+    },
+    "decision_ms": {
+      "min": 152.3,
+      "median": 167.3,
+      "max": 243.3
+    },
+    "cpu_pct": {
+      "min": 41.3,
+      "median": 59.3,
+      "max": 84.8
+    },
+    "cpu_temp_c": {
+      "min": 39.1,
+      "median": 45.7,
+      "max": 53.9
+    },
+    "mem_used_mb": {
+      "min": 743.0,
+      "median": 786.0,
+      "max": 828.0
+    }
+  }
+}

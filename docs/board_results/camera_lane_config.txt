@@ -1,0 +1,193 @@
+Enable and configure a carrier with the specified device options
+
+Usage:
+  arduino-linux-config carrier enable <carrier-name> [device=option...] [flags]
+
+Examples:
+  # To configure a media-carrier with two cameras attached, one type1:
+  arduino-linux-config carrier enable media-carrier camera0=type1-2lanes camera1=type1-4lanes
+
+Flags:
+  -h, --help   help for enable
+
+Global Flags:
+      --format string      Output format (text, json) (default "text")
+      --log-level string   Set the log level (debug, info, warn, error) (default "error")
+/dts-v1/;
+
+/ {
+
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+
+			cam-pwr-csi0 {
+				compatible = "regulator-fixed";
+				regulator-name = "cam-pwr";
+				startup-delay-us = <0x186a0>;
+				gpio = <0x01 0x01 0x00>;
+				enable-active-high;
+				phandle = <0x04>;
+			};
+
+			cam-pwr-csi1 {
+				compatible = "regulator-fixed";
+				regulator-name = "cam-pwr";
+				startup-delay-us = <0x186a0>;
+				gpio = <0x01 0x03 0x00>;
+				enable-active-high;
+			};
+
+			clocks {
+
+				cam-clk {
+					compatible = "fixed-clock";
+					#clock-cells = <0x00>;
+					clock-frequency = <0x16e3600>;
+					clock-output-names = "cam24m";
+					phandle = <0x03>;
+				};
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			clock-frequency = <0x186a0>;
+			#address-cells = <0x01>;
+			#size-cells = <0x00>;
+
+			gpio@26 {
+				compatible = "nxp,pca9555";
+				reg = <0x26>;
+				gpio-controller;
+				#gpio-cells = <0x02>;
+				phandle = <0x01>;
+			};
+		};
+	};
+
+	fragment@2 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+
+			ports {
+
+				port@0 {
+
+					endpoint {
+						data-lanes = <0x00 0x01>;
+						remote-endpoint = <0x02>;
+						phandle = <0x05>;
+					};
+				};
+			};
+		};
+	};
+
+	fragment@3 {
+		target = <0xffffffff>;
+
+		__overlay__ {
+			#address-cells = <0x01>;
+			#size-cells = <0x00>;
+
+			sensor@10 {
+				compatible = "sony,imx219";
+				reg = <0x10>;
+				clocks = <0x03>;
+				status = "okay";
+				VDIG-supply = <0x04>;
+				VANA-supply = <0x04>;
+				VDDL-supply = <0x04>;
+				reset-gpios = <0x01 0x00 0x00>;
+
+				port {
+
+					endpoint {
+						remote-endpoint = <0x05>;
+						clock-lanes = <0x00>;
+						data-lanes = <0x01 0x02>;
+						link-frequencies = <0x00 0x1b2e0200>;
+						phandle = <0x02>;
+					};
+				};
+			};
+		};
+	};
+
+	__fixups__ {
+		cci_i2c0 = "/fragment@1:target:0", "/fragment@3:target:0";
+		camss = "/fragment@2:target:0";
+	};
+
+	__local_fixups__ {
+
+		fragment@0 {
+
+			__overlay__ {
+
+				cam-pwr-csi0 {
+					gpio = <0x00>;
+				};
+
+				cam-pwr-csi1 {
+					gpio = <0x00>;
+				};
+			};
+		};
+
+		fragment@2 {
+
+			__overlay__ {
+
+				ports {
+
+					port@0 {
+
+						endpoint {
+							remote-endpoint = <0x00>;
+						};
+					};
+				};
+			};
+		};
+
+		fragment@3 {
+
+			__overlay__ {
+
+				sensor@10 {
+					clocks = <0x00>;
+					VDIG-supply = <0x00>;
+					VANA-supply = <0x00>;
+					VDDL-supply = <0x00>;
+					reset-gpios = <0x00>;
+
+					port {
+
+						endpoint {
+							remote-endpoint = <0x00>;
+						};
+					};
+				};
+			};
+		};
+	};
+};
+lrwxrwxrwx 1 root root 0 Oct 10 13:40 /sys/bus/i2c/devices/1-0026/driver -> ../../../../../../bus/i2c/drivers/pca953x
+-rwxr-xr-x 1 root root 77410 Oct 10 13:39 /boot/efi/dtb/qcom/qrb2210-arduino-imola.dtb
+Arduino Linux Config 0.2.0
+Sat Oct 10 13:44:03 UTC 2026
+media-carrier  [current: enabled]       [next: enabled]
+  camera0:     [current: type1-4lanes]  [next boot: type1-2lanes]
+  camera1:     [current: none]          [next boot: none]
+  display:     [current: none]          [next boot: none]
+
+
+afc16e1b8ce4a24ad22b776fcd22e9edaabc219f2ad74ec771138b0535aa0809  /home/arduino/occhio/board_backups/20261010-camera/before-2lanes.dtb
+caff2733ae3ee1055423e61c61cd576b5bc7f8e034840a84e73621ca46630497  /boot/efi/dtb/qcom/qrb2210-arduino-imola.dtb

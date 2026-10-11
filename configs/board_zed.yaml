@@ -1,0 +1,27 @@
+# UNO Q + Stereolabs ZED Mini used as a plain UVC webcam (no ZED SDK: it needs CUDA).
+# Over UVC the ZED streams BOTH eyes side by side, YUYV only (no MJPG). We keep the left eye.
+# Known UVC modes (side-by-side): 2560x720 @30/60 (needs USB 3), 1344x376 @30/60/100, 3840x1080 @30, 4416x1242 @15.
+# Measured on 2026-10-10: USB 3 at 5000M; 1344x376 with left crop sustains 29.7 fps capture-only.
+# 2560x720 + crop/resize dropped to 15.1 fps alone and ~12.8 fps with inference; use the lower mode.
+include: board.yaml
+node:
+  id: cw-01-zed
+  name: "HackTurin crosswalk (ZED Mini)"
+source:
+  type: camera
+  device: /dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0
+  width: 1344
+  height: 376
+  fps: 30
+  fourcc: YUYV
+  stereo: left          # keep the left eye -> 672x376
+  resize_width: null    # preserve aspect ratio; avoid extra full-frame conversion/resize cost
+detector:
+  backend: ncnn
+  model: models/yolo11n_320_ncnn_model
+  imgsz: 320
+  threads: 4            # measured winner; sustained detector median 9.07 Hz
+scene:
+  calibration:
+    image_points: null  # calibrate via http://<board-ip>:8000/calibrate.html
+    image_size: [672, 376]

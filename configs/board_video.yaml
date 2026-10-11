@@ -1,0 +1,9 @@
+# Public-video fallback on UNO Q; measured detector, no live-camera claims.
+# Run: .venv/bin/python -m crosswalk --config configs/board_video.yaml
+include: video_demo.yaml
+detector:
+  backend: ncnn
+  model: models/yolo11n_320_ncnn_model
+  imgsz: 320
+  threads: 4
+  max_hz: 10

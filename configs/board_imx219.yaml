@@ -1,0 +1,28 @@
+# UNO Q + IMX219 CSI camera. Detector measured on 2026-10-10; see docs/board_results/RESULTS.md.
+# CAM0 enumerated and captured through libcamerify on 2026-10-10.
+# Requested 640x480 is adjusted to 632x480. FPS control is unavailable:
+# requesting 30 produced about 59.4 fps in the 20-second capture-only test.
+# Run the CSI camera through the libcamera V4L2 compatibility layer:
+#   libcamerify .venv/bin/python -m crosswalk --config configs/board_imx219.yaml
+include: board.yaml
+node:
+  id: cw-01-imx219
+  name: "HackTurin crosswalk (IMX219)"
+source:
+  type: camera
+  device: 0
+  width: 640
+  height: 480
+  fps: 30
+  fourcc: null          # CSI/libcamera is not a USB MJPG camera
+  stereo: null          # single sensor: do not apply the ZED left-eye crop
+  resize_width: null
+detector:
+  backend: ncnn
+  model: models/yolo11n_320_ncnn_model
+  imgsz: 320
+  threads: 4            # 91.8 ms total, 8.30 dets/frame; 3 threads measured 158.8 ms
+scene:
+  calibration:
+    image_points: null  # real floor calibration remains pending a measured rectangle
+    image_size: [632, 480]  # actual libcamera/OpenCV output, not requested size

@@ -1,0 +1,12 @@
+[Unit]
+Description=Temporary OCCHIO boot-to-health measurement
+After=local-fs.target
+
+[Service]
+Type=oneshot
+User=arduino
+ExecStart=/usr/bin/python3 /home/arduino/occhio/docs/board_results/check_autostart_boot.py
+TimeoutStartSec=320
+
+[Install]
+WantedBy=multi-user.target

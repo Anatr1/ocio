@@ -1,0 +1,15 @@
+Oct 10 17:08:07 VIVIC sh[785]: Progress[python provisioning]: 10%
+Oct 10 17:08:08 VIVIC sh[785]: [INFO] python downloading
+Oct 10 17:08:08 VIVIC sh[785]: [INFO]  Container crosswalk_mcu-main-1  Created
+Oct 10 17:08:08 VIVIC sh[785]: [INFO]  Container crosswalk_mcu-main-1  Starting
+Oct 10 17:08:08 VIVIC sh[785]: [INFO]  Container crosswalk_mcu-main-1  Started
+Oct 10 17:08:08 VIVIC sh[785]: Progress[]: 100%
+Oct 10 17:08:08 VIVIC sh[785]: ✓ App "OCCHIO crosswalk MCU" started successfully
+Oct 10 17:08:08 VIVIC systemd[1]: Finished occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+Oct 10 17:09:43 VIVIC systemd[1]: occhio-mcu.service: Deactivated successfully.
+Oct 10 17:09:43 VIVIC systemd[1]: Stopped occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+Oct 11 09:37:25 VIVIC systemd[1]: Starting occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot...
+Oct 11 09:37:25 VIVIC sh[4566]: [ERROR] App "Occhio Crosswalk Mcu" Is Running
+Oct 11 09:37:25 VIVIC systemd[1]: occhio-mcu.service: Main process exited, code=exited, status=1/FAILURE
+Oct 11 09:37:25 VIVIC systemd[1]: occhio-mcu.service: Failed with result 'exit-code'.
+Oct 11 09:37:25 VIVIC systemd[1]: Failed to start occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.

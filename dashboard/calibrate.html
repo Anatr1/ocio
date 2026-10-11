@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>&ograve;cio · Calibration</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { overflow: auto; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 1fr 300px; gap: 20px; }
+    .imgbox { position: relative; background: #000; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+    .imgbox img { width: 100%; display: block; cursor: crosshair; }
+    .imgbox svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    label { display: block; font-size: 12px; color: var(--muted); margin-top: 10px; }
+    input { width: 100%; background: var(--panel-2); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 6px 8px; font: inherit; }
+    ol { font-size: 13px; padding-left: 18px; color: var(--muted); }
+    ol b { color: var(--text); }
+    .btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    pre { white-space: pre-wrap; font-size: 12px; color: var(--muted); }
+    @media (max-width: 860px) { .wrap { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div><div class="brand-name">&ograve;cio</div><div class="brand-sub">ground-plane calibration · from the person-free background</div></div></div>
+    <div class="actions"><a href="/"><button>← Dashboard</button></a></div>
+  </header>
+  <div class="wrap">
+    <div>
+      <div class="imgbox" id="box">
+        <img id="img" alt="background" />
+        <svg id="svg"></svg>
+      </div>
+      <div class="btns">
+        <button id="b-preview">Show calibrated grid</button>
+        <button id="b-reload">Reload background</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h">Click the 4 corners of the zebra block</div>
+      <ol>
+        <li><b>P1</b> curb A (near side), one end of the stripes</li>
+        <li><b>P2</b> curb A, the other end of the stripes</li>
+        <li><b>P3</b> curb B (far side), same end as P2</li>
+        <li><b>P4</b> curb B, same end as P1</li>
+      </ol>
+      <label>Stripe length W (m) - measured along the road</label>
+      <input id="w" type="number" step="0.05" value="4.0" />
+      <label>Zebra block length L (m) - outer edge of first stripe to outer edge of last</label>
+      <input id="l" type="number" step="0.05" value="8.0" />
+      <div class="btns">
+        <button id="b-auto">Auto-detect stripes</button>
+        <button id="b-reset">Reset points</button>
+        <button id="b-save">Save calibration</button>
+      </div>
+      <pre id="out">Tip: measure W and L with a tape measure - the stripe count gives L too (50 cm stripes).</pre>
+    </div>
+  </div>
+<script>
+const img = document.getElementById("img"), svg = document.getElementById("svg"), out = document.getElementById("out");
+let pts = [];
+function load(url) { img.src = url + "?t=" + Date.now(); }
+function draw() {
+  const W = img.naturalWidth || 640, H = img.naturalHeight || 480;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  let s = "";
+  if (pts.length > 1) s += `<polygon points="${pts.map(p => p.join(",")).join(" ")}" fill="rgba(255,176,32,0.18)" stroke="#ffb020" stroke-width="2"/>`;
+  pts.forEach((p, i) => { s += `<circle cx="${p[0]}" cy="${p[1]}" r="6" fill="none" stroke="#ff4d4f" stroke-width="3"/><text x="${p[0] + 9}" y="${p[1] - 9}" fill="#ff4d4f" font-size="18" font-weight="700">P${i + 1}</text>`; });
+  svg.innerHTML = s;
+}
+img.onload = draw;
+img.onerror = () => { out.textContent = "No background yet - the node needs a few seconds of frames."; };
+img.onclick = (e) => {
+  if (pts.length >= 4) pts = [];
+  const r = img.getBoundingClientRect();
+  pts.push([Math.round((e.clientX - r.left) / r.width * img.naturalWidth), Math.round((e.clientY - r.top) / r.height * img.naturalHeight)]);
+  draw();
+};
+document.getElementById("b-reset").onclick = () => { pts = []; draw(); load("/api/background.jpg"); };
+document.getElementById("b-reload").onclick = () => load("/api/background.jpg");
+document.getElementById("b-preview").onclick = () => load("/api/calib_preview.jpg");
+document.getElementById("b-auto").onclick = async () => {
+  const r = await fetch("/api/auto_calibrate");
+  if (!r.ok) { out.textContent = "No zebra found automatically - click the corners."; return; }
+  const d = await r.json();
+  pts = d.image_points.map(p => p.map(Math.round));
+  document.getElementById("l").value = d.suggested_length.toFixed(2);
+  out.textContent = `Found ${d.n_stripes} stripes. Check the corners, adjust W/L, then Save.`;
+  draw();
+};
+document.getElementById("b-save").onclick = async () => {
+  if (pts.length !== 4) { out.textContent = "Click exactly 4 points first."; return; }
+  const body = { image_points: pts, width: parseFloat(document.getElementById("w").value), length: parseFloat(document.getElementById("l").value) };
+  const r = await fetch("/api/calibrate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  const d = await r.json();
+  if (!d.ok) { out.textContent = "Error: " + JSON.stringify(d); return; }
+  const i = d.info;
+  out.textContent = `Saved.\nCamera height ≈ ${i.camera_height_m?.toFixed(2)} m (check with a tape!)\nTilt ${i.tilt_deg?.toFixed(1)}°, HFOV ${i.hfov_deg?.toFixed(0)}° (${i.focal_source})\nReprojection error ${(i.reproj_err_m ?? 0).toFixed(3)} m${i.auto_flipped_x ? "\n(point order was mirrored - fixed automatically)" : ""}`;
+  load("/api/calib_preview.jpg");
+};
+load("/api/background.jpg");
+</script>
+</body>
+</html>

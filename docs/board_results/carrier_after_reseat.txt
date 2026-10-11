@@ -1,0 +1,500 @@
+A CLI to manage Arduino Linux Configurations
+
+Usage:
+  arduino-linux-config [command]
+
+Available Commands:
+  carrier     Manage Arduino Carriers
+  completion  Generate the autocompletion script for the specified shell
+  help        Help about any command
+  version     
+
+Flags:
+      --format string      Output format (text, json) (default "text")
+  -h, --help               help for arduino-linux-config
+      --log-level string   Set the log level (debug, info, warn, error) (default "error")
+
+Use "arduino-linux-config [command] --help" for more information about a command.
+Manage Arduino Carriers, including listing, configuring, and resetting.
+
+Usage:
+  arduino-linux-config carrier [command]
+
+Available Commands:
+  disable     Disable a carrier and restore the base DTB
+  enable      Enable and configure a carrier with the specified device options
+  list        Lists the available carriers and devices for the current hardware
+  show        Show the current configuration
+
+Flags:
+  -h, --help   help for carrier
+
+Global Flags:
+      --format string      Output format (text, json) (default "text")
+      --log-level string   Set the log level (debug, info, warn, error) (default "error")
+
+Use "arduino-linux-config carrier [command] --help" for more information about a command.
+media-carrier  [current: enabled]       [next: enabled]
+  camera0:     [current: type1-4lanes]  [next boot: type1-4lanes]
+  camera1:     [current: none]          [next boot: none]
+  display:     [current: none]          [next boot: none]
+
+
+/sys/bus/i2c/devices/1-0010 imx219
+/sys/bus/i2c/devices/1-0026 pca9555
+/sys/bus/i2c/devices/2-002a dummy
+/sys/bus/i2c/devices/2-002c dummy
+/sys/bus/i2c/devices/2-0038 dummy
+/sys/bus/i2c/devices/2-0039 dummy
+/sys/bus/i2c/devices/2-003d dummy
+/sys/bus/i2c/devices/2-003f dummy
+/sys/bus/i2c/devices/2-0042 dummy
+/sys/bus/i2c/devices/2-0058 anx7625
+/sys/bus/i2c/devices/i2c-0 Geni-I2C
+/sys/bus/i2c/devices/i2c-1 Qualcomm-CCI
+/sys/bus/i2c/devices/i2c-2 Geni-I2C
+/sys/bus/i2c/devices/i2c-3 Qualcomm-CCI
+/sys/bus/i2c/devices/i2c-4 anx7625-aux
+/usr/bin/dtc
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-camera-imx219-csi0-2lanes.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-camera-imx219-csi0-4lanes.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-camera-imx219-csi1-2lanes.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-camera-imx219-csi1-4lanes.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-full-2lanes.dtb
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-full-4lanes.dtb
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-panel-10in_touch_a-dsi.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-panel-5in_touch_a-dsi.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media-panel-8in_touch_a-dsi.dtbo
+/boot/efi/dtb/qcom/qrb2210-arduino-imola-carrier-media.dtbo
+media-carrier  [current: enabled]       [next: enabled]
+  camera0:     [current: type1-4lanes]  [next boot: type1-4lanes]
+  camera1:     [current: none]          [next boot: none]
+  display:     [current: none]          [next boot: none]
+
+
+CARRIER          DEVICE     OPTIONS
+-------          ------     -------
+media-carrier    camera0    none, type1-2lanes, type1-4lanes
+                 camera1    none, type1-2lanes, type1-4lanes
+                 display    none, 5-dsi-touch-a, 8-dsi-touch-a, 10-dsi-touch-a
+                            
+
+total 36676
+-rwxr-xr-x 1 root root  75509 May 28 11:27 apq8016-sbc-d3-camera-mezzanine.dtb
+-rwxr-xr-x 1 root root  74585 May 28 11:27 apq8016-sbc-usb-host.dtb
+-rwxr-xr-x 1 root root  74581 May 28 11:27 apq8016-sbc.dtb
+-rwxr-xr-x 1 root root  54519 May 28 11:27 apq8016-schneider-hmibsc.dtb
+-rwxr-xr-x 1 root root  51397 May 28 11:27 apq8039-t2.dtb
+-rwxr-xr-x 1 root root  26112 May 28 11:27 apq8094-sony-xperia-kitakami-karin_windy.dtb
+-rwxr-xr-x 1 root root  74946 May 28 11:27 apq8096-db820c.dtb
+-rwxr-xr-x 1 root root  66345 May 28 11:27 apq8096-ifc6640.dtb
+-rwxr-xr-x 1 root root 167422 May 28 11:27 hamoa-iot-evk.dtb
+-rwxr-xr-x 1 root root  16173 May 28 11:27 ipq5018-rdp432-c2.dtb
+-rwxr-xr-x 1 root root  16502 May 28 11:27 ipq5018-tplink-archer-ax55-v1.dtb
+-rwxr-xr-x 1 root root  15846 May 28 11:27 ipq5332-rdp441.dtb
+-rwxr-xr-x 1 root root  15420 May 28 11:27 ipq5332-rdp442.dtb
+-rwxr-xr-x 1 root root  15552 May 28 11:27 ipq5332-rdp468.dtb
+-rwxr-xr-x 1 root root  14994 May 28 11:27 ipq5332-rdp474.dtb
+-rwxr-xr-x 1 root root  24562 May 28 11:27 ipq5424-rdp466.dtb
+-rwxr-xr-x 1 root root  19497 May 28 11:27 ipq6018-cp01-c1.dtb
+-rwxr-xr-x 1 root root  20925 May 28 11:27 ipq8074-hk01.dtb
+-rwxr-xr-x 1 root root  18766 May 28 11:27 ipq8074-hk10-c1.dtb
+-rwxr-xr-x 1 root root  18766 May 28 11:27 ipq8074-hk10-c2.dtb
+-rwxr-xr-x 1 root root  26586 May 28 11:27 ipq9574-rdp418.dtb
+-rwxr-xr-x 1 root root  27201 May 28 11:27 ipq9574-rdp433.dtb
+-rwxr-xr-x 1 root root  25922 May 28 11:27 ipq9574-rdp449.dtb
+-rwxr-xr-x 1 root root  25922 May 28 11:27 ipq9574-rdp453.dtb
+-rwxr-xr-x 1 root root  25922 May 28 11:27 ipq9574-rdp454.dtb
+-rwxr-xr-x 1 root root  33160 May 28 11:27 kaanapali-mtp.dtb
+-rwxr-xr-x 1 root root  32701 May 28 11:27 kaanapali-qrd.dtb
+-rwxr-xr-x 1 root root 191367 May 28 11:27 lemans-evk-camera-csi1-imx577.dtb
+-rwxr-xr-x 1 root root 191391 May 28 11:27 lemans-evk-camera.dtb
+-rwxr-xr-x 1 root root 190634 May 28 11:27 lemans-evk-el2.dtb
+-rwxr-xr-x 1 root root 190510 May 28 11:27 lemans-evk.dtb
+-rwxr-xr-x 1 root root  53670 May 28 11:27 milos-fairphone-fp6.dtb
+-rwxr-xr-x 1 root root 121103 May 28 11:27 monaco-evk.dtb
+-rwxr-xr-x 1 root root  55778 May 28 11:27 msm8216-samsung-fortuna3g.dtb
+-rwxr-xr-x 1 root root  52427 May 28 11:27 msm8916-acer-a1-724.dtb
+-rwxr-xr-x 1 root root  55353 May 28 11:27 msm8916-alcatel-idol347.dtb
+-rwxr-xr-x 1 root root  52700 May 28 11:27 msm8916-asus-z00l.dtb
+-rwxr-xr-x 1 root root  53011 May 28 11:27 msm8916-gplus-fl8005a.dtb
+-rwxr-xr-x 1 root root  53086 May 28 11:27 msm8916-huawei-g7.dtb
+-rwxr-xr-x 1 root root  49654 May 28 11:27 msm8916-lg-c50.dtb
+-rwxr-xr-x 1 root root  52599 May 28 11:27 msm8916-lg-m216.dtb
+-rwxr-xr-x 1 root root  54177 May 28 11:27 msm8916-longcheer-l8150.dtb
+-rwxr-xr-x 1 root root  54400 May 28 11:27 msm8916-longcheer-l8910.dtb
+-rwxr-xr-x 1 root root  52737 May 28 11:27 msm8916-motorola-harpia.dtb
+-rwxr-xr-x 1 root root  52310 May 28 11:27 msm8916-motorola-osprey.dtb
+-rwxr-xr-x 1 root root  51923 May 28 11:27 msm8916-motorola-surnia.dtb
+-rwxr-xr-x 1 root root  48662 May 28 11:27 msm8916-mtp.dtb
+-rwxr-xr-x 1 root root  58284 May 28 11:27 msm8916-samsung-a3u-eur.dtb
+-rwxr-xr-x 1 root root  57350 May 28 11:27 msm8916-samsung-a5u-eur.dtb
+-rwxr-xr-x 1 root root  57344 May 28 11:27 msm8916-samsung-e5.dtb
+-rwxr-xr-x 1 root root  57074 May 28 11:27 msm8916-samsung-e7.dtb
+-rwxr-xr-x 1 root root  55978 May 28 11:27 msm8916-samsung-gprimeltecan.dtb
+-rwxr-xr-x 1 root root  56523 May 28 11:27 msm8916-samsung-grandmax.dtb
+-rwxr-xr-x 1 root root  55782 May 28 11:27 msm8916-samsung-grandprimelte.dtb
+-rwxr-xr-x 1 root root  55309 May 28 11:27 msm8916-samsung-gt510.dtb
+-rwxr-xr-x 1 root root  54783 May 28 11:27 msm8916-samsung-gt58.dtb
+-rwxr-xr-x 1 root root  53056 May 28 11:27 msm8916-samsung-j3ltetw.dtb
+-rwxr-xr-x 1 root root  52614 May 28 11:27 msm8916-samsung-j5.dtb
+-rwxr-xr-x 1 root root  53024 May 28 11:27 msm8916-samsung-j5x.dtb
+-rwxr-xr-x 1 root root  55794 May 28 11:27 msm8916-samsung-rossa.dtb
+-rwxr-xr-x 1 root root  56518 May 28 11:27 msm8916-samsung-serranove.dtb
+-rwxr-xr-x 1 root root  49498 May 28 11:27 msm8916-thwc-uf896.dtb
+-rwxr-xr-x 1 root root  49873 May 28 11:27 msm8916-thwc-ufi001c.dtb
+-rwxr-xr-x 1 root root  53370 May 28 11:27 msm8916-wingtech-wt86518.dtb
+-rwxr-xr-x 1 root root  54571 May 28 11:27 msm8916-wingtech-wt86528.dtb
+-rwxr-xr-x 1 root root  53489 May 28 11:27 msm8916-wingtech-wt88047.dtb
+-rwxr-xr-x 1 root root  49506 May 28 11:27 msm8916-yiming-uz801v3.dtb
+-rwxr-xr-x 1 root root  36255 May 28 11:27 msm8917-xiaomi-riva.dtb
+-rwxr-xr-x 1 root root  50894 May 28 11:27 msm8929-wingtech-wt82918hd.dtb
+-rwxr-xr-x 1 root root  39047 May 28 11:27 msm8937-xiaomi-land.dtb
+-rwxr-xr-x 1 root root  53007 May 28 11:27 msm8939-asus-z00t.dtb
+-rwxr-xr-x 1 root root  49352 May 28 11:27 msm8939-huawei-kiwi.dtb
+-rwxr-xr-x 1 root root  52021 May 28 11:27 msm8939-longcheer-l9100.dtb
+-rwxr-xr-x 1 root root  56053 May 28 11:27 msm8939-samsung-a7.dtb
+-rwxr-xr-x 1 root root  47429 May 28 11:27 msm8939-sony-xperia-kanuti-tulip.dtb
+-rwxr-xr-x 1 root root  50950 May 28 11:27 msm8939-wingtech-wt82918.dtb
+-rwxr-xr-x 1 root root  50958 May 28 11:27 msm8939-wingtech-wt82918hd.dtb
+-rwxr-xr-x 1 root root  43334 May 28 11:27 msm8953-flipkart-rimob.dtb
+-rwxr-xr-x 1 root root  44139 May 28 11:27 msm8953-motorola-potter.dtb
+-rwxr-xr-x 1 root root  44175 May 28 11:27 msm8953-xiaomi-daisy.dtb
+-rwxr-xr-x 1 root root  44507 May 28 11:27 msm8953-xiaomi-mido.dtb
+-rwxr-xr-x 1 root root  44294 May 28 11:27 msm8953-xiaomi-tissot.dtb
+-rwxr-xr-x 1 root root  44862 May 28 11:27 msm8953-xiaomi-vince.dtb
+-rwxr-xr-x 1 root root  36736 May 28 11:27 msm8956-sony-xperia-loire-kugo.dtb
+-rwxr-xr-x 1 root root  36736 May 28 11:27 msm8956-sony-xperia-loire-suzu.dtb
+-rwxr-xr-x 1 root root  37717 May 28 11:27 msm8976-longcheer-l9360.dtb
+-rwxr-xr-x 1 root root  24387 May 28 11:27 msm8992-lg-bullhead-rev-10.dtb
+-rwxr-xr-x 1 root root  24391 May 28 11:27 msm8992-lg-bullhead-rev-101.dtb
+-rwxr-xr-x 1 root root  24167 May 28 11:27 msm8992-lg-h815.dtb
+-rwxr-xr-x 1 root root  30757 May 28 11:27 msm8992-msft-lumia-octagon-talkman.dtb
+-rwxr-xr-x 1 root root  25439 May 28 11:27 msm8992-xiaomi-libra.dtb
+-rwxr-xr-x 1 root root  21480 May 28 11:27 msm8994-huawei-angler-rev-101.dtb
+-rwxr-xr-x 1 root root  31089 May 28 11:27 msm8994-msft-lumia-octagon-cityman.dtb
+-rwxr-xr-x 1 root root  26631 May 28 11:27 msm8994-sony-xperia-kitakami-ivy.dtb
+-rwxr-xr-x 1 root root  26204 May 28 11:27 msm8994-sony-xperia-kitakami-karin.dtb
+-rwxr-xr-x 1 root root  26739 May 28 11:27 msm8994-sony-xperia-kitakami-satsuki.dtb
+-rwxr-xr-x 1 root root  26675 May 28 11:27 msm8994-sony-xperia-kitakami-sumire.dtb
+-rwxr-xr-x 1 root root  26683 May 28 11:27 msm8994-sony-xperia-kitakami-suzuran.dtb
+-rwxr-xr-x 1 root root  58334 May 28 11:27 msm8996-mtp.dtb
+-rwxr-xr-x 1 root root  71700 May 28 11:27 msm8996-oneplus3.dtb
+-rwxr-xr-x 1 root root  71688 May 28 11:27 msm8996-oneplus3t.dtb
+-rwxr-xr-x 1 root root  72943 May 28 11:27 msm8996-sony-xperia-tone-dora.dtb
+-rwxr-xr-x 1 root root  73083 May 28 11:27 msm8996-sony-xperia-tone-kagura.dtb
+-rwxr-xr-x 1 root root  73147 May 28 11:27 msm8996-sony-xperia-tone-keyaki.dtb
+-rwxr-xr-x 1 root root  75799 May 28 11:27 msm8996-xiaomi-gemini.dtb
+-rwxr-xr-x 1 root root  75263 May 28 11:27 msm8996pro-xiaomi-natrium.dtb
+-rwxr-xr-x 1 root root  76356 May 28 11:27 msm8996pro-xiaomi-scorpio.dtb
+-rwxr-xr-x 1 root root  56378 May 28 11:27 msm8998-asus-novago-tp370ql.dtb
+-rwxr-xr-x 1 root root  61989 May 28 11:27 msm8998-fxtec-pro1.dtb
+-rwxr-xr-x 1 root root  56242 May 28 11:27 msm8998-hp-envy-x2.dtb
+-rwxr-xr-x 1 root root  57225 May 28 11:27 msm8998-lenovo-miix-630.dtb
+-rwxr-xr-x 1 root root  57932 May 28 11:27 msm8998-mtp.dtb
+-rwxr-xr-x 1 root root  60821 May 28 11:27 msm8998-oneplus-cheeseburger.dtb
+-rwxr-xr-x 1 root root  60489 May 28 11:27 msm8998-oneplus-dumpling.dtb
+-rwxr-xr-x 1 root root  66205 May 28 11:27 msm8998-sony-xperia-yoshino-lilac.dtb
+-rwxr-xr-x 1 root root  66589 May 28 11:27 msm8998-sony-xperia-yoshino-maple.dtb
+-rwxr-xr-x 1 root root  66205 May 28 11:27 msm8998-sony-xperia-yoshino-poplar.dtb
+-rwxr-xr-x 1 root root  61933 May 28 11:27 msm8998-xiaomi-sagit.dtb
+-rwxr-xr-x 1 root root 146142 May 28 11:27 qcm6490-fairphone-fp5.dtb
+-rwxr-xr-x 1 root root 140188 May 28 11:27 qcm6490-idp.dtb
+-rwxr-xr-x 1 root root 134932 May 28 11:27 qcm6490-particle-tachyon.dtb
+-rwxr-xr-x 1 root root 139622 May 28 11:27 qcm6490-shift-otter.dtb
+-rwxr-xr-x 1 root root  35875 May 28 11:27 qcs404-evb-1000.dtb
+-rwxr-xr-x 1 root root  37145 May 28 11:27 qcs404-evb-4000.dtb
+-rwxr-xr-x 1 root root  83508 May 28 11:27 qcs615-ride.dtb
+-rwxr-xr-x 1 root root 137730 May 28 11:27 qcs6490-radxa-dragon-q6a.dtb
+-rwxr-xr-x 1 root root 197016 May 28 11:27 qcs6490-rb3gen2-industrial-mezzanine.dtb
+-rwxr-xr-x 1 root root 197675 May 28 11:27 qcs6490-rb3gen2-vision-mezzanine.dtb
+-rwxr-xr-x 1 root root 196910 May 28 11:27 qcs6490-rb3gen2.dtb
+-rwxr-xr-x 1 root root 142551 May 28 11:27 qcs6490-thundercomm-rubikpi3.dtb
+-rwxr-xr-x 1 root root 120642 May 28 11:27 qcs8300-ride.dtb
+-rwxr-xr-x 1 root root 117218 May 28 11:27 qcs8550-aim300-aiot.dtb
+-rwxr-xr-x 1 root root 195935 May 28 11:27 qcs9100-ride-el2.dtb
+-rwxr-xr-x 1 root root 195957 May 28 11:27 qcs9100-ride-r3-el2.dtb
+-rwxr-xr-x 1 root root 195833 May 28 11:27 qcs9100-ride-r3.dtb
+-rwxr-xr-x 1 root root 195811 May 28 11:27 qcs9100-ride.dtb
+-rwxr-xr-x 1 root root  35245 May 28 11:27 qdu1000-idp.dtb
+-rwxr-xr-x 1 root root  74056 May 28 11:27 qrb2210-arduino-imola-base.dtb
+-rwxr-xr-x 1 root root   2154 May 28 11:27 qrb2210-arduino-imola-carrier-media-camera-imx219-csi0-2lanes.dtbo
+-rwxr-xr-x 1 root root   2170 May 28 11:27 qrb2210-arduino-imola-carrier-media-camera-imx219-csi0-4lanes.dtbo
+-rwxr-xr-x 1 root root   2179 May 28 11:27 qrb2210-arduino-imola-carrier-media-camera-imx219-csi1-2lanes.dtbo
+-rwxr-xr-x 1 root root   2195 May 28 11:27 qrb2210-arduino-imola-carrier-media-camera-imx219-csi1-4lanes.dtbo
+-rwxr-xr-x 1 root root  78226 May 28 11:27 qrb2210-arduino-imola-carrier-media-full-2lanes.dtb
+-rwxr-xr-x 1 root root  78258 May 28 11:27 qrb2210-arduino-imola-carrier-media-full-4lanes.dtb
+-rwxr-xr-x 1 root root   3109 May 28 11:27 qrb2210-arduino-imola-carrier-media-panel-10in_touch_a-dsi.dtbo
+-rwxr-xr-x 1 root root   3090 May 28 11:27 qrb2210-arduino-imola-carrier-media-panel-5in_touch_a-dsi.dtbo
+-rwxr-xr-x 1 root root   3109 May 28 11:27 qrb2210-arduino-imola-carrier-media-panel-8in_touch_a-dsi.dtbo
+-rwxr-xr-x 1 root root   4035 May 28 11:27 qrb2210-arduino-imola-carrier-media.dtbo
+-rwxr-xr-x 1 root root   1559 May 28 11:27 qrb2210-arduino-imola-video_sound-usbc.dtbo
+-rwxr-xr-x 1 root root  77410 Oct 10 13:39 qrb2210-arduino-imola.dtb
+-rwxr-xr-x 1 root root  76669 May 28 11:27 qrb2210-rb1-vision-mezzanine.dtb
+-rwxr-xr-x 1 root root  76147 May 28 11:27 qrb2210-rb1.dtb
+-rwxr-xr-x 1 root root  67195 May 28 11:27 qrb4210-rb2.dtb
+-rwxr-xr-x 1 root root 175786 May 28 11:27 qrb5165-rb5-vision-mezzanine.dtb
+-rwxr-xr-x 1 root root 175236 May 28 11:27 qrb5165-rb5.dtb
+-rwxr-xr-x 1 root root  34691 May 28 11:27 qru1000-idp.dtb
+-rwxr-xr-x 1 root root  93516 May 28 11:27 sa8155p-adp.dtb
+-rwxr-xr-x 1 root root 110858 May 28 11:27 sa8295p-adp.dtb
+-rwxr-xr-x 1 root root 110086 May 28 11:27 sa8540p-ride.dtb
+-rwxr-xr-x 1 root root 148135 May 28 11:27 sa8775p-ride-r3.dtb
+-rwxr-xr-x 1 root root 148119 May 28 11:27 sa8775p-ride.dtb
+-rwxr-xr-x 1 root root  63280 May 28 11:27 sar2130p-qar2130p.dtb
+-rwxr-xr-x 1 root root 130061 May 28 11:27 sc7180-acer-aspire1-el2.dtb
+-rwxr-xr-x 1 root root 129989 May 28 11:27 sc7180-acer-aspire1.dtb
+-rwxr-xr-x 1 root root  86360 May 28 11:27 sc7180-idp.dtb
+-rwxr-xr-x 1 root root  98185 May 28 11:27 sc7180-trogdor-coachz-r1-lte.dtb
+-rwxr-xr-x 1 root root  98141 May 28 11:27 sc7180-trogdor-coachz-r1.dtb
+-rwxr-xr-x 1 root root  98525 May 28 11:27 sc7180-trogdor-coachz-r3-lte.dtb
+-rwxr-xr-x 1 root root  98485 May 28 11:27 sc7180-trogdor-coachz-r3.dtb
+-rwxr-xr-x 1 root root  99575 May 28 11:27 sc7180-trogdor-homestar-r2.dtb
+-rwxr-xr-x 1 root root  99593 May 28 11:27 sc7180-trogdor-homestar-r3.dtb
+-rwxr-xr-x 1 root root  99777 May 28 11:27 sc7180-trogdor-homestar-r4.dtb
+-rwxr-xr-x 1 root root  98730 May 28 11:27 sc7180-trogdor-kingoftown.dtb
+-rwxr-xr-x 1 root root  98528 May 28 11:27 sc7180-trogdor-lazor-limozeen-nots-r10.dtb
+-rwxr-xr-x 1 root root  98362 May 28 11:27 sc7180-trogdor-lazor-limozeen-nots-r4.dtb
+-rwxr-xr-x 1 root root  98427 May 28 11:27 sc7180-trogdor-lazor-limozeen-nots-r5.dtb
+-rwxr-xr-x 1 root root  98523 May 28 11:27 sc7180-trogdor-lazor-limozeen-nots-r9.dtb
+-rwxr-xr-x 1 root root  98741 May 28 11:27 sc7180-trogdor-lazor-limozeen-r10.dtb
+-rwxr-xr-x 1 root root  98632 May 28 11:27 sc7180-trogdor-lazor-limozeen-r4.dtb
+-rwxr-xr-x 1 root root  98736 May 28 11:27 sc7180-trogdor-lazor-limozeen-r9.dtb
+-rwxr-xr-x 1 root root  98623 May 28 11:27 sc7180-trogdor-lazor-r1-kb.dtb
+-rwxr-xr-x 1 root root  98635 May 28 11:27 sc7180-trogdor-lazor-r1-lte.dtb
+-rwxr-xr-x 1 root root  98595 May 28 11:27 sc7180-trogdor-lazor-r1.dtb
+-rwxr-xr-x 1 root root  98780 May 28 11:27 sc7180-trogdor-lazor-r10-kb.dtb
+-rwxr-xr-x 1 root root  98812 May 28 11:27 sc7180-trogdor-lazor-r10-lte.dtb
+-rwxr-xr-x 1 root root  98764 May 28 11:27 sc7180-trogdor-lazor-r10.dtb
+-rwxr-xr-x 1 root root  98715 May 28 11:27 sc7180-trogdor-lazor-r3-kb.dtb
+-rwxr-xr-x 1 root root  98727 May 28 11:27 sc7180-trogdor-lazor-r3-lte.dtb
+-rwxr-xr-x 1 root root  98667 May 28 11:27 sc7180-trogdor-lazor-r3.dtb
+-rwxr-xr-x 1 root root  98771 May 28 11:27 sc7180-trogdor-lazor-r9-kb.dtb
+-rwxr-xr-x 1 root root  98807 May 28 11:27 sc7180-trogdor-lazor-r9-lte.dtb
+-rwxr-xr-x 1 root root  98751 May 28 11:27 sc7180-trogdor-lazor-r9.dtb
+-rwxr-xr-x 1 root root  98973 May 28 11:27 sc7180-trogdor-pazquel-lte-parade.dtb
+-rwxr-xr-x 1 root root  98793 May 28 11:27 sc7180-trogdor-pazquel-lte-ti.dtb
+-rwxr-xr-x 1 root root  98929 May 28 11:27 sc7180-trogdor-pazquel-parade.dtb
+-rwxr-xr-x 1 root root  98749 May 28 11:27 sc7180-trogdor-pazquel-ti.dtb
+-rwxr-xr-x 1 root root  99333 May 28 11:27 sc7180-trogdor-pazquel360-lte.dtb
+-rwxr-xr-x 1 root root  99301 May 28 11:27 sc7180-trogdor-pazquel360-wifi.dtb
+-rwxr-xr-x 1 root root  98972 May 28 11:27 sc7180-trogdor-pompom-r1-lte.dtb
+-rwxr-xr-x 1 root root  98936 May 28 11:27 sc7180-trogdor-pompom-r1.dtb
+-rwxr-xr-x 1 root root  99045 May 28 11:27 sc7180-trogdor-pompom-r2-lte.dtb
+-rwxr-xr-x 1 root root  99009 May 28 11:27 sc7180-trogdor-pompom-r2.dtb
+-rwxr-xr-x 1 root root  99205 May 28 11:27 sc7180-trogdor-pompom-r3-lte.dtb
+-rwxr-xr-x 1 root root  99169 May 28 11:27 sc7180-trogdor-pompom-r3.dtb
+-rwxr-xr-x 1 root root  98716 May 28 11:27 sc7180-trogdor-quackingstick-r0-lte.dtb
+-rwxr-xr-x 1 root root  98304 May 28 11:27 sc7180-trogdor-quackingstick-r0.dtb
+-rwxr-xr-x 1 root root  98595 May 28 11:27 sc7180-trogdor-r1-lte.dtb
+-rwxr-xr-x 1 root root  98559 May 28 11:27 sc7180-trogdor-r1.dtb
+-rwxr-xr-x 1 root root  99454 May 28 11:27 sc7180-trogdor-wormdingler-rev1-boe-rt5682s.dtb
+-rwxr-xr-x 1 root root  99445 May 28 11:27 sc7180-trogdor-wormdingler-rev1-boe.dtb
+-rwxr-xr-x 1 root root  99313 May 28 11:27 sc7180-trogdor-wormdingler-rev1-inx-rt5682s.dtb
+-rwxr-xr-x 1 root root  99304 May 28 11:27 sc7180-trogdor-wormdingler-rev1-inx.dtb
+-rwxr-xr-x 1 root root 139012 May 28 11:27 sc7280-crd-r3.dtb
+-rwxr-xr-x 1 root root 147032 May 28 11:27 sc7280-herobrine-crd-pro.dtb
+-rwxr-xr-x 1 root root 147060 May 28 11:27 sc7280-herobrine-crd.dtb
+-rwxr-xr-x 1 root root 147182 May 28 11:27 sc7280-herobrine-evoker-lte.dtb
+-rwxr-xr-x 1 root root 145695 May 28 11:27 sc7280-herobrine-evoker.dtb
+-rwxr-xr-x 1 root root 146809 May 28 11:27 sc7280-herobrine-herobrine-r1.dtb
+-rwxr-xr-x 1 root root 145226 May 28 11:27 sc7280-herobrine-villager-r0.dtb
+-rwxr-xr-x 1 root root 146955 May 28 11:27 sc7280-herobrine-villager-r1-lte.dtb
+-rwxr-xr-x 1 root root 145464 May 28 11:27 sc7280-herobrine-villager-r1.dtb
+-rwxr-xr-x 1 root root 146586 May 28 11:27 sc7280-herobrine-zombie-lte.dtb
+-rwxr-xr-x 1 root root 146586 May 28 11:27 sc7280-herobrine-zombie-nvme-lte.dtb
+-rwxr-xr-x 1 root root 145143 May 28 11:27 sc7280-herobrine-zombie-nvme.dtb
+-rwxr-xr-x 1 root root 145099 May 28 11:27 sc7280-herobrine-zombie.dtb
+-rwxr-xr-x 1 root root 136979 May 28 11:27 sc7280-idp.dtb
+-rwxr-xr-x 1 root root 137905 May 28 11:27 sc7280-idp2.dtb
+-rwxr-xr-x 1 root root  82543 May 28 11:27 sc8180x-lenovo-flex-5g.dtb
+-rwxr-xr-x 1 root root  84078 May 28 11:27 sc8180x-primus.dtb
+-rwxr-xr-x 1 root root 150923 May 28 11:27 sc8280xp-crd-el2.dtb
+-rwxr-xr-x 1 root root 150753 May 28 11:27 sc8280xp-crd.dtb
+-rwxr-xr-x 1 root root 155183 May 28 11:27 sc8280xp-huawei-gaokun3-el2.dtb
+-rwxr-xr-x 1 root root 155013 May 28 11:27 sc8280xp-huawei-gaokun3.dtb
+-rwxr-xr-x 1 root root 160803 May 28 11:27 sc8280xp-lenovo-thinkpad-x13s-el2.dtb
+-rwxr-xr-x 1 root root 160633 May 28 11:27 sc8280xp-lenovo-thinkpad-x13s.dtb
+-rwxr-xr-x 1 root root 146801 May 28 11:27 sc8280xp-microsoft-arcata-el2.dtb
+-rwxr-xr-x 1 root root 146631 May 28 11:27 sc8280xp-microsoft-arcata.dtb
+-rwxr-xr-x 1 root root 152197 May 28 11:27 sc8280xp-microsoft-blackrock-el2.dtb
+-rwxr-xr-x 1 root root 152027 May 28 11:27 sc8280xp-microsoft-blackrock.dtb
+-rwxr-xr-x 1 root root  54398 May 28 11:27 sda660-inforce-ifc6560.dtb
+-rwxr-xr-x 1 root root  45186 May 28 11:27 sdm450-lenovo-tbx605f.dtb
+-rwxr-xr-x 1 root root  43480 May 28 11:27 sdm450-motorola-ali.dtb
+-rwxr-xr-x 1 root root  53083 May 28 11:27 sdm630-sony-xperia-ganges-kirin.dtb
+-rwxr-xr-x 1 root root  53648 May 28 11:27 sdm630-sony-xperia-nile-discovery.dtb
+-rwxr-xr-x 1 root root  53640 May 28 11:27 sdm630-sony-xperia-nile-pioneer.dtb
+-rwxr-xr-x 1 root root  53648 May 28 11:27 sdm630-sony-xperia-nile-voyager.dtb
+-rwxr-xr-x 1 root root  45915 May 28 11:27 sdm632-fairphone-fp3.dtb
+-rwxr-xr-x 1 root root  41124 May 28 11:27 sdm632-motorola-ocean.dtb
+-rwxr-xr-x 1 root root  54235 May 28 11:27 sdm636-sony-xperia-ganges-mermaid.dtb
+-rwxr-xr-x 1 root root  53464 May 28 11:27 sdm660-xiaomi-lavender.dtb
+-rwxr-xr-x 1 root root  48048 May 28 11:27 sdm670-google-sargo.dtb
+-rwxr-xr-x 1 root root 152736 May 28 11:27 sdm845-db845c-navigation-mezzanine.dtb
+-rwxr-xr-x 1 root root 152238 May 28 11:27 sdm845-db845c.dtb
+-rwxr-xr-x 1 root root 103821 May 28 11:27 sdm845-google-blueline.dtb
+-rwxr-xr-x 1 root root 103175 May 28 11:27 sdm845-google-crosshatch.dtb
+-rwxr-xr-x 1 root root 103178 May 28 11:27 sdm845-lg-judyln.dtb
+-rwxr-xr-x 1 root root 102884 May 28 11:27 sdm845-lg-judyp.dtb
+-rwxr-xr-x 1 root root 105865 May 28 11:27 sdm845-mtp.dtb
+-rwxr-xr-x 1 root root 111262 May 28 11:27 sdm845-oneplus-enchilada.dtb
+-rwxr-xr-x 1 root root 110648 May 28 11:27 sdm845-oneplus-fajita.dtb
+-rwxr-xr-x 1 root root 109574 May 28 11:27 sdm845-samsung-starqltechn.dtb
+-rwxr-xr-x 1 root root 106092 May 28 11:27 sdm845-shift-axolotl.dtb
+-rwxr-xr-x 1 root root 109149 May 28 11:27 sdm845-sony-xperia-tama-akari.dtb
+-rwxr-xr-x 1 root root 108856 May 28 11:27 sdm845-sony-xperia-tama-akatsuki.dtb
+-rwxr-xr-x 1 root root 109188 May 28 11:27 sdm845-sony-xperia-tama-apollo.dtb
+-rwxr-xr-x 1 root root 105859 May 28 11:27 sdm845-xiaomi-beryllium-ebbg.dtb
+-rwxr-xr-x 1 root root 105883 May 28 11:27 sdm845-xiaomi-beryllium-tianma.dtb
+-rwxr-xr-x 1 root root 106654 May 28 11:27 sdm845-xiaomi-polaris.dtb
+-rwxr-xr-x 1 root root 107303 May 28 11:27 sdm850-huawei-matebook-e-2019.dtb
+-rwxr-xr-x 1 root root 107807 May 28 11:27 sdm850-lenovo-yoga-c630.dtb
+-rwxr-xr-x 1 root root 103130 May 28 11:27 sdm850-samsung-w737.dtb
+-rwxr-xr-x 1 root root  33679 May 28 11:27 sdx75-idp.dtb
+-rwxr-xr-x 1 root root  55157 May 28 11:27 sm4250-oneplus-billie2.dtb
+-rwxr-xr-x 1 root root  11081 May 28 11:27 sm4450-qrd.dtb
+-rwxr-xr-x 1 root root  63927 May 28 11:27 sm6115-fxtec-pro1x.dtb
+-rwxr-xr-x 1 root root  58490 May 28 11:27 sm6115p-lenovo-j606f.dtb
+-rwxr-xr-x 1 root root  33612 May 28 11:27 sm6125-sony-xperia-seine-pdx201.dtb
+-rwxr-xr-x 1 root root  30856 May 28 11:27 sm6125-xiaomi-ginkgo.dtb
+-rwxr-xr-x 1 root root  32449 May 28 11:27 sm6125-xiaomi-laurel-sprout.dtb
+-rwxr-xr-x 1 root root  58764 May 28 11:27 sm6350-sony-xperia-lena-pdx213.dtb
+-rwxr-xr-x 1 root root  46853 May 28 11:27 sm6375-sony-xperia-murray-pdx225.dtb
+-rwxr-xr-x 1 root root  85244 May 28 11:27 sm7125-xiaomi-curtana.dtb
+-rwxr-xr-x 1 root root  85256 May 28 11:27 sm7125-xiaomi-joyeuse.dtb
+-rwxr-xr-x 1 root root  76326 May 28 11:27 sm7225-fairphone-fp4.dtb
+-rwxr-xr-x 1 root root 142058 May 28 11:27 sm7325-nothing-spacewar.dtb
+-rwxr-xr-x 1 root root  95922 May 28 11:27 sm8150-hdk.dtb
+-rwxr-xr-x 1 root root  94840 May 28 11:27 sm8150-microsoft-surface-duo.dtb
+-rwxr-xr-x 1 root root  93559 May 28 11:27 sm8150-mtp.dtb
+-rwxr-xr-x 1 root root  98582 May 28 11:27 sm8150-sony-xperia-kumano-bahamut.dtb
+-rwxr-xr-x 1 root root  98582 May 28 11:27 sm8150-sony-xperia-kumano-griffin.dtb
+-rwxr-xr-x 1 root root 119533 May 28 11:27 sm8250-hdk.dtb
+-rwxr-xr-x 1 root root 125290 May 28 11:27 sm8250-mtp.dtb
+-rwxr-xr-x 1 root root 112044 May 28 11:27 sm8250-samsung-r8q.dtb
+-rwxr-xr-x 1 root root 112040 May 28 11:27 sm8250-samsung-x1q.dtb
+-rwxr-xr-x 1 root root 126602 May 28 11:27 sm8250-sony-xperia-edo-pdx203.dtb
+-rwxr-xr-x 1 root root 125173 May 28 11:27 sm8250-sony-xperia-edo-pdx206.dtb
+-rwxr-xr-x 1 root root 124856 May 28 11:27 sm8250-xiaomi-elish-boe.dtb
+-rwxr-xr-x 1 root root 124856 May 28 11:27 sm8250-xiaomi-elish-csot.dtb
+-rwxr-xr-x 1 root root 120002 May 28 11:27 sm8250-xiaomi-pipa.dtb
+-rwxr-xr-x 1 root root  85589 May 28 11:27 sm8350-hdk.dtb
+-rwxr-xr-x 1 root root  78873 May 28 11:27 sm8350-microsoft-surface-duo2.dtb
+-rwxr-xr-x 1 root root  78872 May 28 11:27 sm8350-mtp.dtb
+-rwxr-xr-x 1 root root  85247 May 28 11:27 sm8350-sony-xperia-sagami-pdx214.dtb
+-rwxr-xr-x 1 root root  86209 May 28 11:27 sm8350-sony-xperia-sagami-pdx215.dtb
+-rwxr-xr-x 1 root root 120738 May 28 11:27 sm8450-hdk.dtb
+-rwxr-xr-x 1 root root 110872 May 28 11:27 sm8450-qrd.dtb
+-rwxr-xr-x 1 root root 100741 May 28 11:27 sm8450-samsung-r0q.dtb
+-rwxr-xr-x 1 root root 115957 May 28 11:27 sm8450-sony-xperia-nagara-pdx223.dtb
+-rwxr-xr-x 1 root root 115605 May 28 11:27 sm8450-sony-xperia-nagara-pdx224.dtb
+-rwxr-xr-x 1 root root 169503 May 28 11:27 sm8550-hdk-rear-camera-card.dtb
+-rwxr-xr-x 1 root root 168640 May 28 11:27 sm8550-hdk.dtb
+-rwxr-xr-x 1 root root 124076 May 28 11:27 sm8550-mtp.dtb
+-rwxr-xr-x 1 root root 128060 May 28 11:27 sm8550-qrd.dtb
+-rwxr-xr-x 1 root root 114285 May 28 11:27 sm8550-samsung-q5q.dtb
+-rwxr-xr-x 1 root root 118677 May 28 11:27 sm8550-sony-xperia-yodo-pdx234.dtb
+-rwxr-xr-x 1 root root 178195 May 28 11:27 sm8650-hdk-display-card-rear-camera-card.dtb
+-rwxr-xr-x 1 root root 177312 May 28 11:27 sm8650-hdk-display-card.dtb
+-rwxr-xr-x 1 root root 176936 May 28 11:27 sm8650-hdk-rear-camera-card.dtb
+-rwxr-xr-x 1 root root 176053 May 28 11:27 sm8650-hdk.dtb
+-rwxr-xr-x 1 root root 135055 May 28 11:27 sm8650-mtp.dtb
+-rwxr-xr-x 1 root root 141180 May 28 11:27 sm8650-qrd.dtb
+-rwxr-xr-x 1 root root 102940 May 28 11:27 sm8750-mtp.dtb
+-rwxr-xr-x 1 root root 100672 May 28 11:27 sm8750-qrd.dtb
+-rwxr-xr-x 1 root root 207371 May 28 11:27 x1e001de-devkit-el2.dtb
+-rwxr-xr-x 1 root root 207153 May 28 11:27 x1e001de-devkit.dtb
+-rwxr-xr-x 1 root root 210878 May 28 11:27 x1e78100-lenovo-thinkpad-t14s-el2.dtb
+-rwxr-xr-x 1 root root 210130 May 28 11:27 x1e78100-lenovo-thinkpad-t14s-oled-el2.dtb
+-rwxr-xr-x 1 root root 209908 May 28 11:27 x1e78100-lenovo-thinkpad-t14s-oled.dtb
+-rwxr-xr-x 1 root root 210656 May 28 11:27 x1e78100-lenovo-thinkpad-t14s.dtb
+-rwxr-xr-x 1 root root 204624 May 28 11:27 x1e80100-asus-vivobook-s15-el2.dtb
+-rwxr-xr-x 1 root root 204402 May 28 11:27 x1e80100-asus-vivobook-s15.dtb
+-rwxr-xr-x 1 root root 209709 May 28 11:27 x1e80100-asus-zenbook-a14-el2.dtb
+-rwxr-xr-x 1 root root 209491 May 28 11:27 x1e80100-asus-zenbook-a14.dtb
+-rwxr-xr-x 1 root root 212438 May 28 11:27 x1e80100-crd-el2.dtb
+-rwxr-xr-x 1 root root 212216 May 28 11:27 x1e80100-crd.dtb
+-rwxr-xr-x 1 root root 211202 May 28 11:27 x1e80100-dell-inspiron-14-plus-7441-el2.dtb
+-rwxr-xr-x 1 root root 210980 May 28 11:27 x1e80100-dell-inspiron-14-plus-7441.dtb
+-rwxr-xr-x 1 root root 211134 May 28 11:27 x1e80100-dell-latitude-7455-el2.dtb
+-rwxr-xr-x 1 root root 210912 May 28 11:27 x1e80100-dell-latitude-7455.dtb
+-rwxr-xr-x 1 root root 205317 May 28 11:27 x1e80100-dell-xps13-9345-el2.dtb
+-rwxr-xr-x 1 root root 205095 May 28 11:27 x1e80100-dell-xps13-9345.dtb
+-rwxr-xr-x 1 root root 209552 May 28 11:27 x1e80100-hp-elitebook-ultra-g1q-el2.dtb
+-rwxr-xr-x 1 root root 209334 May 28 11:27 x1e80100-hp-elitebook-ultra-g1q.dtb
+-rwxr-xr-x 1 root root 209508 May 28 11:27 x1e80100-hp-omnibook-x14-el2.dtb
+-rwxr-xr-x 1 root root 209290 May 28 11:27 x1e80100-hp-omnibook-x14.dtb
+-rwxr-xr-x 1 root root 209912 May 28 11:27 x1e80100-lenovo-yoga-slim7x-el2.dtb
+-rwxr-xr-x 1 root root 209690 May 28 11:27 x1e80100-lenovo-yoga-slim7x.dtb
+-rwxr-xr-x 1 root root 207720 May 28 11:27 x1e80100-medion-sprchrgd-14-s1-el2.dtb
+-rwxr-xr-x 1 root root 207498 May 28 11:27 x1e80100-medion-sprchrgd-14-s1.dtb
+-rwxr-xr-x 1 root root 208818 May 28 11:27 x1e80100-microsoft-romulus13-el2.dtb
+-rwxr-xr-x 1 root root 208600 May 28 11:27 x1e80100-microsoft-romulus13.dtb
+-rwxr-xr-x 1 root root 208818 May 28 11:27 x1e80100-microsoft-romulus15-el2.dtb
+-rwxr-xr-x 1 root root 208600 May 28 11:27 x1e80100-microsoft-romulus15.dtb
+-rwxr-xr-x 1 root root 207938 May 28 11:27 x1e80100-qcp-el2.dtb
+-rwxr-xr-x 1 root root 207720 May 28 11:27 x1e80100-qcp.dtb
+-rwxr-xr-x 1 root root 203151 May 28 11:27 x1p42100-asus-zenbook-a14-el2.dtb
+-rwxr-xr-x 1 root root 203894 May 28 11:27 x1p42100-asus-zenbook-a14-lcd-el2.dtb
+-rwxr-xr-x 1 root root 203676 May 28 11:27 x1p42100-asus-zenbook-a14-lcd.dtb
+-rwxr-xr-x 1 root root 202933 May 28 11:27 x1p42100-asus-zenbook-a14.dtb
+-rwxr-xr-x 1 root root 205578 May 28 11:27 x1p42100-crd-el2.dtb
+-rwxr-xr-x 1 root root 205360 May 28 11:27 x1p42100-crd.dtb
+-rwxr-xr-x 1 root root 202656 May 28 11:27 x1p42100-hp-omnibook-x14-el2.dtb
+-rwxr-xr-x 1 root root 202438 May 28 11:27 x1p42100-hp-omnibook-x14.dtb
+-rwxr-xr-x 1 root root 203474 May 28 11:27 x1p42100-lenovo-thinkbook-16-el2.dtb
+-rwxr-xr-x 1 root root 203256 May 28 11:27 x1p42100-lenovo-thinkbook-16.dtb
+-rwxr-xr-x 1 root root 204982 May 28 11:27 x1p64100-microsoft-denali-el2.dtb
+-rwxr-xr-x 1 root root 204764 May 28 11:27 x1p64100-microsoft-denali.dtb
+					#gpio-cells = <0x02>;
+				};
+
+				sensor@10 {
+					VANA-supply = <0x101>;
+					clocks = <0x100>;
+					VDIG-supply = <0x101>;
+					reset-gpios = <0xfe 0x00 0x00>;
+					compatible = "sony,imx219";
+					status = "okay";
+					reg = <0x10>;
+					VDDL-supply = <0x101>;
+
+					port {
+
+						endpoint {
+							data-lanes = <0x01 0x02 0x03 0x04>;
+							clock-lanes = <0x00>;
+							remote-endpoint = <0x102>;
+							phandle = <0xff>;
+							link-frequencies = <0x00 0x15b23300>;
+						};
+					};
+				};
+			};
+
+			i2c-bus@1 {
+				#address-cells = <0x01>;
+				#size-cells = <0x00>;
+				clock-frequency = <0x61a80>;
+				reg = <0x01>;
+				phandle = <0xd2>;
+			};
+		};
+
+		remoteproc@ab00000 {
+			power-domains = <0x32 0x06 0x32 0x07>;
+			qcom,smem-state-names = "stop";
+			clock-names = "xo";
+			firmware-name = "qcom/qcm2290/adsp.mbn";
+			memory-region = <0x7e>;
+			clocks = <0x0c 0x00>;
+			interrupts-extended = <0x01 0x00 0x11a 0x01 0x7d 0x00 0x01 0x7d 0x01 0x01 0x7d 0x02 0x01 0x7d 0x03 0x01>;
+			compatible = "qcom,qcm2290-adsp-pas", "qcom,sm6115-adsp-pas";
+			status = "okay";
+			interrupt-names = "wdog", "fatal", "ready", "handover", "stop-ack";
+			reg = <0x00 0xab00000 0x00 0x100>;
+			phandle = <0xd8>;
+			qcom,smem-states = <0x7f 0x00>;
+imx219
+ls: cannot access '/sys/bus/i2c/devices/1-0010/driver': No such file or directory

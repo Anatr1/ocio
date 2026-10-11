@@ -1,0 +1,11 @@
+# Runtime on the Arduino UNO Q (Debian 13, Python 3.13, aarch64) - keep it small
+numpy
+opencv-python-headless
+onnxruntime          # detector backend "onnx"
+msgpack              # MCU link (falls back to crosswalk/msgpack_lite.py if missing)
+pyyaml
+segno                # QR code for the dashboard "Share" button (pure Python, optional)
+# optional:
+# ncnn               # detector backend "ncnn" (often fastest on Cortex-A53) - benchmark first
+# scipy              # optimal assignment in the tracker (greedy fallback otherwise)
+# ai-edge-litert     # detector backend "tflite"

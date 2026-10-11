@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>&ograve;cio · Fleet</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { overflow: auto; }
+    .fleet { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 20px; padding: 24px; }
+    #map { width: 100%; height: 520px; background: radial-gradient(ellipse at 50% 40%, #e6ebd9, #f4f1e9 70%); border-radius: 14px; border: 1px solid var(--line); }
+    .tot { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 12px; }
+    .tot div { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px; text-align: center; }
+    .tot b { display: block; font-size: 24px; }
+    .nodes { display: grid; gap: 10px; }
+    .node { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; }
+    .node a { color: var(--text); text-decoration: none; font-weight: 600; }
+    .node .k { font-size: 12px; color: var(--muted); }
+    .node .k b { color: var(--text); }
+    .score { font-size: 22px; font-weight: 800; text-align: right; }
+    .off { opacity: .45; }
+    #fevents { list-style: none; padding: 0; margin: 0; font-size: 12px; max-height: 260px; overflow-y: auto; }
+    #fevents li { padding: 6px 2px; border-bottom: 1px solid var(--line); }
+    @media (max-width: 980px) { .fleet { grid-template-columns: 1fr; } .tot { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64"><ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="32" cy="32" r="8" fill="currentColor"/></svg>
+      <div><div class="brand-name">&ograve;cio Fleet</div><div class="brand-sub">Torino · every crosswalk an autonomous edge node · ~2 KB/s each</div></div>
+    </div>
+    <div class="live on" id="live"><span class="dot"></span><span id="online">–</span></div>
+  </header>
+  <div class="fleet">
+    <div>
+      <div class="tot">
+        <div><span class="muted">Pedestrians</span><b id="t-ped" style="color:var(--ped)">0</b></div>
+        <div><span class="muted">Bicycles + scooters</span><b id="t-bike" style="color:var(--bike)">0</b></div>
+        <div><span class="muted">Vehicles</span><b id="t-veh" style="color:var(--veh)">0</b></div>
+        <div><span class="muted">Near-misses</span><b id="t-nm" style="color:var(--crit)">0</b></div>
+        <div><span class="muted">Drivers yielding</span><b id="t-yield">–</b></div>
+      </div>
+      <svg id="map" viewBox="0 0 1000 560"></svg>
+    </div>
+    <div>
+      <div class="card"><div class="card-h">Crosswalks</div><div class="nodes" id="nodes"></div></div>
+      <div class="card" style="margin-top:12px"><div class="card-h">Safety events (all crosswalks)</div><ul id="fevents"></ul></div>
+    </div>
+  </div>
+<script>
+const $ = (id) => document.getElementById(id);
+const scoreColor = (s) => s == null ? "#647266" : s > 75 ? "#397455" : s > 50 ? "#876915" : s > 25 ? "#a45b1e" : "#b84236";
+function drawMap(nodes) {
+  const pts = nodes.filter((n) => n.node && n.node.geo);
+  if (!pts.length) return;
+  const lats = pts.map((n) => n.node.geo.lat), lons = pts.map((n) => n.node.geo.lon);
+  const cx = (Math.min(...lons) + Math.max(...lons)) / 2, cy = (Math.min(...lats) + Math.max(...lats)) / 2;
+  const span = Math.max(0.02, (Math.max(...lons) - Math.min(...lons)) * 1.6, (Math.max(...lats) - Math.min(...lats)) * 2.4);
+  const k = 900 / span;
+  const X = (lon) => 500 + (lon - cx) * k * Math.cos(cy * Math.PI / 180) * 1.4, Y = (lat) => 280 - (lat - cy) * k;
+  let s = "";
+  // stylised street grid (Turin's Roman grid is rotated ~ -30 deg)
+  s += `<g stroke="#d0d8c5" stroke-width="1" transform="rotate(-28 500 280)">`;
+  for (let i = -20; i <= 40; i++) s += `<line x1="${i * 40 - 200}" y1="-400" x2="${i * 40 - 200}" y2="1000"/><line x1="-400" y1="${i * 40 - 200}" x2="1400" y2="${i * 40 - 200}"/>`;
+  s += `</g>`;
+  s += `<path d="M 980 40 C 860 160, 900 300, 760 420 S 600 560, 560 600" stroke="#a8c8cb" stroke-width="16" fill="none" opacity=".8"/>`;
+  s += `<text x="900" y="250" fill="#386e88" font-size="16" font-style="italic">Po</text>`;
+  const placed = [];
+  for (const n of pts) {
+    const x = X(n.node.geo.lon), y0 = Y(n.node.geo.lat);
+    // keep labels readable when two crosswalks are close
+    let dy = 0;
+    while (placed.some((p) => Math.abs(p[0] - x) < 260 && Math.abs(p[1] - (y0 + dy)) < 36)) dy += 38;
+    placed.push([x, y0 + dy]);
+    const y = y0;
+    const col = scoreColor(n.safety?.safety_score);
+    const vol = (n.counts.pedestrian || 0) + (n.counts.vehicle || 0) + (n.counts.bicycle || 0);
+    const r = 10 + Math.min(26, Math.sqrt(vol) * 2);
+    const warn = n.safety?.warning_level > 0;
+    s += `<g class="${n.online ? "" : "off"}">`;
+    s += `<circle cx="${x}" cy="${y}" r="${r}" fill="${col}" opacity=".18"><animate attributeName="r" values="${r};${r + 10};${r}" dur="${warn ? 0.6 : 2.4}s" repeatCount="indefinite"/></circle>`;
+    s += `<circle cx="${x}" cy="${y}" r="9" fill="${col}" stroke="#fffcf5" stroke-width="3"/>`;
+    if (dy) s += `<line x1="${x}" y1="${y}" x2="${x + 14}" y2="${y + dy - 10}" stroke="#9cab92"/>`;
+    s += `<a href="${n.url}" target="_blank"><text x="${x + 16}" y="${y + dy - 6}" fill="#273f35" font-size="15" font-weight="600">${n.node.name || n.url}</text></a>`;
+    s += `<text x="${x + 16}" y="${y + dy + 13}" fill="#647266" font-size="13">ped ${n.counts.pedestrian || 0} · veh ${n.counts.vehicle || 0} · score ${n.safety?.safety_score ?? "–"}</text>`;
+    s += `</g>`;
+  }
+  $("map").innerHTML = s;
+}
+async function tick() {
+  try {
+    const d = await (await fetch("/api/fleet")).json();
+    const N = d.nodes;
+    let ped = 0, bike = 0, veh = 0, nm = 0, y = 0, ny = 0;
+    $("nodes").innerHTML = "";
+    for (const n of N) {
+      ped += n.counts.pedestrian || 0; bike += (n.counts.bicycle || 0) + (n.counts.micromobility || 0); veh += n.counts.vehicle || 0;
+      const m = n.safety?.near_miss || {}; nm += (m.critical || 0) + (m.serious || 0);
+      if (n.safety?.yield_rate != null) { y += n.safety.yield_rate; ny++; }
+      const el = document.createElement("div");
+      el.className = "node" + (n.online ? "" : " off");
+      el.innerHTML = `<div><a href="${n.url}" target="_blank">${n.node?.name || n.url}</a><div class="k">${n.online ? "online" : "offline"} · ${n.signal?.mode || ""} · det <b>${n.perf?.det_hz ?? "–"}</b> Hz · <b>${n.tracks}</b> tracked</div>
+        <div class="k">ped <b>${n.counts.pedestrian || 0}</b> · bike <b>${(n.counts.bicycle || 0) + (n.counts.micromobility || 0)}</b> · veh <b>${n.counts.vehicle || 0}</b> · V85 <b>${n.v85 ?? "–"}</b> km/h · near-miss <b>${(m.critical || 0) + (m.serious || 0)}</b></div></div>
+        <div class="score" style="color:${scoreColor(n.safety?.safety_score)}">${n.safety?.safety_score ?? "–"}</div>`;
+      $("nodes").appendChild(el);
+    }
+    $("t-ped").textContent = ped; $("t-bike").textContent = bike; $("t-veh").textContent = veh; $("t-nm").textContent = nm;
+    $("t-yield").textContent = ny ? Math.round(100 * y / ny) + "%" : "–";
+    $("online").textContent = `${N.filter((n) => n.online).length}/${N.length} nodes online`;
+    drawMap(N);
+    $("fevents").innerHTML = d.events.slice(0, 40).map((e) => `<li><b>${e.node_name}</b> · ${e.wall || ""} · ${e.type}${e.level ? " (" + e.level + ")" : ""}${e.outcome ? " " + e.outcome : ""}${e.ttc ? " TTC " + e.ttc + "s" : ""}${e.speed_kmh ? " " + e.speed_kmh + " km/h" : ""}</li>`).join("");
+  } catch (e) { $("online").textContent = "hub offline"; }
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

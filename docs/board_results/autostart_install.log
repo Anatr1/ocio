@@ -1,0 +1,33 @@
+Created symlink '/etc/systemd/system/multi-user.target.wants/occhio-mcu.service' → '/etc/systemd/system/occhio-mcu.service'.
+Created symlink '/etc/systemd/system/multi-user.target.wants/occhio.service' → '/etc/systemd/system/occhio.service'.
+● occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot
+     Loaded: loaded (/etc/systemd/system/occhio-mcu.service; enabled; preset: enabled)
+     Active: active (exited) since Sat 2026-10-10 15:58:15 UTC; 104ms ago
+ Invocation: 8c9c28713a00460e96cecd4f7e147c44
+    Process: 9665 ExecStart=/bin/sh -c exec arduino-app-cli app start "$${OCCHIO_MCU_APP:-/home/arduino/ArduinoApps/crosswalk_mcu}" (code=exited, status=0/SUCCESS)
+   Main PID: 9665 (code=exited, status=0/SUCCESS)
+   Mem peak: 419.4M
+        CPU: 20.635s
+
+Oct 10 15:58:14 VIVIC sh[9665]: time="2026-10-10T15:58:14Z" level=error msg="Stopped decode loop: EOF" discovery="builtin:mdns-discovery"
+Oct 10 15:58:14 VIVIC sh[9665]: [INFO] python provisioning
+Oct 10 15:58:14 VIVIC sh[9665]: Progress[python provisioning]: 10%
+Oct 10 15:58:14 VIVIC sh[9665]: [INFO] python downloading
+Oct 10 15:58:14 VIVIC sh[9665]: [INFO]  Container crosswalk_mcu-main-1  Created
+Oct 10 15:58:14 VIVIC sh[9665]: [INFO]  Container crosswalk_mcu-main-1  Starting
+Oct 10 15:58:15 VIVIC sh[9665]: [INFO]  Container crosswalk_mcu-main-1  Started
+Oct 10 15:58:15 VIVIC sh[9665]: Progress[]: 100%
+Oct 10 15:58:15 VIVIC sh[9665]: ✓ App "OCCHIO crosswalk MCU" started successfully
+Oct 10 15:58:15 VIVIC systemd[1]: Finished occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+
+● occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000)
+     Loaded: loaded (/etc/systemd/system/occhio.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 15:58:15 UTC; 100ms ago
+ Invocation: 569dc48ad4f643a98bcc9737fc20a385
+   Main PID: 10080 (python)
+      Tasks: 3 (limit: 4390)
+     Memory: 2.3M (peak: 2.3M)
+        CPU: 75ms
+     CGroup: /system.slice/occhio.service
+             └─10080 /home/arduino/occhio/.venv/bin/python -u -m crosswalk --config configs/board_imx219.yaml
+Logs: journalctl -u occhio -f      Health: curl -s localhost:8000/api/health

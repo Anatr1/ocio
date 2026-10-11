@@ -1,0 +1,13 @@
+# Recording preparation — 2026-10-10
+
+Pulled and checked out master 4a2d8f8; read `docs/HANDOFF_RECORDING.md`. Deployed `crosswalk`, `dashboard`, and `configs` to the UNO Q, retaining its virtualenv/models. Restarted existing `occhio` service. CAM0 only, same network; operator will record from the window and control Rec/Stop themselves. Board storage reported 16 GB available.
+
+After accidental power removal, board service returned automatically (active, PID 1673); health reported fresh vision and MCU connected. First ten-second dry run downloaded and decoded completely, but had only 78 frames at declared 15 fps: 5.2 seconds of playback. Added writer timestamp spacing, repeating preceding raw frames across capture gaps. No overlays or blurring added; repeated frames do not provide additional motion information.
+
+Second board dry run: 10.466 s wall time, 157 decoded frames at 15 fps, **10.467 s playback**, 632×480, 502387 bytes, zero recording queue drops, healthy CAM0/MCU afterward. See `recording_dry_run.json`. Both test MP4s stay in ignored `data/recordings/` on the team laptop, with board copies retained. No raw media committed or shared in chat.
+
+Final source also skips multiple frames mapping to the same output timestamp; a local variable-input check (timestamps 0, .03, .04, .07, 1, 9.94 seconds) produced exactly 150 frames / 10 seconds. **This final timestamp guard was not deployed: the SSH connection failed, followed by a connection timeout.** The board dry run tested the preceding gap-fill fix. Operator will control recording; no further service restart was attempted while they may be filming. Deploy the final guard on a later service restart after recording, once connectivity returns.
+
+Camera placement/visible stripe range have not been confirmed to this agent. Site framing and scripted crossing observations remain operator tasks. Refresh the dashboard to load Rec; use `scripted`, `traffic`, or `dusk` as names, then Stop before downloading completed parts from `/recordings`. Keep raw footage only on board/team laptop.
+
+Dashboard recovery: server remained healthy while browser initialization waited on slow asset/history requests. Board TCP diagnostics showed retransmissions and the large Three.js transfer occupied about 76 seconds. Moved live connection before optional historical replay/event loading, and deployed a dependency-free `dashboard/record.html` recording page without restarting the service. Browser verified **Camera connected · Ready**, Rec enabled, Stop disabled, and saved test listed. Operator can control recordings at `http://10.34.93.148:8000/record.html`; preview is opt-in. No main clip started by the agent.

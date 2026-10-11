@@ -1,0 +1,84 @@
+{
+  "dataset_version": "turin-2026-boundaries-2024-population-v1",
+  "retrieved_at": "2026-10-10T15:16:48.331797+00:00",
+  "municipalities": 312,
+  "population": 2204276,
+  "sources": [
+    {
+      "id": "boundaries",
+      "title": "ISTAT administrative boundaries",
+      "url": "https://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/2026/Limiti01012026_g.zip",
+      "reference": "2026-01-01",
+      "license": "CC BY 4.0; attribute ISTAT",
+      "caveat": "Official generalized UTM32N shapefile, transformed to WGS84 longitude/latitude.",
+      "retrieved_at": "2026-10-10T15:08:21.784397+00:00",
+      "sha256": "b011a590656c3a3ebc297fba80726a376aa843b6f164641cf6a4a990021a81d6"
+    },
+    {
+      "id": "population",
+      "title": "Regione Piemonte / ISTAT resident population",
+      "url": "https://www.regione.piemonte.it/web/media/54745/download",
+      "reference": "2024-12-31",
+      "license": "Public statistical data; attribute Regione Piemonte and ISTAT",
+      "caveat": "Definitive continuous-census population. First worksheet only; sorted worksheet contains inconsistent numeric municipality codes and is not used.",
+      "retrieved_at": "2026-10-10T15:08:22.996718+00:00",
+      "sha256": "809bfcaead0c5d82f85060bca75e65fb4a0567330601781d76f5438bcb71f887"
+    },
+    {
+      "id": "commuting",
+      "title": "Regione Piemonte / ISTAT commuting",
+      "url": "https://www.regione.piemonte.it/web/sites/default/files/media/documenti/2022-06/spostamenti_2018_2019.xls",
+      "reference": "2019",
+      "license": "Public statistical data; attribute Regione Piemonte and ISTAT",
+      "caveat": "Resident daily work/study commuters, all transport modes.",
+      "retrieved_at": "2026-10-10T15:08:37.437739+00:00",
+      "sha256": "2d817b3e44a5d0db567ee95ef5456b640f34df5d2da5c92ed174372a252d3611"
+    },
+    {
+      "id": "zones",
+      "title": "CMTO homogeneous zones",
+      "url": "https://www.cittametropolitana.torino.it/istituzionale/che-cose-la-citta-metropolitana/le-zone-omogenee",
+      "reference": "2025-11-17 page update",
+      "license": "Official administrative grouping; attribute CMTO",
+      "caveat": "Source spelling abbreviations normalized to official municipality names.",
+      "retrieved_at": "2026-10-10T15:10:55.892240+00:00",
+      "sha256": "c34138f3fe85027d7feea32c08754d0309075a633898e6bff67890ccac5bfdc7"
+    },
+    {
+      "id": "traffic",
+      "title": "5T measured traffic",
+      "url": "https://opendata.5t.torino.it/get_fdt",
+      "reference": "Single5-minute snapshot",
+      "license": "IODL 2.0 per aperTO municipal data catalog; attribute Citta di Torino /5T",
+      "caveat": "Indicative flow, no guarantee of precise vehicle counts.",
+      "retrieved_at": "2026-10-10T15:08:23.722256+00:00",
+      "sha256": "e675e4fd734734920c6917856e2e9b586ffce4432125c3a09509e3cacdc64ff0"
+    },
+    {
+      "id": "osm",
+      "title": "OpenStreetMap crossing nodes via Overpass",
+      "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3Bnode%5B%22highway%22%3D%22crossing%22%5D%2844.7%2C6.55%2C45.7%2C8.3%29%3Bout+body%3B",
+      "reference": "Snapshot",
+      "license": "ODbL 1.0",
+      "caveat": "Node inventory incomplete, road-crossing complexes can have multiple nodes.",
+      "retrieved_at": "2026-10-10T15:13:37.165382+00:00",
+      "sha256": "12d07d40943643043293ad6874e1a111654d6626e07a3618c7bfc5171c9fb3f4"
+    },
+    {
+      "id": "pums_calibration",
+      "title": "CMTO PUMS model calibration report",
+      "url": "https://www.cittametropolitana.torino.it/sites/default/files/pagina/allegati/trasporti/PUMS/ALLEGATI/ALLEGATO_I_-_Rapporto_di_calibrazione_del_modello_v12.pdf",
+      "reference": "2019 pre-COVID baseline; approved July2022",
+      "license": "Official public planning report; attribute CMTO /META /TRASPOL",
+      "caveat": "Context only. Its validated regional demand model and planned 2030 intervention effects are not the OCCHIO model or causal OCCHIO effectiveness evidence."
+    }
+  ],
+  "caveats": [
+    "Official boundaries2026 and population31December2024 are different reference years.",
+    "Commuter counts2019 describe resident people, not total trips or pedestrian crossing demand.",
+    "Zona4 assigned as remainder of the official11-zone partition; source page omits Leini from its spokesperson listing.",
+    "Map geometry is additionally simplified0.0004degrees; statistical boundaries are not cadastral/legal boundaries.",
+    "Observed crossing nodes are not validated deployment sites. Missing OSM data is null, not zero.",
+    "5T counters do not cover all municipalities, and one snapshot cannot calibrate annual benefits."
+  ]
+}

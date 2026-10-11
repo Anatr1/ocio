@@ -1,0 +1,187 @@
+uid=1000(arduino) gid=1000(arduino) groups=1000(arduino),4(adm),20(dialout),27(sudo),29(audio),44(video),100(users),101(netdev),102(bluetooth),107(docker),987(sysupgrade),991(render),995(input),1001(gpiod)
+● occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000)
+     Loaded: loaded (/etc/systemd/system/occhio.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-10 17:02:00 UTC; 3min 48s ago
+ Invocation: 8f6a92ae2272494e8286ac56931301bc
+   Main PID: 1633 (python)
+      Tasks: 21 (limit: 4390)
+     Memory: 172.1M (peak: 174.1M)
+        CPU: 8.560s
+     CGroup: /system.slice/occhio.service
+             └─1633 /home/arduino/occhio/.venv/bin/python -u -m crosswalk --config configs/board_imx219.yaml
+
+Oct 10 17:02:00 VIVIC systemd[1]: Started occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000).
+Oct 10 17:02:03 VIVIC sh[1633]: [0:00:40.415542118] [1633]  INFO Camera camera_manager.cpp:327 libcamera v0.4.0
+Oct 10 17:02:03 VIVIC sh[1633]: [0:00:40.429400608] [1783]  INFO SimplePipeline simple.cpp:1581 No sensor found for /dev/media0
+Oct 10 17:02:03 VIVIC sh[1633]: [ WARN:0@2.634] global cap_v4l.cpp:1844 getProperty VIDEOIO(V4L2:/dev/video0): Unable to get camera FPS
+Oct 10 17:02:04 VIVIC sh[1633]: [node] WARNING: no calibration - run tools/calibrate.py; counting needs ground coordinates
+Oct 10 17:02:04 VIVIC sh[1633]: [node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-170204_cw-01-imx219
+Oct 10 17:02:04 VIVIC sh[1633]: [node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+
+● occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot
+     Loaded: loaded (/etc/systemd/system/occhio-mcu.service; enabled; preset: enabled)
+     Active: active (exited) since Sat 2026-10-10 17:02:00 UTC; 3min 48s ago
+ Invocation: efe13921df9c4bb18255897bf59a020f
+    Process: 818 ExecStart=/bin/sh -c exec arduino-app-cli app start "$${OCCHIO_MCU_APP:-/home/arduino/ArduinoApps/crosswalk_mcu}" (code=exited, status=0/SUCCESS)
+   Main PID: 818 (code=exited, status=0/SUCCESS)
+   Mem peak: 641.7M
+        CPU: 12.652s
+
+Oct 10 17:01:58 VIVIC sh[818]: [INFO] python provisioning
+Oct 10 17:01:58 VIVIC sh[818]: Progress[python provisioning]: 10%
+Oct 10 17:01:58 VIVIC sh[818]: [INFO] python downloading
+Oct 10 17:01:59 VIVIC sh[818]: [INFO]  Container crosswalk_mcu-main-1  Recreate
+Oct 10 17:01:59 VIVIC sh[818]: [INFO]  Container crosswalk_mcu-main-1  Recreated
+Oct 10 17:01:59 VIVIC sh[818]: [INFO]  Container crosswalk_mcu-main-1  Starting
+Oct 10 17:01:59 VIVIC sh[818]: [INFO]  Container crosswalk_mcu-main-1  Started
+Oct 10 17:01:59 VIVIC sh[818]: Progress[]: 100%
+Oct 10 17:01:59 VIVIC sh[818]: ✓ App "OCCHIO crosswalk MCU" started successfully
+Oct 10 17:02:00 VIVIC systemd[1]: Finished occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+# OCCHIO boot settings (edit, then: sudo systemctl restart occhio)
+OCCHIO_CONFIG=configs/board_imx219.yaml
+OCCHIO_WRAPPER=libcamerify
+OCCHIO_MCU_APP=/home/arduino/ArduinoApps/crosswalk_mcu
+ID                                                                                             NAME                                                     ICON STATUS        EXAMPLE 
+user:crosswalk_mcu                                                                             OCCHIO crosswalk MCU                                     🚦   running       false   
+user:grove_oled_buzzer_test                                                                    Grove OLED e buzzer test                                 🔊   stopped       false   
+examples:inspirational/video-face-detection                                                    Face Detector on Camera                                  ☺️    failed        true    
+examples:inspirational/color-your-leds                                                         Color your LEDs                                          🎨   uninitialized true    
+examples:inspirational/edge-ai-assistant                                                       Edge AI Assistant                                        💬   uninitialized true    
+examples:inspirational/unoq-pin-toggle                                                         UNO Q Pin Toggle                                         📌   uninitialized true    
+examples:inspirational/air-quality-monitoring                                                  Air Quality Monitoring App                               🍃   uninitialized true    
+examples:inspirational/anomaly-detection                                                       Concrete Crack Detector                                  🧱   uninitialized true    
+examples:inspirational/audio-classification                                                    Glass Breaking Sensor                                    🪟   uninitialized true    
+examples:inspirational/bedtime-story-teller                                                    Bedtime Story Teller                                     🏰   uninitialized true    
+examples:inspirational/blink                                                                   Blink LED from Python                                    🔴   uninitialized true    
+examples:inspirational/blink-with-ui                                                           Blink LED with UI                                        💡   uninitialized true    
+examples:inspirational/chatbot-cloud-llm                                                       Cloud AI Assistant                                       ✨   uninitialized true    
+examples:inspirational/cloud-blink                                                             Blinking LED from Arduino Cloud                          ☁️    uninitialized true    
+examples:inspirational/code-detector                                                           QR and Barcode Scanner                                   📦   uninitialized true    
+examples:inspirational/home-climate-monitoring-and-storage                                     Home Climate Monitoring                                  🎛️    uninitialized true    
+examples:inspirational/image-classification                                                    Image Classification                                     📊   uninitialized true    
+examples:inspirational/keyword-spotting                                                        Hey Arduino!                                             ❤️    uninitialized true    
+examples:inspirational/led-matrix-painter                                                      Led Matrix Painter                                       🟦   uninitialized true    
+examples:inspirational/mascot-jump-game                                                        Mascot Jump Game                                         🏃   uninitialized true    
+examples:inspirational/mobile-video-generic-object-detection                                   Detect Objects on Smartphone Camera                      📽️    uninitialized true    
+examples:inspirational/music-composer                                                          Music Composer                                           🎵   uninitialized true    
+examples:inspirational/object-detection                                                        Detect objects on images                                 🏞️    uninitialized true    
+examples:inspirational/object-hunting                                                          Object Hunting                                           🔍   uninitialized true    
+examples:inspirational/real-time-accelerometer                                                 Real-time Accelerometer Data                             🐍   uninitialized true    
+examples:inspirational/system-resources-logger                                                 System Resources Logger                                  📈   uninitialized true    
+examples:inspirational/telegram-bot                                                            Telegram Bot                                             🤖   uninitialized true    
+examples:inspirational/theremin                                                                Theremin Simulator                                       🎼   uninitialized true    
+examples:inspirational/vibration-anomaly-detection                                             Vibration Anomaly Detection                              🌀   uninitialized true    
+examples:inspirational/video-generic-object-detection                                          Detect Objects on Camera                                 📽️    uninitialized true    
+examples:inspirational/video-person-classification                                             Person Classifier on Camera                              🚶‍♂️  uninitialized true    
+examples:inspirational/weather-forecast                                                        Weather Forecast on LED Matrix                           ☀️    uninitialized true    
+examples:core-and-foundational/01-led-blink/01-blinking-an-LED-mcu                             Blinking an LED                                          🔴   uninitialized true    
+examples:core-and-foundational/01-led-blink/02-blinking-an-LED-MPU                             Blinking an LED from MPU                                 🔴   uninitialized true    
+examples:core-and-foundational/01-led-blink/03-blinking-an-led-from-python                     Blink LED from Python                                    🔴   uninitialized true    
+examples:core-and-foundational/01-led-blink/04-blinking-an-led-with-ui                         Blink LED with UI                                        💡   uninitialized true    
+examples:core-and-foundational/02-led-matrix/01-led-matrix-frame-mcu                           LED Matrix Frame with MCU                                🟦   uninitialized true    
+examples:core-and-foundational/02-led-matrix/02-led-matrix-frame                               LED Matrix Frame                                         🟦   uninitialized true    
+examples:core-and-foundational/02-led-matrix/03-led-matrix-animation-mcu                       LED Matrix Animation with MCU                            🟦   uninitialized true    
+examples:core-and-foundational/03-bridge-basics/01-call-sketch-function-from-python            Call a sketch function from Python                       📞   uninitialized true    
+examples:core-and-foundational/03-bridge-basics/02-send-data-to-python                         Send data to Python                                      📤   uninitialized true    
+examples:core-and-foundational/03-bridge-basics/03-using-structured-data                       Using structured data                                    🧱   uninitialized true    
+examples:core-and-foundational/04-logging/01-logger                                            Logger                                                   📃   uninitialized true    
+examples:core-and-foundational/04-logging/02-mcu-monitor                                       MCU Monitor                                              📃   uninitialized true    
+examples:core-and-foundational/05-apps-basics/01-app-register-and-start-bricks                 App register and start bricks                            🧱   uninitialized true    
+examples:core-and-foundational/05-apps-basics/02-app-run                                       App Run                                                  ▶️    uninitialized true    
+examples:core-and-foundational/05-apps-basics/03-app-user-loop                                 App user loop                                            🔁   uninitialized true    
+examples:core-and-foundational/06-camera-basics/01-simple-camera                               Simple Camera                                            📷   uninitialized true    
+examples:core-and-foundational/06-camera-basics/02-camera-from-sources                         Camera from different sources                            📷   uninitialized true    
+examples:core-and-foundational/06-camera-basics/03-camera-adjustments                          Camera Adjustments                                       📷   uninitialized true    
+examples:core-and-foundational/06-camera-basics/04-record-camera-stream                        Record Camera Stream                                     📷   uninitialized true    
+examples:core-and-foundational/06-camera-basics/05-websocket-camera                            WebSocket Camera                                         📷   uninitialized true    
+examples:core-and-foundational/07-microphone-basics/01-recording-from-microphone-and-file-save Recording from Microphone and File Save                  🎙️    uninitialized true    
+examples:core-and-foundational/07-microphone-basics/02-microphone-capture-and-stream           Microphone Capture and Stream                            🎙️    uninitialized true    
+examples:core-and-foundational/07-microphone-basics/03-microphone-and-properties               Microphone and Properties                                🎙️    uninitialized true    
+examples:core-and-foundational/08-web-ui-basics/01-static-page                                 Simple web page                                          💡   uninitialized true    
+examples:core-and-foundational/08-web-ui-basics/02-data-transmission                           Data transmission to Web UI                              💡   uninitialized true    
+examples:core-and-foundational/08-web-ui-basics/03-button-action                               Button Action                                            💡   uninitialized true    
+examples:core-and-foundational/08-web-ui-basics/04-https-web-ui                                HTTPS Web UI                                             💡   uninitialized true    
+examples:core-and-foundational/08-web-ui-basics/05-web-ui-camera-stream                        Web UI Camera Stream                                     💡   uninitialized true    
+examples:core-and-foundational/09-computer-vision/01-simple-object-detection                   Simple Object Detection                                  🏞️    uninitialized true    
+examples:core-and-foundational/09-computer-vision/02-video-object-detection                    Video Object Detection                                   📽️    uninitialized true    
+examples:core-and-foundational/09-computer-vision/03-image-classification-trigger              Person classifier on camera with trigger                 🚶‍♂️  uninitialized true    
+examples:core-and-foundational/09-computer-vision/04-object-detection-with-ui                  Object Detection                                         🏞️    uninitialized true    
+examples:bricks/arduino/air_quality_monitoring/01_get_air_quality_by_city                      Get air quality by city                                  🌬️    uninitialized true    
+examples:bricks/arduino/arduino_cloud/01_led_blink                                             Arduino Cloud LED Blink Example                          ☁️    uninitialized true    
+examples:bricks/arduino/arduino_cloud/02_light_with_colors_monitor                             Monitor a colored light from Arduino Cloud               ☁️    uninitialized true    
+examples:bricks/arduino/arduino_cloud/03_light_with_colors_command                             Command a colored light from Arduino Cloud               ☁️    uninitialized true    
+examples:bricks/arduino/audio_classification/01_glass_breaking_from_file                       Detect the glass breaking sound from audio file          🔊   uninitialized true    
+examples:bricks/arduino/camera_code_detection/01_detection                                     Code detection                                           📷   uninitialized true    
+examples:bricks/arduino/camera_code_detection/02_detection_list                                Code detection (aggregated result)                       📷   uninitialized true    
+examples:bricks/arduino/camera_code_detection/03_detection_with_overrides                      Code detection with camera overrides                     📷   uninitialized true    
+examples:bricks/arduino/cloud_asr/01_asr                                                       Detect speech from microphone                            🎙️    uninitialized true    
+examples:bricks/arduino/cloud_asr/02_multilingual_asr                                          Detect speech from microphone in Italian                 🎙️    uninitialized true    
+examples:bricks/arduino/cloud_asr/03_event_stream                                              Detect speech from microphone, event stream              🎙️    uninitialized true    
+examples:bricks/arduino/cloud_asr/04_different_providers                                       Detect speech from microphone, different providers       🎙️    uninitialized true    
+examples:bricks/arduino/cloud_llm/01_simple_prompt                                             Chat with an LLM                                         ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/02_streaming_responses                                       Streaming responses from an LLM                          ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/03_no_memory                                                 Conversation without memory                              ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/04_model_selection                                           LLM Model Selection                                      ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/05_tool_calling                                              Chat with an LLM using Tool Calling                      ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/06_multimodal                                                Chat with an Multimodal LLM                              ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/07_external_provider                                         Chat with an Ollama model                                ✨   uninitialized true    
+examples:bricks/arduino/cloud_llm/08_persistent_memory                                         Conversation with persistent memory                      ✨   uninitialized true    
+examples:bricks/arduino/dbstorage_sqlstore/01_store_and_read_example                           Store and read data using SQLStore                       🗄️    uninitialized true    
+examples:bricks/arduino/dbstorage_tsstore/01_write_read                                        Store and read data using TimeSeriesStore                📊   uninitialized true    
+examples:bricks/arduino/dbstorage_tsstore/02_read_all_samples                                  Read all samples from database in a given time range     📊   uninitialized true    
+examples:bricks/arduino/image_classification/01_image_classification_example                   Image classification                                     🖼️    uninitialized true    
+examples:bricks/arduino/keyword_spotting/01_hello_world                                        Detect the 'hey arduino' keyword                         🗣️    uninitialized true    
+examples:bricks/arduino/llm/01_simple_chat                                                     Chat with a Local LLM                                    🤖   uninitialized true    
+examples:bricks/arduino/llm/02_simple_streaming_chat                                           Stream responses from a Local LLM                        🤖   uninitialized true    
+examples:bricks/arduino/llm/03_select_model_streaming_chat                                     Chat with a Local LLM using a specific model             🤖   uninitialized true    
+examples:bricks/arduino/llm/04_tool_calling                                                    Chat with an LLM using Tool Calling                      🤖   uninitialized true    
+examples:bricks/arduino/llm/05_streaming_with_tools                                            Chat with tools and streaming                            🤖   uninitialized true    
+examples:bricks/arduino/llm/06_persistent_memory                                               Chat with persistent memory                              🤖   uninitialized true    
+examples:bricks/arduino/mood_detector/01_basic_usage                                           Basic usage of the Mood Detector                         😊   uninitialized true    
+examples:bricks/arduino/motion_detection/01_basic_usage                                        Basic usage of the Motion Detection Brick                🏃   uninitialized true    
+examples:bricks/arduino/object_detection/01_object_detection_example                           Object Detection                                         🔍   uninitialized true    
+examples:bricks/arduino/sound_generator/01_play_sequence                                       Play a sequence of notes (Fur Elise)                     🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/02_stream_sequence                                     Stream a sequence of notes over websocket via WebUI      🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/03_play_abc_notation                                   Play music in ABC notation                               🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/04_effects                                             Play a sequence using effects                            🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/05_play_chords                                         Play chords                                              🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/06_play_polyphonic                                     Play polyphonic multi-track music                        🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/07_play_step_sequence                                  Play a step sequence with loop and callback              🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/08_play_composition                                    Play a MusicComposition                                  🎵   uninitialized true    
+examples:bricks/arduino/sound_generator/09_play_wav                                            Play a WAV file                                          🎵   uninitialized true    
+examples:bricks/arduino/streamlit_ui/01_basic_usage                                            Basic usage of the Streamlit UI Brick                    🖥️    uninitialized true    
+examples:bricks/arduino/streamlit_ui/02_using_other_bricks                                     Using Streamlit UI with other bricks                     🖥️    uninitialized true    
+examples:bricks/arduino/telegram_bot/01_text_echo                                              Echo text messages                                       📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/02_command_handler                                        Register and handle commands                             📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/03_whitelist_auth                                         Bot with user ID whitelist                               📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/04_scheduled_messages                                     Schedule recurring messages                              📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/05_photo_echo                                             Echo photo messages                                      📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/06_audio_echo                                             Echo audio messages                                      📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/07_video_echo                                             Echo video messages                                      📱   uninitialized true    
+examples:bricks/arduino/telegram_bot/08_document_echo                                          Echo document messages                                   📱   uninitialized true    
+examples:bricks/arduino/vibration_anomaly_detection/01_basic_usage                             Basic usage of the Vibration Anomaly Detection Brick     📳   uninitialized true    
+examples:bricks/arduino/video_imageclassification/01_basic_usage                               Basic usage of the Video Image Classification Brick      🎥   uninitialized true    
+examples:bricks/arduino/video_objectdetection/01_basic_usage                                   Basic usage of the Video Object Detection Brick          🎬   uninitialized true    
+examples:bricks/arduino/video_objectdetection/02_count_objects                                 Count detected objects                                   🎬   uninitialized true    
+examples:bricks/arduino/video_objectdetection/03_get_image                                     Get camera preview frame and design bounding boxes on it 🎬   uninitialized true    
+examples:bricks/arduino/visual_anomaly_detection/01_visual_anomaly_example                     Visual Anomaly Detection                                 👁️    uninitialized true    
+examples:bricks/arduino/wave_generator/01_basic_tone                                           Basic Tone                                               🎶   uninitialized true    
+examples:bricks/arduino/wave_generator/02_waveform_types                                       Cycle through different waveform types.                  🎶   uninitialized true    
+examples:bricks/arduino/wave_generator/03_frequency_sweep                                      Sweep through frequency ranges.                          🎶   uninitialized true    
+examples:bricks/arduino/wave_generator/04_envelope_control                                     Demonstrate different envelope settings.                 🎶   uninitialized true    
+examples:bricks/arduino/wave_generator/05_custom_speaker                                       Play a simple frequency sequence (C4 to C5).             🎶   uninitialized true    
+examples:bricks/arduino/weather_forecast/01_weather_forecast_by_city_example                   Weather Forecast by city name                            ☀️    uninitialized true    
+examples:bricks/arduino/weather_forecast/02_weather_forecast_by_coords_example                 Weather Forecast by coordinates                          ☀️    uninitialized true    
+examples:bricks/arduino/web_ui/01_serve_webapp                                                 Serve a web application                                  🌐   uninitialized true    
+examples:bricks/arduino/web_ui/02_serve_webapp_and_api                                         Serve a web application and its API                      🌐   uninitialized true    
+examples:bricks/arduino/web_ui/03_connect_disconnect                                           Print connections and disconnections                     🌐   uninitialized true    
+examples:bricks/arduino/web_ui/04_on_message                                                   Listen for messages from connected clients               🌐   uninitialized true    
+examples:bricks/arduino/web_ui/05_send_message                                                 Send a message to a client that connects                 🌐   uninitialized true    
+1633 /home/arduino/occhio/.venv/bin/python -u -m crosswalk --config configs/board_imx219.yaml
+1798 /bin/bash -c id; systemctl status occhio occhio-mcu --no-pager; cat /etc/default/occhio; arduino-app-cli app list; pgrep -af "python.*crosswalk"; uname -a; python3 --version; arduino-cli core list; arduino-cli lib list
+Linux VIVIC 7.0.0-g122c2c22d838 #1 SMP PREEMPT Tue May 19 15:08:13 UTC 2026 aarch64 GNU/Linux
+Python 3.13.5
+ID             Installed Latest Name
+arduino:zephyr 1.0.0     1.0.0  Arduino Q Boards
+
+No libraries installed.

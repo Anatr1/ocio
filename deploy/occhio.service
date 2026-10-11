@@ -1,0 +1,18 @@
+[Unit]
+Description=OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000)
+After=occhio-mcu.service network.target
+Wants=occhio-mcu.service
+
+[Service]
+User=arduino
+WorkingDirectory=/home/arduino/occhio
+EnvironmentFile=-/etc/default/occhio
+# OCCHIO_WRAPPER=libcamerify is needed for the IMX219 CSI camera (libcamera V4L2 compatibility layer).
+ExecStart=/bin/sh -c 'exec $${OCCHIO_WRAPPER} /home/arduino/occhio/.venv/bin/python -u -m crosswalk --config "$${OCCHIO_CONFIG:-configs/board_imx219.yaml}"'
+# A crash or hang must not leave the crosswalk without vision: restart quickly. While it is down the MCU
+# receives no heartbeat and its watchdog keeps the lamps on flashing amber.
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/home/arduino/occhio/docs/board_results/check_video_api.py", line 41, in <module>
+    print("saved", out, "signal rules:", sorted({(s["signal"].get("rule") or {}).get("id", "") for s in states}))
+                                         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'str' and 'NoneType'

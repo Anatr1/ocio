@@ -1,0 +1,34 @@
+# Laptop demo on a public sample video (Intel IoT sample-videos, CC-BY-4.0): elevated view of a car park with
+# people, a cyclist and a car. A "virtual crosswalk" is placed in the middle of the frame; the calibration is
+# approximate (eyeballed, ~37 px/m) - good enough to exercise the full pipeline end-to-end.
+node:
+  id: demo-video
+  name: "Sample video - virtual crosswalk"
+source:
+  type: video
+  path: data/videos/person-bicycle-car-detection.mp4
+  realtime: true
+  loop: true
+detector:
+  backend: onnx
+  model: models/yolo11n_416.onnx
+  imgsz: 416
+  threads: 4
+  conf: 0.35
+  conf_low: 0.2
+  max_hz: 12
+scene:
+  crosswalk: {width: 4.0, length: 12.0}
+  curb_depth: 2.0
+  approach: 12.0
+  sidewalk_width: 2.0
+  speed_limit_kmh: 30
+  calibration:
+    # cars move top->bottom in the image = +X ; pedestrians cross left<->right = Y
+    image_points: [[178, 226], [178, 374], [622, 374], [622, 226]]
+    image_size: [768, 432]
+    hfov_deg: 60
+signal:
+  mode: beacon
+server:
+  port: 8002

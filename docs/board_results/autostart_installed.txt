@@ -1,0 +1,7 @@
+{"ok":true,"t":1791648048.9408402,"node":"cw-01-imx219","vision_age_s":0.2,"mcu_connected":true,"failsafe":false}# OCCHIO boot settings (edit, then: sudo systemctl restart occhio)
+OCCHIO_CONFIG=configs/board_imx219.yaml
+OCCHIO_WRAPPER=libcamerify
+OCCHIO_MCU_APP=/home/arduino/ArduinoApps/crosswalk_mcu
+enabled
+enabled
+  10080 /home/arduino/occhio/.venv/bin/python -u -m crosswalk --config configs/board_imx219.yaml

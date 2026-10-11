@@ -1,0 +1,120 @@
+{
+  "version": "cost-profiles-1",
+  "currency": "EUR",
+  "source_bom_sha256": "9eef2d4c39ba21a73211f4fc5461de2a4ce92fa3073346a19d65282f82c189e1",
+  "default": "pilot",
+  "profiles": {
+    "pilot": {
+      "label": "Pilot retrofit",
+      "parameters": {
+        "installed_cost_eur": 908.31,
+        "annual_maintenance_eur": 80,
+        "platform_cost_eur": 2000,
+        "supplier_gross_margin": 0.2
+      },
+      "hardware_eur": 455.74,
+      "installation": [
+        {
+          "name": "Installation labour",
+          "quantity": 3,
+          "cost_eur": 60,
+          "unit": "hour"
+        },
+        {
+          "name": "Camera calibration",
+          "quantity": 1,
+          "cost_eur": 70,
+          "unit": "hour"
+        },
+        {
+          "name": "Commissioning at an existing approved input",
+          "quantity": 1,
+          "cost_eur": 70,
+          "unit": "hour"
+        },
+        {
+          "name": "Connection consumables; approved input supplied by site owner",
+          "quantity": 1,
+          "cost_eur": 50
+        }
+      ],
+      "contingency_fraction": 0.1,
+      "contingency_eur": 82.57,
+      "status": "Conditional planning allowance, not a contractor quote",
+      "conditions": [
+        "Site owner supplies an existing pole, mains power, permits and an approved fail-safe controller input.",
+        "No trenching, new lamps, traffic-lane closure, lift hire, new controller interface or product certification is included.",
+        "Existing software is reused; shared setup allowance is EUR2,000, not a new platform development budget.",
+        "Annual service delivery allowance is one EUR60 labour hour plus EUR20 spares; electricity is additional.",
+        "Small consumable spares are routine maintenance; major device replacements are budgeted separately in the lifecycle cash flows.",
+        "Indoor prototype camera in an enclosure still needs field validation; this budget does not certify an outdoor road product."
+      ]
+    },
+    "production": {
+      "label": "Production rollout",
+      "parameters": {
+        "installed_cost_eur": 2646.89,
+        "annual_maintenance_eur": 120,
+        "platform_cost_eur": 50000,
+        "supplier_gross_margin": 0.2
+      },
+      "hardware_eur": 455.74,
+      "installation": [
+        {
+          "name": "Approved existing-controller integration allowance",
+          "cost_eur": 750.0,
+          "quantity": 1,
+          "status": "allowance",
+          "source": null,
+          "range_eur": [
+            300,
+            3000
+          ],
+          "notes": "No direct Arduino lamp switching. Supplier-approved fail-safe interface, installation approval, and controller access required."
+        },
+        {
+          "name": "Installation labour",
+          "cost_eur": 60.0,
+          "quantity": 6,
+          "unit": "hour",
+          "status": "allowance",
+          "source": null
+        },
+        {
+          "name": "Site camera calibration",
+          "cost_eur": 70.0,
+          "quantity": 3,
+          "unit": "hour",
+          "status": "allowance",
+          "source": null
+        },
+        {
+          "name": "Commissioning and controller tests",
+          "cost_eur": 70.0,
+          "quantity": 4,
+          "unit": "hour",
+          "status": "allowance",
+          "source": null
+        },
+        {
+          "name": "Traffic management during installation",
+          "cost_eur": 150.0,
+          "quantity": 1,
+          "status": "allowance",
+          "source": null
+        }
+      ],
+      "contingency_fraction": 0.2,
+      "contingency_eur": 441.148,
+      "status": "Conservative planning allowance, not a contractor quote",
+      "conditions": [
+        "Ranges are editable planning scenarios, not confidence intervals or contractor quotes. Maintenance excludes separately calculated electricity. Offline operation assumes no WAN subscription. Platform allowance is not a vendor selling price or certification quotation. New poles, signals, trenching, mains supply, major controller upgrades, permits, central hosting, additional cameras, and product certification may require substantial extra cost."
+      ]
+    }
+  },
+  "notes": [
+    "Hardware prices are unchanged. Lower pilot cost comes from explicit reuse and installation assumptions, not claimed supplier discounts.",
+    "At 20% gross margin, sale price is delivery budget /0.8 and service fee is annual service delivery budget /0.8.",
+    "The pilot profile must not be advertised as the unconditional cost to install at every Turin crossing."
+  ]
+}

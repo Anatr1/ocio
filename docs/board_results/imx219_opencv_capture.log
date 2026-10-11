@@ -1,0 +1,28 @@
+[0:11:39.861144653] [3572] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:11:39.888851856] [3581] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:354 [0;32m'imx219 0-0010': [0mRecommended V4L2 control 0x009a0922 not supported
+[0:11:39.888917530] [3581] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:426 [0;32m'imx219 0-0010': [0mThe sensor kernel driver needs to be fixed
+[0:11:39.888932009] [3581] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:428 [0;32m'imx219 0-0010': [0mSee Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+[0:11:39.889670413] [3581] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:594 [0;32m'imx219 0-0010': [0mFailed to retrieve the camera location
+[0:11:39.889704058] [3581] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:616 [0;32m'imx219 0-0010': [0mRotation control not available, default to 0 degrees
+[0:11:39.893611488] [3581] [1;33m WARN [1;37mIPAProxy [1;34mipa_proxy.cpp:160 [0mConfiguration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+[0:11:39.895757955] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:39.895939874] [3572] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:11:39.896627708] [3581] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:11:39.896777753] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:39.896903893] [3572] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:11:39.897460848] [3581] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:11:39.897542354] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:39.903270537] [3572] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:11:39.904049513] [3581] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:11:39.904196016] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:39.904301689] [3572] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:11:39.904851612] [3581] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:11:39.904932234] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:39.907665706] [3572] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:11:39.908443015] [3581] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:11:39.908581186] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:39.908682744] [3572] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:11:39.909227303] [3581] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:11:39.909304799] [3572] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:11:41.078101349] [3585] [1;32m INFO [1;37mDebayer [1;34mdebayer_cpu.cpp:788 [0mProcessed 30 frames in 282122us, 9404 us/frame
+{"request": {"device": 0, "width": 640, "height": 480, "fps": 30, "fourcc": null, "stereo": null, "resize_width": null}, "obtained": {"camera_fps": 59.4, "width": 632, "height": 480, "raw": "632x480"}, "shapes": [[480, 632, 3]], "received": 1188, "missing_reads": 0, "elapsed_s": 20.00568526799998, "received_hz": 59.38311955253345, "process_cpu_one_core_pct": 82.8257656662442}

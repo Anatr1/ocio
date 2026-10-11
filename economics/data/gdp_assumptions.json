@@ -1,0 +1,31 @@
+{
+  "version": "gva-scenario-1",
+  "status": "Conditional gross-value-added contribution scenario, not causal or observed GDP growth",
+  "currency": "constant 2026 EUR per year",
+  "sources": [
+    {"title": "OECD GDP and non-financial accounts", "url": "https://www.oecd.org/en/data/datasets/gdp-and-non-financial-accounts.html", "reference": "GDP output and expenditure definitions; accessed 10 October 2026", "caveat": "Supports the accounting definition only, not the assumed time use, productivity or spending rates."},
+    {"title": "Eurostat annual national accounts metadata", "url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama_10_gdp_esms.htm", "reference": "ESA 2010 GDP and gross value added definitions; accessed 10 October 2026", "caveat": "Gross value added excludes net taxes on products. This app does not estimate those taxes or a full regional GDP account."}
+  ],
+  "formulas": {
+    "H": "signed pedestrian hours saved + signed vehicle hours saved x occupancy",
+    "work": "H x work_time_fraction x productivity_realization x labour_value_eur_h",
+    "spending": "H x spending_time_fraction x spending_eur_h x spending_additionality x domestic_value_added_fraction",
+    "gdp_scenario_eur": "work + non-overlapping spending-induced domestic value added"
+  },
+  "parameter_metadata": {
+    "work_time_fraction": {"default": 0.15, "status": "unmeasured assumption", "notes": "Share of signed net time changes allocated to work. Work and spending allocations together cannot exceed 100%."},
+    "productivity_realization": {"default": 0.25, "status": "unmeasured assumption", "notes": "Share of work-allocated time that actually changes productive output, not merely commute convenience."},
+    "labour_value_eur_h": {"default": 25, "status": "illustrative assumption, not a Turin statistic", "notes": "Incremental domestic value added per realized productive hour, not employee wage, business revenue or willingness to pay."},
+    "spending_time_fraction": {"default": 0.20, "status": "unmeasured assumption", "notes": "Disjoint share allocated to spending opportunities; remaining time receives no GDP contribution."},
+    "spending_eur_h": {"default": 10, "status": "illustrative assumption, not a Turin statistic", "notes": "Potential spending per hour allocated to consumption; not automatically additional expenditure."},
+    "spending_additionality": {"default": 0, "status": "conservative no-evidence default", "notes": "Only net-new expenditure, after removing shifted purchases, budget substitution and output already counted in the work channel. Zero until an explicit scenario or evidence supports a nonzero share."},
+    "domestic_value_added_fraction": {"default": 0.50, "status": "illustrative assumption, not an input-output coefficient", "notes": "Domestic value added per euro of net-new spending. Excludes imports and intermediate inputs; not a retailer margin or a fiscal multiplier. Domestic is not necessarily within Turin."}
+  },
+  "limitations": [
+    "Time savings are isolated-crossing sums, not calibrated whole-journey time gains or unique people.",
+    "Net losses of time produce negative contributions under the same allocation assumptions; no positive-only selection is used.",
+    "A joint production-demand or input-output model is needed to identify independent work and consumption effects. Additivity is an explicit no-overlap scenario assumption, not proven by time allocation alone.",
+    "Results exclude net product taxes, economic multipliers, opportunity costs of public funds, induced demand and deployment-sector output; no percentage increase in Turin GDP is inferred.",
+    "The proxy is not added to social NPV or time-value benefits, nor treated as municipal revenue. The legacy gdp_increase_eur field remains null because causal GDP change is unidentified."
+  ]
+}

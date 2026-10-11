@@ -1,0 +1,14 @@
+{
+  "profile": "grove",
+  "oled": true,
+  "revision": null,
+  "files_sha256": {
+    "README.md": "0e11a34b3ee6fb4e531af827a238514a9938f2ef3ea7f3905e0bbb1d6b064753",
+    "app.yaml": "b5b1b2633b2fa1874d2b4d8baf53740e7138951f90f4e0475354a735343e9dbe",
+    "python/main.py": "0218ef8837e539d962017e24d2a28e9e9069b377f2a40eb71efbbe4ad2886938",
+    "sketch/hardware.h": "274fbc975f74d699091552f6944eb8cc64afa5eebc6e66cdf6234147fb3e36d6",
+    "sketch/sketch.ino": "6ae5d3533eb58053151a8d6d785e4e7ca479b59eecd1c8e6433b8d64e91ba845",
+    "sketch/sketch.yaml": "e122b3a2580a5d0d7c09c342245669def51ce2f29732200fbbb12f1c2e18553f"
+  },
+  "wiring_reference": "docs/HANDOFF_LIVE_GPIO.md (operator correction 2026-10-11)"
+}

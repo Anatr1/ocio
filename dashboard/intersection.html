@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>òcio · Intersection Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e9edda'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='13' fill='none' stroke='%23274f3d' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23274f3d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/intersection.css">
+  <script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/vendor/"}}</script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="32" cy="32" r="8" fill="currentColor"/></svg><div><div class="brand-name">òcio</div><div class="brand-sub">Intersection lab</div></div></div>
+    <div class="lab-status"><span class="status-dot"></span><span id="connection">Connecting…</span><span class="pill">SIMULATION</span></div>
+    <div class="actions">
+      <label class="sr-only" for="scenario">Traffic scenario</label><select id="scenario"><option>balanced</option></select>
+      <label class="sr-only" for="policy">Signal policy</label><select id="policy"><option value="adaptive">Adaptive coordination</option><option value="fixed">Fixed cycle</option></select>
+      <button id="pause">Pause</button><button id="reset">Restart</button>
+    </div>
+  </header>
+  <main class="intersection-layout">
+    <section class="scene-panel" aria-label="Intersection digital twin">
+      <div class="scene-heading"><div><div class="eyebrow">FOUR APPROACHES · ONE COORDINATOR</div><h1>A junction that responds.</h1><p>Through traffic, protected turns, and four pedestrian crossings.</p></div><div class="sim-clock"><b id="clock">00:00</b><span>simulation time</span></div></div>
+      <div id="scene"></div>
+      <div class="scene-controls"><div class="seg" id="views"><button data-view="orbit" class="on">3D</button><button data-view="top">Top</button><button data-view="street">Street</button><button data-view="cinema">Cinema</button></div><div class="seg" id="layers"><button data-layer="routes">Routes</button><button data-layer="trails" class="on">Trails</button><button data-layer="labels">Labels</button></div></div>
+      <div class="scene-legend"><span><i class="legend-car"></i>Vehicles</span><span><i class="legend-walk"></i>Walking</span><span><i class="legend-bike"></i>Riding</span><span class="legend-note">Exact simulated trajectories</span></div>
+      <div class="time-controls"><label for="speed">Pace</label><select id="speed"><option value="1">1×</option><option value="4">4×</option><option value="12">12×</option><option value="30">30×</option></select><span id="agent-count">0 road users</span><a href="/api/report" id="export" download="ocio-intersection.json">Export run ↗</a></div>
+    </section>
+    <aside class="lab-sidebar">
+      <section id="camera-card" class="lab-card camera-card" hidden><div class="card-label">CAMERA · SIMULATED REALITY</div><div id="camera-controls"><label for="camera-select">View</label><select id="camera-select"><option value="overview">Overview</option><option value="N">North</option><option value="E">East</option><option value="S">South</option><option value="W">West</option></select><label><input id="camera-boxes" type="checkbox" checked/>NN boxes</label><label><input id="camera-visible" type="checkbox" checked/>Show</label></div><div id="pixel-view"><img id="camera-image" alt="Photoreal intersection camera"/></div><p id="camera-status">Starting cameras…</p><p class="subtle" id="camera-explanation">Camera RGB is the model input. The main scene reconstructs model tracks.</p></section>
+      <section class="lab-card phase-card"><div class="card-label">COORDINATED SIGNAL</div><div class="phase-title"><span id="phase-light"></span><h2 id="phase-name">Starting…</h2></div><div id="phase-state">—</div><p id="phase-reason">Waiting for the simulator.</p><div id="phase-strip" class="phase-strip"></div><p class="subtle">Turns are protected. Conflicting green waits until the junction and crossings clear.</p></section>
+      <section class="kpi-grid" aria-label="Live performance"><div class="lab-card"><b id="road-total">0</b><span>Road passages</span></div><div class="lab-card"><b id="ped-total">0</b><span>Crossing passages</span></div><div class="lab-card"><b id="vehicle-wait">—</b><span>Mean car / rider wait</span></div><div class="lab-card"><b id="ped-wait">—</b><span>Mean crossing wait</span></div></section>
+      <section class="lab-card"><div class="card-label">APPROACHES & MOVEMENTS</div><table class="approach-table"><thead><tr><th>Arm</th><th>Queue</th><th>↑</th><th>↰</th><th>↱</th><th>Walk</th></tr></thead><tbody id="approaches"></tbody></table><p class="subtle">Movement totals count completed passages. Waiting averages use completed journeys.</p></section>
+      <section class="lab-card pedestrian-card"><div class="card-label">PEDESTRIAN DEMAND</div><div class="ped-controls"><label class="sr-only" for="crossing">Crossing</label><select id="crossing"><option value="N">North crossing</option><option value="E">East crossing</option><option value="S">South crossing</option><option value="W">West crossing</option></select><button id="call">Call</button></div><button id="slow">Add a slow walker</button><p class="subtle">Watch clearance stay red for vehicles while the walker finishes.</p></section>
+      <section class="lab-card comparison-card"><div class="card-label">SAME TRAFFIC · TWO POLICIES</div><h2>Does adapting help?</h2><p>Compare five simulated minutes with the same arrival stream and seed.</p><button id="compare">Compare fixed & adaptive</button><div id="comparison" aria-live="polite"></div><p class="subtle">Delay includes unfinished queues. These are simulation results, not field measurements.</p></section>
+      <section class="lab-card"><div class="card-label">RECENT PHASES</div><ol id="history" class="phase-history"></ol></section>
+    </aside>
+  </main>
+  <div id="toast" role="status" hidden></div>
+  <script type="module" src="/js/intersection.js"></script>
+  <script type="module" src="/js/intersection-camera.js"></script>
+</body>
+</html>

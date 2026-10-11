@@ -1,0 +1,98 @@
+[0:05:19.570999309] [2132] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:05:19.599900067] [2148] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:354 [0;32m'imx219 0-0010': [0mRecommended V4L2 control 0x009a0922 not supported
+[0:05:19.600071917] [2148] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:426 [0;32m'imx219 0-0010': [0mThe sensor kernel driver needs to be fixed
+[0:05:19.600103840] [2148] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:428 [0;32m'imx219 0-0010': [0mSee Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+[0:05:19.600895131] [2148] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:594 [0;32m'imx219 0-0010': [0mFailed to retrieve the camera location
+[0:05:19.600921013] [2148] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:616 [0;32m'imx219 0-0010': [0mRotation control not available, default to 0 degrees
+[0:05:19.605387605] [2148] [1;33m WARN [1;37mIPAProxy [1;34mipa_proxy.cpp:160 [0mConfiguration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+[0:05:19.607605721] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:19.607805536] [2132] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:19.608454608] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:19.608638332] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:19.608756075] [2132] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:19.609284228] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:19.609354270] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:19.621146571] [2132] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:19.621985147] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:19.622150540] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:19.622246151] [2132] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:19.622754046] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:19.622815964] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:19.626034716] [2132] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:19.626826372] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:19.626970570] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:19.627058109] [2132] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:19.627557672] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:19.627618757] [2132] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[node] WARNING: no calibration - run tools/calibrate.py; counting needs ground coordinates
+[node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-160736_cw-01-imx219
+[node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+[0:05:22.830010007] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:22.830599820] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:22.832375926] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:22.832681873] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:22.832934859] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:22.834570255] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:22.834768405] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:22.843838701] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:22.845680735] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:22.845973871] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:22.846216858] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:22.847735344] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:22.847919433] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:22.852910923] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:22.854693383] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:22.854941317] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:22.855176024] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:22.856736431] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:22.856986292] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.164060055] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.164582275] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:25.166261057] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:25.166491130] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.166727816] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:25.168279949] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:25.168535070] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.173750297] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:25.174564301] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:25.174762034] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.175027102] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:25.176564810] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:25.176893202] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.181808626] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:25.183591769] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:25.183839079] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:25.184143933] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:25.185729030] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:25.185922181] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.492796892] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.493304533] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:27.494916194] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:27.495125176] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.495347595] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:27.496906555] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:27.497144128] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.501654578] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:27.502336051] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:27.502503789] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.502767348] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:27.504284805] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:27.504511442] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.509294356] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:27.510997726] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:27.511228477] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:27.511460061] [2149] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:05:27.512991995] [2148] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:05:27.513221444] [2149] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:05:28.793569112] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:705 [0mFailed to clear eventfd POLLIN
+[0:05:28.793676703] [2149] [1;31mERROR [1;37mRequest [1;34mrequest.cpp:480 [0mFrameBuffer already set for stream
+[0:05:28.793698939] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera.cpp:263 [0mCan't set buffer for request
+[0:05:28.793733935] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:705 [0mFailed to clear eventfd POLLIN
+[0:05:28.793785751] [2149] [1;31mERROR [1;37mRequest [1;34mrequest.cpp:480 [0mFrameBuffer already set for stream
+[0:05:28.793846941] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera.cpp:263 [0mCan't set buffer for request
+[0:05:28.804200546] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:705 [0mFailed to clear eventfd POLLIN
+[0:05:28.804324436] [2149] [1;31mERROR [1;37mRequest [1;34mrequest.cpp:480 [0mFrameBuffer already set for stream
+[0:05:28.804347662] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera.cpp:263 [0mCan't set buffer for request
+[0:05:28.814649763] [2149] [1;31mERROR [1;37mRequest [1;34mrequest.cpp:480 [0mFrameBuffer already set for stream
+[0:05:28.814733763] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera.cpp:263 [0mCan't set buffer for request
+[0:05:28.825039093] [2149] [1;31mERROR [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:705 [0mFailed to clear eventfd POLLIN

@@ -1,0 +1,79 @@
+Oct 11 09:56:06 VIVIC systemd[1]: occhio-mcu.service: Deactivated successfully.
+Oct 11 09:56:06 VIVIC systemd[1]: Stopped occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+Oct 11 09:56:06 VIVIC systemd[1]: Starting occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot...
+Oct 11 09:56:07 VIVIC sh[2055]: [INFO] Starting app "OCCHIO crosswalk MCU"
+Oct 11 09:56:10 VIVIC sh[2055]: Progress[preparing]: 0%
+Oct 11 09:56:10 VIVIC sh[2055]: Progress[sketch compiling and uploading]: 0%
+Oct 11 09:56:11 VIVIC sh[2055]: [INFO] Sketch profile configured: Name="default", Port=""
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library Arduino_RouterBridge has been added from sketch project.
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library Arduino_RPClite has been added from sketch project.
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library MsgPack has been added from sketch project.
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library DebugLog has been added from sketch project.
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library ArxTypeTraits has been added from sketch project.
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library ArxContainer has been added from sketch project.
+Oct 11 09:56:32 VIVIC sh[2055]: [INFO] The library U8g2 has been added from sketch project.
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Sketch uses 123700 bytes (15%) of program storage space. Maximum is 786432 bytes.
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Global variables use 51780 bytes (19%) of dynamic memory, leaving 210364 bytes for local variables. Maximum is 262144 bytes.
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Board platform: arduino:zephyr (1.0.0) in /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library Arduino_LED_Matrix (0.1.3) in /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Arduino_LED_Matrix
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library Wire (1.0.0) in /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Wire
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library Arduino_RouterBridge (0.4.3) in /home/arduino/.arduino15/internal/Arduino_RouterBridge_0.4.3_456a4ab6b378b066/Arduino_RouterBridge
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library Arduino_RPClite (0.3.1) in /home/arduino/.arduino15/internal/Arduino_RPClite_0.3.1_3aaf611bc915560f/Arduino_RPClite
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library MsgPack (0.4.2) in /home/arduino/.arduino15/internal/MsgPack_0.4.2_a0d4adc5044d022c/MsgPack
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library DebugLog (0.8.4) in /home/arduino/.arduino15/internal/DebugLog_0.8.4_c199e2cf6415ecc8/DebugLog
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library ArxTypeTraits (0.3.2) in /home/arduino/.arduino15/internal/ArxTypeTraits_0.3.2_d65e2aabfeed7838/ArxTypeTraits
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library ArxContainer (0.7.0) in /home/arduino/.arduino15/internal/ArxContainer_0.7.0_007f0bb2a1cdefe3/ArxContainer
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library U8g2 (2.36.5) in /home/arduino/.arduino15/internal/U8g2_2.36.5_60aee8fdd45f2174/U8g2
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Used library SPI (1.0.0) in /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/SPI
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Licensed under GNU GPL v2
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] For bug reports, read
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO]         http://openocd.org/doc/doxygen/bugs.html
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] debug_level: 2
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] clock_config
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] /tmp/remoteocd/zephyr-arduino_uno_q_stm32u585xx.elf
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] /tmp/remoteocd/zephyr-arduino_uno_q_stm32u585xx.elf
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] /tmp/remoteocd/sketch.ino.elf-zsk.bin
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : Note: The adapter "linuxgpiod" doesn't support configurable speed
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : SWD DPIDR 0x0be12477
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : [stm32u5.ap0] Examination succeed
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : [stm32u5.cpu] Cortex-M33 r0p4 processor detected
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : [stm32u5.cpu] target has 8 breakpoints, 4 watchpoints
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : [stm32u5.cpu] Examination succeed
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : [stm32u5.ap0] gdb port disabled
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : [stm32u5.cpu] starting gdb server on 3333
+Oct 11 09:59:43 VIVIC sh[2055]: [INFO] Info : Listening on port 3333 for gdb connections
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] CPU in Non-Secure state
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] [stm32u5.cpu] halted due to debug-request, current mode: Thread
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] xPSR: 0x41000000 pc: 0x08017f58 psp: 0x20002820
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Info : device idcode = 0x30076482 (STM32U57/U58xx - Rev U : 0x3007)
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Info : TZEN = 0 : TrustZone disabled by option bytes
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Info : RDP level 0 (0xAA)
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Info : flash size = 2048 KiB
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Info : flash mode : dual-bank
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Info : Padding image section 0 at 0x0811e334 with 12 bytes (bank write end alignment)
+Oct 11 09:59:44 VIVIC sh[2055]: [INFO] Warn : Adding extra erase range, 0x0811e340 .. 0x0811ffff
+Oct 11 09:59:54 VIVIC sh[2055]: [INFO] shutdown command invoked
+Oct 11 09:59:55 VIVIC sh[2055]: time="2026-10-11T09:59:55Z" level=error msg="Stopped decode loop: EOF" discovery="builtin:mdns-discovery"
+Oct 11 09:59:55 VIVIC sh[2055]: Progress[sketch updated]: 10%
+Oct 11 09:59:55 VIVIC sh[2055]: time="2026-10-11T09:59:55Z" level=error msg="Stopped decode loop: EOF" discovery="builtin:serial-discovery"
+Oct 11 09:59:55 VIVIC sh[2055]: [INFO] python provisioning
+Oct 11 09:59:55 VIVIC sh[2055]: Progress[python provisioning]: 10%
+Oct 11 09:59:55 VIVIC sh[2055]: [INFO] python downloading
+Oct 11 09:59:56 VIVIC sh[2055]: [INFO]  Network crosswalk_grove_live_20261011_56e47cc_default  Creating
+Oct 11 09:59:56 VIVIC sh[2055]: [INFO]  Network crosswalk_grove_live_20261011_56e47cc_default  Created
+Oct 11 09:59:56 VIVIC sh[2055]: [INFO]  Container crosswalk_grove_live_20261011_56e47cc-main-1  Creating
+Oct 11 09:59:56 VIVIC sh[2055]: [INFO]  Container crosswalk_grove_live_20261011_56e47cc-main-1  Created
+Oct 11 09:59:56 VIVIC sh[2055]: [INFO]  Container crosswalk_grove_live_20261011_56e47cc-main-1  Starting
+Oct 11 09:59:56 VIVIC sh[2055]: [INFO]  Container crosswalk_grove_live_20261011_56e47cc-main-1  Started
+Oct 11 09:59:56 VIVIC sh[2055]: Progress[]: 100%
+Oct 11 09:59:56 VIVIC sh[2055]: ✓ App "OCCHIO crosswalk MCU" started successfully
+Oct 11 09:59:57 VIVIC systemd[1]: Finished occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+ExecMainStatus=0
+ActiveState=active
+SubState=exited
+# OCCHIO boot settings (edit, then: sudo systemctl restart occhio)
+OCCHIO_CONFIG=configs/board_grove_local.yaml
+OCCHIO_WRAPPER=libcamerify
+OCCHIO_MCU_APP=/home/arduino/ArduinoApps/crosswalk_grove_live_20261011_56e47cc

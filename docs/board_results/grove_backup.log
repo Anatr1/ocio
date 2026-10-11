@@ -1,0 +1,9 @@
+[INFO] Stopping app "OCCHIO crosswalk MCU"
+[INFO] Stopping microcontroller...
+[INFO]  Container crosswalk_mcu-main-1  Stopping
+[INFO]  Container crosswalk_mcu-main-1  Stopped
+Progress[]: 100%
+✓ App '"OCCHIO crosswalk MCU" stopped successfully.
+/home/arduino/occhio-before-grove-20261011-0dc35bc-eoyv90
+inactive
+inactive

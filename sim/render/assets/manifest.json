@@ -1,0 +1,174 @@
+{
+  "vendor/loaders/GLTFLoader.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/loaders/GLTFLoader.js",
+    "sha256": "d073b438e6a07e1359741dd5d6c76c953420cc0d4fd84eb1bdde94315540e6a3"
+  },
+  "vendor/loaders/RGBELoader.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/loaders/RGBELoader.js",
+    "sha256": "f0e87d0008d9484d31358b32befd1bf80e4301f77573cc9a7cf7d871cc3f64b4"
+  },
+  "vendor/loaders/KTX2Loader.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/loaders/KTX2Loader.js",
+    "sha256": "9cca5aa35fdb04b4818c792c8d08fb6e7607dcafc46e7b06a9485e9f25261be7"
+  },
+  "vendor/utils/BufferGeometryUtils.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/utils/BufferGeometryUtils.js",
+    "sha256": "9be041e96308775d00e2695cc607645b9a9b64fd7c0e759dd8f7c00a8d92becb"
+  },
+  "vendor/utils/SkeletonUtils.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/utils/SkeletonUtils.js",
+    "sha256": "83748c5072a5ce96e9d68d8efda908a1f1a06c0b5fd2618edc3e54a361a8fd5b"
+  },
+  "vendor/utils/WorkerPool.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/utils/WorkerPool.js",
+    "sha256": "94ff7b608caf3b827ffa95bd6092b9d174732b856915b38ed006b4f049f95675"
+  },
+  "vendor/libs/basis/basis_transcoder.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/libs/basis/basis_transcoder.js",
+    "sha256": "48a0ef319a28bf0224ee88ded34f74eaf97c175bba9eb18b47fb9720510ad6c4"
+  },
+  "vendor/libs/basis/basis_transcoder.wasm": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/libs/basis/basis_transcoder.wasm",
+    "sha256": "79ae97d781e10a566659c689b7bb1de91726453f55f9f5e3bcc07a4e3904070f"
+  },
+  "vendor/libs/basis/README.md": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/libs/basis/README.md",
+    "sha256": "930b11bbbb742b2525491b0964f0462d63d8b21383c0623ec4c98c43d53723c6"
+  },
+  "vendor/libs/ktx-parse.module.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/libs/ktx-parse.module.js",
+    "sha256": "f73948e7bbf8db386076fda0458160bdb50ce2e11e88fa7da0f339e1ec547493"
+  },
+  "vendor/libs/zstddec.module.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/libs/zstddec.module.js",
+    "sha256": "5cbf818e842628a4464e748594a6deae18ceddda3c2f541e7b3a0ff5fc7611e2"
+  },
+  "vendor/LICENSE": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/LICENSE",
+    "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
+  },
+  "assets/human.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/glTF-Binary/CesiumMan.glb",
+    "sha256": "b7001eaeea8254bd44773bcd247e78696d94169388fbb2a1800fc69434e777d9"
+  },
+  "assets/human-LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/README.md",
+    "sha256": "1bf7fa794013d2e0de8c244518936b04d95cba780f4510c8cceee4c23dbc04a8"
+  },
+  "assets/human-alt.glb": {
+    "url": "https://raw.githubusercontent.com/BabylonJS/Assets/master/meshes/HVGirl.glb",
+    "sha256": "ca7840ac8726d771ea75ad49df05e3d404a0654c5a8bf96edf2018802c37f5d7"
+  },
+  "assets/human-alt-LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/BabylonJS/Assets/master/README.md",
+    "sha256": "168b688c6848e22134ee9fc6f9ec325ca0b4d4f9be6e4ec86b411edf62b226f0"
+  },
+  "assets/Babylon-LICENSE": {
+    "url": "https://raw.githubusercontent.com/BabylonJS/Assets/master/LICENSE",
+    "sha256": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661"
+  },
+  "assets/car.glb": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/GLB/CarConcept.glb",
+    "sha256": "659c592e20aba7afa920db7d14ad767874741384c215ee1df23a5e1c5e1c411c"
+  },
+  "assets/car-LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/README.md",
+    "sha256": "af5f76ead54a5039288924f37081d6e1fcd5ccc5b2628faedb926325a73099cd"
+  },
+  "assets/Cesium-mark-LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/LICENSES/LicenseRef-LegalMark-Cesium.txt",
+    "sha256": "7bafc8dbff0b9d04297bced53a47809e3ab6721cb35b4a2d780533476b28ebd4"
+  },
+  "assets/Khronos-mark-LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/LICENSES/LicenseRef-LegalMark-Khronos.txt",
+    "sha256": "2ea9821de870cf8d3faaa115ffc47f56632bf9f98d54d2ac1ce61592040b765c"
+  },
+  "assets/asphalt.jpg": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_diff_1k.jpg",
+    "sha256": "1aa5ce99f58a625c71d48cfc3e68b65ca85ccb00f39e045c0a928608a0ea25ed"
+  },
+  "assets/asphalt-normal.jpg": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_nor_gl_1k.jpg",
+    "sha256": "42a1c381b53204e83a982db2864479a30bc127bbdeebb1006f8ee51bff099df3"
+  },
+  "assets/asphalt-rough.jpg": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_02/asphalt_02_rough_1k.jpg",
+    "sha256": "70ba3edc65525eb4dc366cf010ca7ae0bd34e0251ff0225c2dad627a873d0712"
+  },
+  "assets/sky.hdr": {
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/kloppenheim_06_puresky_1k.hdr",
+    "sha256": "206c67e3a1b992282821cf06662bdd69bbb4915c1c4444a66338a40d6a7d4e34"
+  },
+  "assets/human-scan.glb": {
+    "url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-110/3a606acdfbe04478b0ab8dfe0f1de978.glb",
+    "sha256": "19bfad77513faeeaf53d45efadd2f0d2f3ae8b4277decf489018c10fe8fe0d3c"
+  },
+  "vendor/loaders/FBXLoader.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/loaders/FBXLoader.js",
+    "sha256": "e8c2a47dffc04ca5699839a6d80fa9140fd9c943f62cea8d074736d7de9c5d98"
+  },
+  "vendor/loaders/TGALoader.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/loaders/TGALoader.js",
+    "sha256": "ce938459ed99d5234f9665270cca8552464d0d1703a094e49760631e6b14c7a3"
+  },
+  "vendor/libs/fflate.module.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/libs/fflate.module.js",
+    "sha256": "5686c3d02432a47d8e31f16cabc2d725bbf4531a3abb37cc6fd00142256e3730"
+  },
+  "assets/rocketbox/human.fbx": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Export/Male_Adult_04.fbx",
+    "sha256": "fe0d026bc59e7d7ea8f4049edf77ee8040e050224b44a10fb4727b9b3d6efba0"
+  },
+  "assets/rocketbox/walk.fbx": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Animations/all_animations_max_motextr_xy/m_walk_neutral_01.max.fbx",
+    "sha256": "e6805ae6b6b49fe10f06c1b17b14ddde90d09b9fea689ac34793df252f44dcd0"
+  },
+  "assets/rocketbox/LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/LICENSE.md",
+    "sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352"
+  },
+  "assets/rocketbox/m006_body_color.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_color.tga",
+    "sha256": "8dd7a0a1de383bd295f9f6f42b4ab484b2afa4ab920521a161bd18b18c3aae0f"
+  },
+  "assets/rocketbox/m006_body_normal.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_normal.tga",
+    "sha256": "1d5062e2c5012bca62c2090cf064c8e2d335daafb0ab62b431e47c628ad781a7"
+  },
+  "assets/rocketbox/m006_body_specular.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_specular.tga",
+    "sha256": "f3b693a9e7a6090f01a6e6f199eb9d53ba0b3f236ca596074fcb915d5bcfbc1f"
+  },
+  "assets/rocketbox/m006_head_color.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_color.tga",
+    "sha256": "e889edd96192a396efec0bf0baed370fdff4a8d3b2efdc3809722eb19cd21941"
+  },
+  "assets/rocketbox/m006_head_normal.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_normal.tga",
+    "sha256": "ca51b8fd271751dd5b58493038c0ac4496c3c51a986d69541723a680ccbcf91b"
+  },
+  "assets/rocketbox/m006_head_specular.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_specular.tga",
+    "sha256": "dd4ca495955bab36c599030b880f78e8bb6f20d4112353298cdd8800d15a50ff"
+  },
+  "assets/rocketbox/m006_opacity_color.tga": {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_opacity_color.tga",
+    "sha256": "3c5656dbad4872676c9469f6da09690c0e891148394165dda11b265cb2b014c0"
+  },
+  "vendor/curves/NURBSCurve.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/curves/NURBSCurve.js",
+    "sha256": "34dee297704432358680934a8d5acae35f05c71aa59ce7a8e97decb0ac38e452"
+  },
+  "vendor/curves/NURBSUtils.js": {
+    "url": "https://raw.githubusercontent.com/mrdoob/three.js/r160/examples/jsm/curves/NURBSUtils.js",
+    "sha256": "86bcf4002721854739f6dc7fd185b5eb0540d6b8676feaae6979bb605baac85e"
+  },
+  "assets/bicycle-1.glb": {
+    "url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-054/99d6dce2e49e4ba185ac108ab044524d.glb",
+    "sha256": "ea89f5da6545ea57e4e14fc4e267e15e2a198c5a37f0bec470100b0b24f47e06"
+  },
+  "assets/bicycle-2.glb": {
+    "url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-039/17ab00cb733443a2b552a2b620a68087.glb",
+    "sha256": "c847039ac5df3f4b23bce846984b8f5c2a5283bf40802d5f6d713d1acd8a46c9"
+  }
+}

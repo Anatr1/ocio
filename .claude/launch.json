@@ -1,0 +1,129 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sim-photoreal",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "tools/sim_run.py",
+        "--scenario",
+        "mixed",
+        "--fps",
+        "5",
+        "--realtime",
+        "--set",
+        "sim.browser=chrome",
+        "--port",
+        "8004"
+      ],
+      "port": 8004
+    },
+    {
+      "name": "sim-mixed",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "crosswalk",
+        "--sim",
+        "mixed",
+        "--set",
+        "log.dir=runs",
+        "--port",
+        "8000"
+      ],
+      "port": 8000
+    },
+    {
+      "name": "sim-beacon",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "crosswalk",
+        "--sim",
+        "mixed",
+        "--set",
+        "signal.mode=beacon",
+        "--port",
+        "8001"
+      ],
+      "port": 8001
+    },
+    {
+      "name": "fleet",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "tools/demo_fleet.py",
+        "--port",
+        "9000"
+      ],
+      "port": 9000
+    },
+    {
+      "name": "video-demo",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "crosswalk",
+        "--config",
+        "configs/video_demo.yaml",
+        "--port",
+        "8002"
+      ],
+      "port": 8002
+    },
+    {
+      "name": "sim-realnn",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "crosswalk",
+        "--sim",
+        "mixed",
+        "--sim-detector",
+        "real",
+        "--port",
+        "8003",
+        "--set",
+        "log.dir="
+      ],
+      "port": 8003
+    },
+    {
+      "name": "site-replay",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "crosswalk",
+        "--config",
+        "configs/site.yaml",
+        "--set",
+        "source.loop=true",
+        "--port",
+        "8005"
+      ],
+      "port": 8005
+    },
+    {
+      "name": "intersection",
+      "runtimeExecutable": "C:/Users/fedem/.venvs/hackturin/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "crosswalk",
+        "--intersection",
+        "--intersection-render",
+        "photoreal",
+        "--intersection-detector",
+        "real",
+        "--intersection-model",
+        "models/yolo11n_416.onnx",
+        "--intersection-camera",
+        "N",
+        "--intersection-scenario",
+        "commute",
+        "--port",
+        "8010"
+      ],
+      "port": 8010
+    }
+  ]
+}

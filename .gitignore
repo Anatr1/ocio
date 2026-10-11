@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Large / generated artefacts
+runs/
+models/*.pt
+models/*.onnx
+models/*.tflite
+models/*_ncnn_model/
+models/*_saved_model/
+models/*.param
+models/*.bin
+datasets/
+data/recordings/
+data/frames/
+data/stats/
+configs/board_grove_local.yaml
+offline-wheels/
+/sim/render/vendor/
+/sim/render/assets/*
+!/sim/render/assets/manifest.json
+*.mp4
+*.avi
+*.mkv
+economics/data/raw/
+!data/videos/README.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local asset-generation Python environment
+.venv-assets/
+
+# Raw team footage for the submission video: never in the public repo
+data/phone/
+data/screen_captures/
+!data/videos/submission/*.mp4

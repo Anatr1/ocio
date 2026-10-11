@@ -1,0 +1,16 @@
+# Dress rehearsal on the laptop: same settings as the board, laptop webcam, own calibration file.
+include: board.yaml
+node:
+  id: laptop-webcam
+  name: "Laptop webcam rehearsal"
+source:
+  device: 0
+detector:
+  threads: 4
+scene:
+  # small indoor "crosswalk" (e.g. tape rectangle on the floor / a table): measure and edit, or set via /calibrate.html
+  crosswalk: {width: 1.0, length: 2.0}
+  curb_depth: 1.0
+  approach: 4.0
+  sidewalk_width: 1.0
+  stripe: {width: 0.2, gap: 0.2}

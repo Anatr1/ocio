@@ -1,0 +1,7 @@
+READ_ONLY_BOOT_STATUS [1, 1, 1, 4, 0, 0, 1, -1]
+inactive
+inactive
+user:crosswalk_grove_live_20261011_0dc35bc_r2                                                  OCCHIO crosswalk MCU                                     🚦   running       false   
+user:crosswalk_mcu                                                                             OCCHIO crosswalk MCU                                     🚦   stopped       false   
+user:grove_oled_buzzer_test                                                                    Grove OLED e buzzer test                                 🔊   stopped       false   
+user:crosswalk_grove_live_20261011_0dc35bc                                                                                                                   uninitialized false   

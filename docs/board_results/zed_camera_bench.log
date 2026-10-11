@@ -1,0 +1,30 @@
+{"machine": "aarch64", "python": "3.13.5", "cpus": 4, "time": "2026-10-10 13:50:58", "temp_start_c": 41.3}
+[
+ {
+  "fourcc": "YUYV",
+  "req": "1344x376",
+  "got": "1344x376",
+  "fps": 30.3,
+  "ok": true
+ },
+ {
+  "fourcc": "YUYV",
+  "req": "2560x720",
+  "got": "2560x720",
+  "fps": 29.0,
+  "ok": true
+ },
+ {
+  "fourcc": "YUYV",
+  "req": "672x376",
+  "got": "1344x376",
+  "fps": 29.3,
+  "ok": true
+ }
+]
+# Detector benchmark - 2026-10-10 13:50:58 (aarch64, 4 cpus, py 3.13.5)
+
+| model | backend | imgsz | threads | pre ms | infer ms | post ms | total ms | fps | dets/frame | conf |
+|---|---|---|---|---|---|---|---|---|---|---|
+
+report: runs/bench_20261010-135108.md

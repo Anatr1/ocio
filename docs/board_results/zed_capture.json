@@ -1,0 +1,277 @@
+[
+  {
+    "request": {
+      "device": "/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0",
+      "width": 1344,
+      "height": 376,
+      "fps": 30,
+      "fourcc": "YUYV",
+      "stereo": "left",
+      "resize_width": null
+    },
+    "obtained": {
+      "camera_fps": 29.7,
+      "width": 672,
+      "height": 376,
+      "raw": "1344x376"
+    },
+    "shapes": [
+      [
+        376,
+        672,
+        3
+      ]
+    ],
+    "missing_reads": 0,
+    "elapsed_s": 20.01,
+    "process_cpu_one_core_pct": 46.4,
+    "system_samples": [
+      {
+        "cpu_pct": null,
+        "cpu_temp_c": 38.5,
+        "mem_used_mb": 623.0,
+        "load1": 0.63,
+        "uptime_s": 0.0
+      },
+      {
+        "cpu_pct": null,
+        "cpu_temp_c": 38.5,
+        "mem_used_mb": 623.0,
+        "load1": 0.63,
+        "uptime_s": 0.0
+      },
+      {
+        "cpu_pct": 15.7,
+        "cpu_temp_c": 38.5,
+        "mem_used_mb": 623.0,
+        "load1": 0.63,
+        "uptime_s": 1.0
+      },
+      {
+        "cpu_pct": 14.2,
+        "cpu_temp_c": 38.5,
+        "mem_used_mb": 620.0,
+        "load1": 0.63,
+        "uptime_s": 2.0
+      },
+      {
+        "cpu_pct": 13.9,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 616.0,
+        "load1": 0.58,
+        "uptime_s": 3.0
+      },
+      {
+        "cpu_pct": 13.9,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 614.0,
+        "load1": 0.58,
+        "uptime_s": 4.0
+      },
+      {
+        "cpu_pct": 16.3,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 612.0,
+        "load1": 0.58,
+        "uptime_s": 5.0
+      },
+      {
+        "cpu_pct": 15.3,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.58,
+        "uptime_s": 6.0
+      },
+      {
+        "cpu_pct": 14.8,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.58,
+        "uptime_s": 7.0
+      },
+      {
+        "cpu_pct": 13.5,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.53,
+        "uptime_s": 8.0
+      },
+      {
+        "cpu_pct": 15.2,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 611.0,
+        "load1": 0.53,
+        "uptime_s": 9.0
+      },
+      {
+        "cpu_pct": 15.1,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.53,
+        "uptime_s": 10.0
+      },
+      {
+        "cpu_pct": 15.5,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 611.0,
+        "load1": 0.53,
+        "uptime_s": 11.0
+      },
+      {
+        "cpu_pct": 15.7,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.53,
+        "uptime_s": 12.0
+      },
+      {
+        "cpu_pct": 15.0,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 611.0,
+        "load1": 0.49,
+        "uptime_s": 13.0
+      },
+      {
+        "cpu_pct": 13.5,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 611.0,
+        "load1": 0.49,
+        "uptime_s": 14.0
+      },
+      {
+        "cpu_pct": 15.0,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.49,
+        "uptime_s": 15.0
+      },
+      {
+        "cpu_pct": 15.5,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 611.0,
+        "load1": 0.49,
+        "uptime_s": 16.0
+      },
+      {
+        "cpu_pct": 14.8,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 611.0,
+        "load1": 0.49,
+        "uptime_s": 17.0
+      },
+      {
+        "cpu_pct": 14.4,
+        "cpu_temp_c": 38.8,
+        "mem_used_mb": 611.0,
+        "load1": 0.93,
+        "uptime_s": 18.0
+      }
+    ]
+  },
+  {
+    "request": {
+      "device": "/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0",
+      "width": 2560,
+      "height": 720,
+      "fps": 30,
+      "fourcc": "YUYV",
+      "stereo": "left",
+      "resize_width": 640
+    },
+    "obtained": {
+      "camera_fps": 15.1,
+      "width": 640,
+      "height": 360,
+      "raw": "2560x720"
+    },
+    "shapes": [
+      [
+        360,
+        640,
+        3
+      ]
+    ],
+    "missing_reads": 0,
+    "elapsed_s": 20.04,
+    "process_cpu_one_core_pct": 54.8,
+    "system_samples": [
+      {
+        "cpu_pct": null,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 624.0,
+        "load1": 0.93,
+        "uptime_s": 0.0
+      },
+      {
+        "cpu_pct": 20.5,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 624.0,
+        "load1": 0.93,
+        "uptime_s": 1.0
+      },
+      {
+        "cpu_pct": 19.7,
+        "cpu_temp_c": 39.1,
+        "mem_used_mb": 624.0,
+        "load1": 0.85,
+        "uptime_s": 3.0
+      },
+      {
+        "cpu_pct": 20.0,
+        "cpu_temp_c": 39.5,
+        "mem_used_mb": 623.0,
+        "load1": 0.85,
+        "uptime_s": 5.0
+      },
+      {
+        "cpu_pct": 19.3,
+        "cpu_temp_c": 39.8,
+        "mem_used_mb": 623.0,
+        "load1": 0.85,
+        "uptime_s": 7.0
+      },
+      {
+        "cpu_pct": 20.6,
+        "cpu_temp_c": 39.8,
+        "mem_used_mb": 624.0,
+        "load1": 0.79,
+        "uptime_s": 10.0
+      },
+      {
+        "cpu_pct": 20.3,
+        "cpu_temp_c": 39.8,
+        "mem_used_mb": 624.0,
+        "load1": 0.79,
+        "uptime_s": 12.0
+      },
+      {
+        "cpu_pct": 19.8,
+        "cpu_temp_c": 39.8,
+        "mem_used_mb": 624.0,
+        "load1": 0.72,
+        "uptime_s": 14.0
+      },
+      {
+        "cpu_pct": 19.5,
+        "cpu_temp_c": 39.8,
+        "mem_used_mb": 624.0,
+        "load1": 0.72,
+        "uptime_s": 16.0
+      },
+      {
+        "cpu_pct": 20.2,
+        "cpu_temp_c": 40.1,
+        "mem_used_mb": 624.0,
+        "load1": 0.72,
+        "uptime_s": 18.0
+      },
+      {
+        "cpu_pct": 19.9,
+        "cpu_temp_c": 39.8,
+        "mem_used_mb": 624.0,
+        "load1": 0.66,
+        "uptime_s": 20.0
+      }
+    ]
+  }
+]

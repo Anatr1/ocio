@@ -1,0 +1,27 @@
+# Live CAM0/Grove; geometry from site.yaml for the operator-confirmed unchanged view.
+# Partial six-stripe rectangle; kerbs/waiting areas are not visible.
+include: board_imx219.yaml
+mcu:
+  enabled: true
+public:
+  demo: false
+  mock_month: false
+scene:
+  crosswalk:
+    width: 3.0
+    length: 5.5
+  calibration:
+    image_points:
+    - - 6.0
+      - 348.0
+    - - 128.0
+      - 278.0
+    - - 513.0
+      - 317.0
+    - - 456.0
+      - 405.0
+    image_size:
+    - 632
+    - 480
+    hfov_deg: 70
+

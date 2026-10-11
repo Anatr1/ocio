@@ -1,0 +1,3 @@
+[node] calibrated: camera height 17.98 m, tilt 90.0 deg, hfov 60 deg (fov), reproj 0.000 m
+[node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-133519_demo-video
+[node] dashboard on http://localhost:8002  (LAN: http://<board-ip>:8002)

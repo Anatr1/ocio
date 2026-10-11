@@ -1,0 +1,16 @@
+[Unit]
+Description=OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot
+# The router socket exists before the MCU app runs: "ping" answers "method not available" until this starts.
+After=arduino-router.service network.target
+Wants=arduino-router.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=arduino
+EnvironmentFile=-/etc/default/occhio
+ExecStart=/bin/sh -c 'exec arduino-app-cli app start "$${OCCHIO_MCU_APP:-/home/arduino/ArduinoApps/crosswalk_mcu}"'
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target

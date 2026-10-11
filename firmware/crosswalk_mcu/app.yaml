@@ -1,0 +1,3 @@
+name: OCCHIO crosswalk MCU
+icon: 🚦
+description: "Real-time side of the OCCHIO crosswalk node: signal lamps, warning beacon, LED matrix, push button and a fail-safe watchdog. The vision pipeline runs on Linux and talks to this sketch through the arduino-router."

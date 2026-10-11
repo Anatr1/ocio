@@ -1,0 +1,45 @@
+# Arduino UNO Q 4GB + USB camera (via powered USB-C hub). Edit after running tools/calibrate.py on site.
+node:
+  id: cw-01
+  name: "HackTurin crosswalk"
+  brand: òcio
+  tagline: "the crosswalk that watches out for you"
+  geo: {lat: 45.0627, lon: 7.6776, road_bearing_deg: 90}   # Centro Congressi Unione Industriali (approx.)
+source:
+  type: camera
+  device: 0              # /dev/video0
+  width: 640
+  height: 480
+  fps: 30
+  fourcc: MJPG
+detector:
+  backend: onnx          # pick the winner of tools/bench.py (onnx / ncnn / tflite)
+  model: models/yolo11n_320.onnx
+  imgsz: 320
+  threads: 3             # leave one A53 core for capture / tracking / web server
+  conf: 0.35
+  conf_low: 0.15
+  max_hz: 10
+  idle_hz: 1.0
+  motion_gate: true
+  roi: null              # [x, y, w, h] - crop to the crosswalk + approaches to gain resolution
+scene:
+  crosswalk: {width: 4.0, length: 8.0}   # MEASURE ON SITE: W = stripe length (along road), L = curb to curb
+  curb_depth: 2.5
+  approach: 25.0
+  speed_limit_kmh: 50
+  stripe: {width: 0.5, gap: 0.5}
+  calibration:
+    image_points: null   # filled by tools/calibrate.py
+    image_size: [640, 480]
+    hfov_deg: 70
+signal:
+  mode: adaptive         # adaptive | fixed | beacon
+mcu:
+  enabled: auto
+server:
+  port: 8000
+  stream_hz: 10
+  mjpeg_fps: 4
+log:
+  dir: runs

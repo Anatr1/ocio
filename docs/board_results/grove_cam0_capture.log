@@ -1,0 +1,22 @@
+[0:03:06.838295500] [2062] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:03:06.890392375] [2073] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:354 [0;32m'imx219 0-0010': [0mRecommended V4L2 control 0x009a0922 not supported
+[0:03:06.890474354] [2073] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:426 [0;32m'imx219 0-0010': [0mThe sensor kernel driver needs to be fixed
+[0:03:06.890491073] [2073] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:428 [0;32m'imx219 0-0010': [0mSee Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+[0:03:06.891287115] [2073] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:594 [0;32m'imx219 0-0010': [0mFailed to retrieve the camera location
+[0:03:06.891352896] [2073] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:616 [0;32m'imx219 0-0010': [0mRotation control not available, default to 0 degrees
+[0:03:06.895641542] [2073] [1;33m WARN [1;37mIPAProxy [1;34mipa_proxy.cpp:160 [0mConfiguration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+[0:03:06.897975396] [2062] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:03:06.898185136] [2062] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:03:06.898894511] [2073] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:03:06.899133782] [2062] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:03:06.899305396] [2062] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:03:06.900136802] [2073] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:03:06.900356750] [2062] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:03:06.906730657] [2062] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:03:06.907545500] [2073] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:03:06.908360448] [2062] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:03:06.908605240] [2062] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:03:06.909323625] [2073] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+[0:03:06.909549771] [2062] [1;33m WARN [1;37mV4L2Compat [1;34mv4l2_camera_proxy.cpp:215 [0mCamera does not support FrameDurationLimits
+[0:03:08.070568417] [2075] [1;32m INFO [1;37mDebayer [1;34mdebayer_cpu.cpp:788 [0mProcessed 30 frames in 174168us, 5805 us/frame
+{"scope": "CAM0 capture only; no MCU or counting acceptance", "frames": 60, "missing": 0, "image_size": [632, 480], "elapsed_s": 1.1847190099999807}

@@ -1,0 +1,6 @@
+[INFO] Stopping app "OCCHIO crosswalk MCU"
+[INFO] Stopping microcontroller...
+[INFO]  Container crosswalk_grove_live_20261011_0dc35bc_r2-main-1  Stopping
+[INFO]  Container crosswalk_grove_live_20261011_0dc35bc_r2-main-1  Stopped
+Progress[]: 100%
+✓ App '"OCCHIO crosswalk MCU" stopped successfully.

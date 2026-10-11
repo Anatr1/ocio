@@ -1,0 +1,10 @@
+# Laptop / training box (export, auto-labelling, fine-tuning, simulator, tests)
+-r requirements-board.txt
+torch
+torchvision
+ultralytics
+onnx
+onnxslim
+ncnn
+scipy
+pytest

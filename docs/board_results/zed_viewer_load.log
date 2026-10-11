@@ -1,0 +1,49 @@
+{
+  "medians": {
+    "baseline_60s": {
+      "cpu_pct": 85.65,
+      "infer_ms": 114.2,
+      "det_hz": 7.5,
+      "camera_fps": 15.4
+    },
+    "five_extra_clients_120s": {
+      "cpu_pct": 85.6,
+      "infer_ms": 115.8,
+      "det_hz": 7.3,
+      "camera_fps": 15.4
+    },
+    "recovery_30s": {
+      "cpu_pct": 86.2,
+      "infer_ms": 119.7,
+      "det_hz": 7.3,
+      "camera_fps": 15.3
+    }
+  },
+  "clients": [
+    {
+      "state_events": 880,
+      "max_state_gap_s": 0.4974983979999479,
+      "errors": []
+    },
+    {
+      "state_events": 879,
+      "max_state_gap_s": 0.5000665070000423,
+      "errors": []
+    },
+    {
+      "state_events": 879,
+      "max_state_gap_s": 0.5045042030000104,
+      "errors": []
+    },
+    {
+      "state_events": 880,
+      "max_state_gap_s": 0.4979435430000194,
+      "errors": []
+    },
+    {
+      "state_events": 880,
+      "max_state_gap_s": 0.5011588220000931,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{"utc": "2026-10-10T16:02:41Z", "poll_elapsed_s": 0.00013068499902146868, "error": "URLError: <urlopen error timed out>"}
+{"utc": "2026-10-10T16:02:43Z", "poll_elapsed_s": 2.003196426998329, "error": "URLError: <urlopen error timed out>"}
+{"utc": "2026-10-10T16:02:45Z", "poll_elapsed_s": 4.005083665000711, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:46Z", "poll_elapsed_s": 5.209084382000583, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:47Z", "poll_elapsed_s": 6.240200910000567, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:48Z", "poll_elapsed_s": 7.373660487999587, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:49Z", "poll_elapsed_s": 8.487411280999368, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:50Z", "poll_elapsed_s": 9.517013796001265, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:51Z", "poll_elapsed_s": 10.643127390998416, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:53Z", "poll_elapsed_s": 11.963119495998399, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:54Z", "poll_elapsed_s": 13.192124728000636, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:55Z", "poll_elapsed_s": 14.20316925500083, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:56Z", "poll_elapsed_s": 15.255454304999148, "error": "URLError: <urlopen error [Errno 111] Connection refused>"}
+{"utc": "2026-10-10T16:02:57Z", "poll_elapsed_s": 16.48213757299891, "http_status": 200, "health": {"ok": true, "t": 1791648164.2422845, "node": "cw-01-imx219", "vision_age_s": 0.18, "mcu_connected": true, "failsafe": false}}

@@ -1,0 +1,2 @@
+READ_ONLY_BOOT_STATUS [1, 1, 1, 4, 0, 0, 1, 8236]
+inactive

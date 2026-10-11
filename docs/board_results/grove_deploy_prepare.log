@@ -1,0 +1,5 @@
+board dependencies OK
+Prepared grove MCU app at /home/arduino/ArduinoApps/crosswalk_grove_live_20261011_0dc35bc (OLED: True)
+Nothing was flashed or started. See docs/HANDOFF_LIVE_GPIO.md for installation and verification.
+[   12.054978] imx219 2-0010: Error reading reg 0x0000: -6
+[   12.062474] imx219 2-0010: error -ENXIO: failed to read chip id 219

@@ -1,0 +1,8 @@
+# Live IMX219 + the packaged Grove MCU app. No fabricated demo history.
+# Copy to a local site-specific config before calibrating; do not overwrite measured calibration on updates.
+include: board_imx219.yaml
+mcu:
+  enabled: true          # refuse silent virtual fallback when the router socket is absent
+public:
+  demo: false
+  mock_month: false

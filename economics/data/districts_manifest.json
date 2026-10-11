@@ -1,0 +1,75 @@
+{
+  "dataset_version": "torino-8-circoscrizioni-2025-anagrafe-v1",
+  "scope": "Torino city only",
+  "retrieved_at": "2026-10-10T15:34:35.247641+00:00",
+  "districts": 8,
+  "population": 858874,
+  "virtual_address_population": 4375,
+  "city_registry_population": 863249,
+  "population_date": "2025-12-31",
+  "population_definition": "Municipal anagrafe registration",
+  "sources": [
+    {
+      "id": "district_boundaries",
+      "title": "Comune di Torino Geoportale - Azzonamenti Statistici Circoscrizioni",
+      "url": "http://geoportale.comune.torino.it/geodati/zip/circoscrizioni_geo.zip",
+      "reference": "8-district boundaries introduced2016; RNDT metadata updated2023-05-24",
+      "metadata_url": "https://geodati.gov.it/geoportale/visualizzazione-metadati/scheda-metadati?metadataid=c_l219%3A69a50017-e6b4-4b00-b06b-c4507c1afc15",
+      "license": "Official municipal open geodata; retain Comune di Torino attribution",
+      "sha256": "75b59ef0348dce03bb45602a989eebb814597771fbbfaf04b87c64ffb4cff0df",
+      "retrieved_at": "2026-10-10T15:34:35.247641+00:00",
+      "caveat": "Published HTTP download used because source HTTPS endpoint has TLS handshake failure. ZIP CRS EPSG3003, transformed to WGS84; map simplified0.000025degrees. Exact dataset licence identifier not established; attribution retained."
+    },
+    {
+      "id": "district_population",
+      "title": "Comune di Torino - Population by sex and circoscrizione2025",
+      "url": "https://www.comune.torino.it/media/9692",
+      "reference": "2025-12-31",
+      "pdf_url": "https://www.comune.torino.it/media/9695",
+      "license": "Municipal statistical open data; retain Ufficio Statistica and Archivio Anagrafico attribution",
+      "sha256": "0df70a1d6df550dc236b261901c1c993de143c0edd50db1edef288f495861e25",
+      "retrieved_at": "2026-10-10T15:34:35.247641+00:00",
+      "caveat": "Anagrafe registration, not ISTAT resident population.4,375 virtual-address residents excluded from mapped district denominator; not assigned to district1. Exact dataset licence identifier not established; attribution retained."
+    },
+    {
+      "id": "district_names",
+      "title": "Comune di Torino - Current circoscrizioni names",
+      "url": "https://decentramento.comune.torino.it/",
+      "reference": "Current official names inspected2026-10-10",
+      "license": "Official administrative names; attribute Comune di Torino"
+    },
+    {
+      "id": "osm",
+      "title": "OpenStreetMap crossing-node snapshot",
+      "url": "https://www.openstreetmap.org/copyright",
+      "reference": "2026-10-10T15:11:38Z",
+      "license": "ODbL1.0; OpenStreetMap contributors",
+      "sha256": "0f353b9d33fb343139fa4b3d05ec86dd3f0904111a94d1e35f62e037159f8976",
+      "caveat": "Mapped highway=crossing nodes, not a complete asset register or certified installable sites. Separate lane nodes may belong to one crossing complex. No deduplication into installation sites."
+    },
+    {
+      "id": "traffic",
+      "title": "5T measured traffic snapshot",
+      "url": "https://opendata.5t.torino.it/get_fdt",
+      "reference": "2026-10-10T15:05:02.428Z",
+      "license": "IODL2.0; Citta di Torino /5T",
+      "sha256": "8ae0024442dbe172c5170ca03c5c8fa194a381664c0a25388da514ddc3368659",
+      "caveat": "One Saturday afternoon snapshot, not annual average traffic. Directional section medians are not crossing-specific counts. Zero-accuracy counters and motorway/raccordo sections excluded from local benchmarks."
+    }
+  ],
+  "mapped_crossings": 13424,
+  "signalized_crossings": 4009,
+  "city_crossing_nodes_before_district_assignment": 13480,
+  "unassigned_crossing_nodes": 56,
+  "unassigned_valid_traffic_counters": 0,
+  "traffic_counter_count": 19,
+  "caveats": [
+    "All mapped district population uses the same2025 anagrafe source; never combine with2024 ISTAT municipal population.",
+    "Virtual-address registration is reported separately and not placed arbitrarily in a mapped district.",
+    "Crossing inventory is OSM nodes, not installation complexes or a complete certified asset inventory.",
+    "Only cached OSM /traffic points already inside ISTAT Torino municipality001272 are considered; no surrounding municipalities included.",
+    "Municipal district geometry and ISTAT municipality geometry are different reference datasets. Unassigned edge nodes are reported, not allocated to the nearest district.",
+    "Traffic snapshot is a single Saturday five-minute observation, not annual district demand; uncovered districts have null traffic benchmark.",
+    "No district commuter distribution available in these sources; none is fabricated."
+  ]
+}

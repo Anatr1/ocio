@@ -1,0 +1,7 @@
+Sat Oct 10 16:14:47 UTC 2026
+{"ok":true,"t":1791648887.3945735,"node":"cw-01-imx219","vision_age_s":0.16,"mcu_connected":true,"failsafe":false}MainPID=2254
+NRestarts=0
+ActiveState=active
+enabled
+enabled
+camera_fault_marker_absent

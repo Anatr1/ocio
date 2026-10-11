@@ -1,0 +1,4 @@
+Compile only; upload not requested
+Sketch uses 123700 bytes (15%) of program storage space. Maximum is 786432 bytes.
+Global variables use 51784 bytes (19%) of dynamic memory, leaving 210360 bytes for local variables. Maximum is 262144 bytes.
+COMPILE_EXIT=0

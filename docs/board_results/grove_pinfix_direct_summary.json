@@ -1,0 +1,159 @@
+{
+  "samples": 328,
+  "transitions": [
+    {
+      "elapsed_s": 0.001,
+      "status": [
+        1,
+        1,
+        1,
+        4,
+        0,
+        0,
+        1,
+        -1
+      ]
+    },
+    {
+      "elapsed_s": 0.214,
+      "status": [
+        1,
+        1,
+        0,
+        3,
+        1,
+        0,
+        1,
+        25
+      ],
+      "previous_heartbeat_age_ms": -1
+    },
+    {
+      "elapsed_s": 3.312,
+      "status": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        58
+      ],
+      "previous_heartbeat_age_ms": 486
+    },
+    {
+      "elapsed_s": 6.301,
+      "status": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        513
+      ],
+      "previous_heartbeat_age_ms": 406
+    },
+    {
+      "elapsed_s": 9.401,
+      "status": [
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        8
+      ],
+      "previous_heartbeat_age_ms": 437
+    },
+    {
+      "elapsed_s": 12.497,
+      "status": [
+        1,
+        1,
+        0,
+        1,
+        3,
+        0,
+        1,
+        35
+      ],
+      "previous_heartbeat_age_ms": 463
+    },
+    {
+      "elapsed_s": 15.59,
+      "status": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        59
+      ],
+      "previous_heartbeat_age_ms": 487
+    },
+    {
+      "elapsed_s": 18.578,
+      "status": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        1,
+        514
+      ],
+      "previous_heartbeat_age_ms": 405
+    },
+    {
+      "elapsed_s": 21.678,
+      "status": [
+        1,
+        1,
+        0,
+        3,
+        1,
+        0,
+        1,
+        9
+      ],
+      "previous_heartbeat_age_ms": 437
+    },
+    {
+      "elapsed_s": 26.264,
+      "status": [
+        1,
+        1,
+        1,
+        4,
+        0,
+        0,
+        1,
+        2057
+      ],
+      "previous_heartbeat_age_ms": 1951
+    },
+    {
+      "elapsed_s": 30.749,
+      "status": [
+        1,
+        1,
+        0,
+        3,
+        1,
+        0,
+        1,
+        36
+      ],
+      "previous_heartbeat_age_ms": 6431
+    }
+  ],
+  "physical_timing": "UNMEASURED: read-only firmware state is not GPIO timing"
+}

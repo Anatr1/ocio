@@ -1,0 +1,9 @@
+2026-10-11T09:33:12Z
+# OCCHIO boot settings (edit, then: sudo systemctl restart occhio)
+OCCHIO_CONFIG=configs/board_grove_local.yaml
+OCCHIO_WRAPPER=libcamerify
+OCCHIO_MCU_APP=/home/arduino/ArduinoApps/crosswalk_grove_live_20261011_0dc35bc_r2
+   1183       10:08  0.0 arduino-app-cli
+   2936       03:21  6.2 arduino-app-cli
+   3967       00:03 96.1 cc1plus
+   3971       00:02 98.9 cc1plus

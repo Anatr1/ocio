@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>&ograve;cio · Crosswalk Twin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e9edda'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='13' fill='none' stroke='%23274f3d' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23274f3d'/%3E%3C/svg%3E" />
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/" } }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="26" ry="15" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="32" cy="32" r="8" fill="currentColor"/></svg>
+      <div>
+        <div class="brand-name" id="brand">&ograve;cio</div>
+        <div class="brand-sub" id="node-name">connecting…</div>
+      </div>
+    </div>
+    <div class="live" id="live"><span class="dot"></span><span id="live-text">offline</span></div>
+    <div class="chips" id="perf-chips">
+      <span class="chip" title="Detector rate"><b id="p-det">–</b> Hz det</span>
+      <span class="chip" title="Neural network inference time on the board"><b id="p-inf">–</b> ms</span>
+      <span class="chip" title="Fraction of frames sent to the detector (motion gating)"><b id="p-duty">–</b> duty</span>
+      <span class="chip" title="CPU temperature"><b id="p-temp">–</b></span>
+      <span class="chip hide-sm" title="Model"><b id="p-model">–</b></span>
+      <span class="chip ondevice" title="All inference runs on the Arduino UNO Q">100% on-device</span>
+    </div>
+    <div class="actions">
+      <select id="mode" title="Signal mode">
+        <option value="adaptive">Adaptive signal</option>
+        <option value="fixed">Fixed-time signal</option>
+        <option value="beacon">Zebra + warning beacon</option>
+      </select>
+      <button id="btn-call" title="Virtual pedestrian push-button">Call</button>
+      <button id="btn-nearmiss" class="sim-only" title="Simulator: stage a near-miss">Stage near-miss</button>
+      <button id="btn-elderly" class="sim-only" title="Simulator: slow pedestrian">Slow walker</button>
+      <button id="btn-rec" title="Record raw camera footage on the node (ground truth / training). Files: Recordings">● Rec</button>
+      <a href="/recordings" target="_blank"><button title="Download recordings">Recordings</button></a>
+      <a href="calibrate.html"><button title="Ground-plane calibration">Calibrate</button></a>
+      <button id="btn-share" title="QR code for the public crossing statistics">Share</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="twin-wrap">
+      <div id="twin"></div>
+      <div class="twin-ui">
+        <div class="seg" id="views">
+          <button data-view="orbit" class="on">3D</button>
+          <button data-view="top">Top</button>
+          <button data-view="sensor">Sensor</button>
+          <button data-view="cinema">Cinema</button>
+        </div>
+        <div class="seg" id="layers">
+          <button data-layer="trails" class="on">Trails</button>
+          <button data-layer="labels" class="on">Labels</button>
+          <button data-layer="heat">Heatmap</button>
+          <button data-layer="ground" class="on">Real ground</button>
+          <button data-layer="fov" class="on">Sensor FOV</button>
+          <button data-layer="video">Camera</button>
+          <button data-layer="gt" class="sim-only hidden" title="Simulator only: true agents as ghosts vs. what the pipeline perceived">Ground truth</button>
+        </div>
+      </div>
+      <div class="replay-bar hidden" id="replay-bar">
+        <span class="rp-title" id="rp-title">Replay</span>
+        <button id="rp-play">❚❚</button>
+        <input type="range" id="rp-slider" min="0" max="1000" value="0" />
+        <select id="rp-speed"><option value="0.25">0.25×</option><option value="0.5" selected>0.5×</option><option value="1">1×</option></select>
+        <button id="rp-exit">Back to live</button>
+      </div>
+      <img id="video" class="video hidden" alt="Live privacy-blurred camera" />
+      <div class="toast-stack" id="toasts"></div>
+      <div class="gt-stats hidden" id="gt-stats"></div>
+      <div class="privacy-note">No video leaves the board · twin rebuilt from anonymous trajectories</div>
+    </section>
+
+    <aside class="side">
+      <div class="card counts">
+        <div class="card-h">Passing through the crosswalk <span class="muted" id="cnt-since"></span></div>
+        <div class="count-grid">
+          <div class="count ped"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="m8 12 3-5 4 4 4 1M11 7l1 7-5 6m5-6 4 6M8 12l-4 1"/></svg></div><div class="num" id="c-ped">0</div><div class="lbl">Pedestrians</div><div class="dirs" id="d-ped"></div></div>
+          <div class="count bike"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="16" r="4"/><circle cx="19" cy="16" r="4"/><path d="m5 16 5-8 5 8H5l4-5h7M8 8h4m3-4h3l2 12"/></svg></div><div class="num" id="c-bike">0</div><div class="lbl">Bicycles</div><div class="dirs" id="d-bike"></div></div>
+          <div class="count micro"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 19h8l4-13h-5m3 7h-4"/></svg></div><div class="num" id="c-micro">0</div><div class="lbl">E-scooters</div><div class="dirs" id="d-micro"></div></div>
+          <div class="count veh"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 2-5h12l2 5M3 10h18v8H3zM5 18v2m14-2v2M6 14h2m8 0h2"/></svg></div><div class="num" id="c-veh">0</div><div class="lbl">Vehicles</div><div class="dirs" id="d-veh"></div></div>
+        </div>
+        <canvas id="spark" height="56"></canvas>
+        <div class="sub-counts" id="sub-counts"></div>
+      </div>
+
+      <div class="card approach">
+        <div class="card-h">Approaching the crossing <span class="muted">live · time to arrival</span></div>
+        <div class="appr-grid">
+          <div class="appr ped"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="4" r="2"/><path d="m8 12 3-5 4 4 4 1M11 7l1 7-5 6m5-6 4 6M8 12l-4 1"/></svg></div><div class="num" id="a-ped">0</div><div class="lbl">Pedestrians</div><div class="sub" id="as-ped">–</div></div>
+          <div class="appr bike"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="16" r="4"/><circle cx="19" cy="16" r="4"/><path d="m5 16 5-8 5 8H5l4-5h7M8 8h4m3-4h3l2 12"/></svg></div><div class="num" id="a-cyc">0</div><div class="lbl">Cyclists</div><div class="sub" id="as-cyc">–</div></div>
+          <div class="appr veh"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 2-5h12l2 5M3 10h18v8H3zM5 18v2m14-2v2M6 14h2m8 0h2"/></svg></div><div class="num" id="a-veh">0</div><div class="lbl">Vehicles</div><div class="sub" id="as-veh">–</div></div>
+        </div>
+      </div>
+
+      <div class="card safety">
+        <div class="card-h">Safety <span class="muted">surrogate safety measures</span></div>
+        <div class="safety-row">
+          <div class="gauge"><canvas id="gauge" width="120" height="74"></canvas><div class="gauge-l">Safety score</div></div>
+          <div class="kpis">
+            <div class="kpi"><span>Near-misses</span><b><span class="crit" id="nm-c">0</span> · <span class="ser" id="nm-s">0</span> · <span class="pot" id="nm-p">0</span></b></div>
+            <div class="kpi"><span>Drivers yielding</span><b id="yield">–</b></div>
+            <div class="kpi"><span>V85 speed</span><b id="v85">–</b></div>
+            <div class="kpi"><span>Min PET</span><b id="pet">–</b></div>
+            <div class="kpi"><span>Avg. walking speed</span><b id="walk">–</b></div>
+            <div class="kpi"><span>Jaywalks · alerts</span><b id="alerts">–</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card signal">
+        <div class="card-h">Edge actuation <span class="muted" id="mcu-status">virtual MCU</span></div>
+        <div class="signal-row">
+          <div class="tl" id="tl-veh"><i class="r"></i><i class="y"></i><i class="g"></i></div>
+          <div class="tl ped" id="tl-ped"><i class="r">✋</i><i class="g">🚶</i></div>
+          <div class="matrix-wrap"><canvas id="matrix" width="156" height="96"></canvas><div class="muted small">UNO Q LED matrix</div></div>
+        </div>
+        <div class="sig-text" id="sig-text">–</div>
+      </div>
+
+      <div class="card rules">
+        <div class="card-h">Light-signal rules <span class="muted" id="rule-lat">explicit · evaluated every frame</span></div>
+        <div id="rule-active"></div>
+        <div id="rule-list"></div>
+        <div class="card-h" style="margin-top:10px">Last decisions</div>
+        <ul id="rule-log"></ul>
+      </div>
+
+      <div class="card feed">
+        <div class="card-h">Events
+          <span class="seg mini" id="feed-filter"><button data-f="safety" class="on">Safety</button><button data-f="count">Counts</button><button data-f="all">All</button></span>
+        </div>
+        <ul id="events"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <div class="modal hidden" id="share-modal">
+    <div class="modal-card">
+      <div class="brand-name">&ograve;cio</div>
+      <div class="muted">scan me · this crossing, in numbers</div>
+      <div id="qr"></div>
+      <a class="share-url" id="share-url" href="/public/">Open crossing statistics</a>
+      <div class="muted small hidden" id="share-qr-url"></div>
+      <p class="muted">Live activity, traffic patterns and safety indicators. Open to everyone.</p>
+      <button id="share-close">Close</button>
+    </div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{"ok":true,"t":1791713093.6009374,"node":"cw-01-imx219","vision_age_s":0.21,"mcu_connected":true,"failsafe":false}
+MainPID=3410
+NRestarts=0
+ActiveState=active
+3440 .venv/bin/python -u tools/board_acceptance.py --seconds 120 --out docs/board_results/grove_pinfix_live.jsonl

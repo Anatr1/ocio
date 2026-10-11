@@ -1,0 +1,350 @@
+Oct 10 16:02:18 VIVIC systemd[1]: Starting occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot...
+Oct 10 16:02:22 VIVIC sh[832]: [INFO] Starting app "OCCHIO crosswalk MCU"
+Oct 10 16:02:25 VIVIC sh[832]: Progress[preparing]: 0%
+Oct 10 16:02:25 VIVIC sh[832]: Progress[sketch compiling and uploading]: 0%
+Oct 10 16:02:27 VIVIC sh[832]: [INFO] Sketch profile configured: Name="default", Port=""
+Oct 10 16:02:33 VIVIC sh[832]: [INFO] The library Arduino_RouterBridge has been added from sketch project.
+Oct 10 16:02:33 VIVIC sh[832]: [INFO] The library Arduino_RPClite has been added from sketch project.
+Oct 10 16:02:33 VIVIC sh[832]: [INFO] The library MsgPack has been added from sketch project.
+Oct 10 16:02:33 VIVIC sh[832]: [INFO] The library DebugLog has been added from sketch project.
+Oct 10 16:02:33 VIVIC sh[832]: [INFO] The library ArxTypeTraits has been added from sketch project.
+Oct 10 16:02:33 VIVIC sh[832]: [INFO] The library ArxContainer has been added from sketch project.
+Oct 10 16:02:34 VIVIC sh[832]: [INFO] Sketch uses 99968 bytes (12%) of program storage space. Maximum is 786432 bytes.
+Oct 10 16:02:34 VIVIC sh[832]: [INFO] Global variables use 40160 bytes (15%) of dynamic memory, leaving 221984 bytes for local variables. Maximum is 262144 bytes.
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Board platform: arduino:zephyr (1.0.0) in /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library Arduino_LED_Matrix (0.1.3) in /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Arduino_LED_Matrix
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library Arduino_RouterBridge (0.4.3) in /home/arduino/.arduino15/internal/Arduino_RouterBridge_0.4.3_456a4ab6b378b066/Arduino_RouterBridge
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library Arduino_RPClite (0.3.1) in /home/arduino/.arduino15/internal/Arduino_RPClite_0.3.1_3aaf611bc915560f/Arduino_RPClite
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library MsgPack (0.4.2) in /home/arduino/.arduino15/internal/MsgPack_0.4.2_a0d4adc5044d022c/MsgPack
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library DebugLog (0.8.4) in /home/arduino/.arduino15/internal/DebugLog_0.8.4_c199e2cf6415ecc8/DebugLog
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library ArxTypeTraits (0.3.2) in /home/arduino/.arduino15/internal/ArxTypeTraits_0.3.2_d65e2aabfeed7838/ArxTypeTraits
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Used library ArxContainer (0.7.0) in /home/arduino/.arduino15/internal/ArxContainer_0.7.0_007f0bb2a1cdefe3/ArxContainer
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Licensed under GNU GPL v2
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] For bug reports, read
+Oct 10 16:02:35 VIVIC sh[832]: [INFO]         http://openocd.org/doc/doxygen/bugs.html
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] debug_level: 2
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] clock_config
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] /tmp/remoteocd/zephyr-arduino_uno_q_stm32u585xx.elf
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] /tmp/remoteocd/zephyr-arduino_uno_q_stm32u585xx.elf
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] /tmp/remoteocd/sketch.ino.elf-zsk.bin
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : Note: The adapter "linuxgpiod" doesn't support configurable speed
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : SWD DPIDR 0x0be12477
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : [stm32u5.ap0] Examination succeed
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : [stm32u5.cpu] Cortex-M33 r0p4 processor detected
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : [stm32u5.cpu] target has 8 breakpoints, 4 watchpoints
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : [stm32u5.cpu] Examination succeed
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : [stm32u5.ap0] gdb port disabled
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : [stm32u5.cpu] starting gdb server on 3333
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : Listening on port 3333 for gdb connections
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] CPU in Non-Secure state
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] [stm32u5.cpu] halted due to debug-request, current mode: Thread
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] xPSR: 0x41000000 pc: 0x08017f58 psp: 0x20002820
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : device idcode = 0x30076482 (STM32U57/U58xx - Rev U : 0x3007)
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : TZEN = 0 : TrustZone disabled by option bytes
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : RDP level 0 (0xAA)
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : flash size = 2048 KiB
+Oct 10 16:02:35 VIVIC sh[832]: [INFO] Info : flash mode : dual-bank
+Oct 10 16:02:36 VIVIC sh[832]: [INFO] shutdown command invoked
+Oct 10 16:02:37 VIVIC sh[832]: time="2026-10-10T16:02:37Z" level=error msg="Stopped decode loop: EOF" discovery="builtin:serial-discovery"
+Oct 10 16:02:37 VIVIC sh[832]: Progress[sketch updated]: 10%
+Oct 10 16:02:37 VIVIC sh[832]: time="2026-10-10T16:02:37Z" level=error msg="Stopped decode loop: EOF" discovery="builtin:mdns-discovery"
+Oct 10 16:02:37 VIVIC sh[832]: [INFO] python provisioning
+Oct 10 16:02:37 VIVIC sh[832]: Progress[python provisioning]: 10%
+Oct 10 16:02:37 VIVIC sh[832]: [INFO] python downloading
+Oct 10 16:02:37 VIVIC sh[832]: [INFO]  Container crosswalk_mcu-main-1  Created
+Oct 10 16:02:37 VIVIC sh[832]: [INFO]  Container crosswalk_mcu-main-1  Starting
+Oct 10 16:02:38 VIVIC sh[832]: [INFO]  Container crosswalk_mcu-main-1  Started
+Oct 10 16:02:38 VIVIC sh[832]: Progress[]: 100%
+Oct 10 16:02:38 VIVIC sh[832]: ✓ App "OCCHIO crosswalk MCU" started successfully
+Oct 10 16:02:38 VIVIC systemd[1]: Finished occhio-mcu.service - OCCHIO MCU app (STM32 lamps, LED matrix, watchdog) - started at boot.
+Oct 10 16:02:38 VIVIC systemd[1]: Started occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000).
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.133210660] [1660]  INFO Camera camera_manager.cpp:327 libcamera v0.4.0
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.161196649] [1812]  WARN CameraSensor camera_sensor_legacy.cpp:354 'imx219 0-0010': Recommended V4L2 control 0x009a0922 not supported
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.161281024] [1812]  WARN CameraSensor camera_sensor_legacy.cpp:426 'imx219 0-0010': The sensor kernel driver needs to be fixed
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.161300295] [1812]  WARN CameraSensor camera_sensor_legacy.cpp:428 'imx219 0-0010': See Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.162034410] [1812]  WARN CameraSensor camera_sensor_legacy.cpp:594 'imx219 0-0010': Failed to retrieve the camera location
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.162076389] [1812]  WARN CameraSensor camera_sensor_legacy.cpp:616 'imx219 0-0010': Rotation control not available, default to 0 degrees
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.166296754] [1812]  WARN IPAProxy ipa_proxy.cpp:160 Configuration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.168489149] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.168691441] [1660]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.169371181] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.169536545] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.169667222] [1660]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.170291441] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.170416806] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.175501701] [1660]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.176313212] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.176472274] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.176580764] [1660]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.177188472] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.177298524] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.180067899] [1660]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.180811285] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.180963941] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.181068576] [1660]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.181657170] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:02:42 VIVIC sh[1660]: [0:00:40.181767118] [1660]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:02:42 VIVIC sh[1660]: [node] WARNING: no calibration - run tools/calibrate.py; counting needs ground coordinates
+Oct 10 16:02:42 VIVIC sh[1660]: [node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-160242_cw-01-imx219
+Oct 10 16:02:42 VIVIC sh[1660]: [node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+Oct 10 16:02:44 VIVIC sh[1660]: [0:00:41.838548680] [1818]  INFO Debayer debayer_cpu.cpp:788 Processed 30 frames in 196249us, 6541 us/frame
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------Exception occurred during processing of request from ('127.0.0.1', 43366)
+Oct 10 16:04:18 VIVIC sh[1660]: Exception occurred during processing of request from ('127.0.0.1', 43368)
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:18 VIVIC sh[1660]: Exception occurred during processing of request from ('127.0.0.1', 43376)
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:18 VIVIC sh[1660]: Exception occurred during processing of request from ('127.0.0.1', 43386)
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:18 VIVIC sh[1660]: Exception occurred during processing of request from ('127.0.0.1', 43390)Traceback (most recent call last):
+Oct 10 16:04:18 VIVIC sh[1660]: Traceback (most recent call last):
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 697, in process_request_thread
+Oct 10 16:04:18 VIVIC sh[1660]:     self.finish_request(request, client_address)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 362, in finish_request
+Oct 10 16:04:18 VIVIC sh[1660]:     self.RequestHandlerClass(request, client_address, self)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 766, in __init__
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 436, in handle
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle_one_request()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 424, in handle_one_request
+Oct 10 16:04:18 VIVIC sh[1660]:     method()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 180, in do_GET
+Oct 10 16:04:18 VIVIC sh[1660]:     return self._json(body, 200 if fresh else 503)
+Oct 10 16:04:18 VIVIC sh[1660]:            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 119, in _json
+Oct 10 16:04:18 VIVIC sh[1660]:     self._send(code, dumps(obj).encode())
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 697, in process_request_thread
+Oct 10 16:04:18 VIVIC sh[1660]:     self.finish_request(request, client_address)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 362, in finish_request
+Oct 10 16:04:18 VIVIC sh[1660]:     self.RequestHandlerClass(request, client_address, self)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 766, in __init__
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 436, in handle
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle_one_request()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 424, in handle_one_request
+Oct 10 16:04:18 VIVIC sh[1660]:     method()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 180, in do_GET
+Oct 10 16:04:18 VIVIC sh[1660]:     return self._json(body, 200 if fresh else 503)
+Oct 10 16:04:18 VIVIC sh[1660]:            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 119, in _json
+Oct 10 16:04:18 VIVIC sh[1660]:     self._send(code, dumps(obj).encode())
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 116, in _send
+Oct 10 16:04:18 VIVIC sh[1660]:     self.wfile.write(body)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 845, in write
+Oct 10 16:04:18 VIVIC sh[1660]:     self._sock.sendall(b)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~^^^
+Oct 10 16:04:18 VIVIC sh[1660]: BrokenPipeError: [Errno 32] Broken pipe
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 116, in _send
+Oct 10 16:04:18 VIVIC sh[1660]:     self.wfile.write(body)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 845, in write
+Oct 10 16:04:18 VIVIC sh[1660]:     self._sock.sendall(b)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~^^^
+Oct 10 16:04:18 VIVIC sh[1660]: BrokenPipeError: [Errno 32] Broken pipe
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------Traceback (most recent call last):
+Oct 10 16:04:18 VIVIC sh[1660]: Traceback (most recent call last):
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 697, in process_request_thread
+Oct 10 16:04:18 VIVIC sh[1660]:     self.finish_request(request, client_address)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]: Traceback (most recent call last):
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 362, in finish_request
+Oct 10 16:04:18 VIVIC sh[1660]:     self.RequestHandlerClass(request, client_address, self)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 697, in process_request_thread
+Oct 10 16:04:18 VIVIC sh[1660]:     self.finish_request(request, client_address)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 362, in finish_request
+Oct 10 16:04:18 VIVIC sh[1660]:     self.RequestHandlerClass(request, client_address, self)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 766, in __init__
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 436, in handle
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle_one_request()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 424, in handle_one_request
+Oct 10 16:04:18 VIVIC sh[1660]:     method()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 180, in do_GET
+Oct 10 16:04:18 VIVIC sh[1660]:     return self._json(body, 200 if fresh else 503)
+Oct 10 16:04:18 VIVIC sh[1660]:            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 119, in _json
+Oct 10 16:04:18 VIVIC sh[1660]:     self._send(code, dumps(obj).encode())
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 116, in _send
+Oct 10 16:04:18 VIVIC sh[1660]:     self.wfile.write(body)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 845, in write
+Oct 10 16:04:18 VIVIC sh[1660]:     self._sock.sendall(b)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~^^^
+Oct 10 16:04:18 VIVIC sh[1660]: BrokenPipeError: [Errno 32] Broken pipe
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------  File "/usr/lib/python3.13/socketserver.py", line 766, in __init__
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 697, in process_request_thread
+Oct 10 16:04:18 VIVIC sh[1660]:     self.finish_request(request, client_address)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 362, in finish_request
+Oct 10 16:04:18 VIVIC sh[1660]:     self.RequestHandlerClass(request, client_address, self)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 436, in handle
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle_one_request()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 766, in __init__
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 436, in handle
+Oct 10 16:04:18 VIVIC sh[1660]:     self.handle_one_request()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 424, in handle_one_request
+Oct 10 16:04:18 VIVIC sh[1660]:     method()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/http/server.py", line 424, in handle_one_request
+Oct 10 16:04:18 VIVIC sh[1660]:     method()
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 180, in do_GET
+Oct 10 16:04:18 VIVIC sh[1660]:     return self._json(body, 200 if fresh else 503)
+Oct 10 16:04:18 VIVIC sh[1660]:            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 119, in _json
+Oct 10 16:04:18 VIVIC sh[1660]:     self._send(code, dumps(obj).encode())
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 116, in _send
+Oct 10 16:04:18 VIVIC sh[1660]:     self.wfile.write(body)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 845, in write
+Oct 10 16:04:18 VIVIC sh[1660]:     self._sock.sendall(b)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~^^^
+Oct 10 16:04:18 VIVIC sh[1660]: BrokenPipeError: [Errno 32] Broken pipe
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 180, in do_GET
+Oct 10 16:04:18 VIVIC sh[1660]:     return self._json(body, 200 if fresh else 503)
+Oct 10 16:04:18 VIVIC sh[1660]:            ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 119, in _json
+Oct 10 16:04:18 VIVIC sh[1660]:     self._send(code, dumps(obj).encode())
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/home/arduino/occhio/crosswalk/server.py", line 116, in _send
+Oct 10 16:04:18 VIVIC sh[1660]:     self.wfile.write(body)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~^^^^^^
+Oct 10 16:04:18 VIVIC sh[1660]:   File "/usr/lib/python3.13/socketserver.py", line 845, in write
+Oct 10 16:04:18 VIVIC sh[1660]:     self._sock.sendall(b)
+Oct 10 16:04:18 VIVIC sh[1660]:     ~~~~~~~~~~~~~~~~~~^^^
+Oct 10 16:04:18 VIVIC sh[1660]: BrokenPipeError: [Errno 32] Broken pipe
+Oct 10 16:04:18 VIVIC sh[1660]: ----------------------------------------
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.669940120] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.670194420] [1813]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.671113484] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.671334498] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.671475504] [1813]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.672311797] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.672501194] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.679007666] [1813]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.679910373] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.680593680] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.680859231] [1813]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.681840229] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.682067807] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.685356307] [1813]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.686223802] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.686410907] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.686541911] [1813]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.687317833] [1812]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.687516866] [1813]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.734908995] [1813] ERROR V4L2Compat v4l2_camera_proxy.cpp:705 Failed to clear eventfd POLLIN
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.735010413] [1813] ERROR Request request.cpp:480 FrameBuffer already set for stream
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.735036353] [1813] ERROR V4L2Compat v4l2_camera.cpp:263 Can't set buffer for request
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.735069586] [1813] ERROR V4L2Compat v4l2_camera_proxy.cpp:705 Failed to clear eventfd POLLIN
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.735129489] [1813] ERROR Request request.cpp:480 FrameBuffer already set for stream
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.735150012] [1813] ERROR V4L2Compat v4l2_camera.cpp:263 Can't set buffer for request
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.745390921] [1813] ERROR V4L2Compat v4l2_camera_proxy.cpp:705 Failed to clear eventfd POLLIN
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.745528020] [1813] ERROR Request request.cpp:480 FrameBuffer already set for stream
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.745554481] [1813] ERROR V4L2Compat v4l2_camera.cpp:263 Can't set buffer for request
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.755786743] [1813] ERROR V4L2Compat v4l2_camera_proxy.cpp:705 Failed to clear eventfd POLLIN
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.755925300] [1813] ERROR Request request.cpp:480 FrameBuffer already set for stream
+Oct 10 16:04:19 VIVIC sh[1660]: [0:02:02.755962857] [1813] ERROR V4L2Compat v4l2_camera.cpp:263 Can't set buffer for request
+Oct 10 16:04:20 VIVIC sh[1660]: [0:02:04.373886698] [1932]  INFO Debayer debayer_cpu.cpp:788 Processed 30 frames in 199034us, 6634 us/frame
+Oct 10 16:05:27 VIVIC systemd[1]: occhio.service: Main process exited, code=killed, status=9/KILL
+Oct 10 16:05:27 VIVIC systemd[1]: occhio.service: Failed with result 'signal'.
+Oct 10 16:05:27 VIVIC systemd[1]: occhio.service: Consumed 7min 46.574s CPU time, 212.3M memory peak.
+Oct 10 16:05:30 VIVIC systemd[1]: occhio.service: Scheduled restart job, restart counter is at 1.
+Oct 10 16:05:30 VIVIC systemd[1]: Started occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000).
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.046694591] [1989]  INFO Camera camera_manager.cpp:327 libcamera v0.4.0
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.075814345] [2003]  WARN CameraSensor camera_sensor_legacy.cpp:354 'imx219 0-0010': Recommended V4L2 control 0x009a0922 not supported
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.075904657] [2003]  WARN CameraSensor camera_sensor_legacy.cpp:426 'imx219 0-0010': The sensor kernel driver needs to be fixed
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.075924501] [2003]  WARN CameraSensor camera_sensor_legacy.cpp:428 'imx219 0-0010': See Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.076798929] [2003]  WARN CameraSensor camera_sensor_legacy.cpp:594 'imx219 0-0010': Failed to retrieve the camera location
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.076857731] [2003]  WARN CameraSensor camera_sensor_legacy.cpp:616 'imx219 0-0010': Rotation control not available, default to 0 degrees
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.081159921] [2003]  WARN IPAProxy ipa_proxy.cpp:160 Configuration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.083384140] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.083590286] [1989]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.084298933] [2003]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.084493620] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.084629610] [1989]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.085273256] [2003]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.085461173] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.089410706] [1989]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.090165758] [2003]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.090333467] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.090444613] [1989]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.091099821] [2003]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.091241853] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.093901906] [1989]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.094649719] [2003]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.094816959] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.094924875] [1989]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.095528938] [2003]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:05:33 VIVIC sh[1989]: [0:03:17.095649980] [1989]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:05:33 VIVIC sh[1989]: [node] WARNING: no calibration - run tools/calibrate.py; counting needs ground coordinates
+Oct 10 16:05:33 VIVIC sh[1989]: [node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-160533_cw-01-imx219
+Oct 10 16:05:33 VIVIC sh[1989]: [node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+Oct 10 16:05:35 VIVIC sh[1989]: [0:03:19.040140061] [2010]  INFO Debayer debayer_cpu.cpp:788 Processed 30 frames in 205468us, 6848 us/frame
+Oct 10 16:07:33 VIVIC systemd[1]: Stopping occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000)...
+Oct 10 16:07:33 VIVIC systemd[1]: occhio.service: Deactivated successfully.
+Oct 10 16:07:33 VIVIC systemd[1]: Stopped occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000).
+Oct 10 16:07:33 VIVIC systemd[1]: occhio.service: Consumed 6min 35.263s CPU time, 118.4M memory peak.
+Oct 10 16:07:45 VIVIC systemd[1]: Started occhio.service - OCCHIO crosswalk vision node (camera -> detector -> tracker -> signal -> MCU, dashboard on :8000).
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.854643173] [2254]  INFO Camera camera_manager.cpp:327 libcamera v0.4.0
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.881555692] [2347]  WARN CameraSensor camera_sensor_legacy.cpp:354 'imx219 0-0010': Recommended V4L2 control 0x009a0922 not supported
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.881621621] [2347]  WARN CameraSensor camera_sensor_legacy.cpp:426 'imx219 0-0010': The sensor kernel driver needs to be fixed
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.881639327] [2347]  WARN CameraSensor camera_sensor_legacy.cpp:428 'imx219 0-0010': See Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.882319763] [2347]  WARN CameraSensor camera_sensor_legacy.cpp:594 'imx219 0-0010': Failed to retrieve the camera location
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.882363612] [2347]  WARN CameraSensor camera_sensor_legacy.cpp:616 'imx219 0-0010': Rotation control not available, default to 0 degrees
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.885995761] [2347]  WARN IPAProxy ipa_proxy.cpp:160 Configuration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.887908491] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.888122006] [2254]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.888752135] [2347]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.888891962] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.889009864] [2254]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.889585885] [2347]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.889688945] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.893094353] [2254]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.893762863] [2347]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.893892065] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.893983929] [2254]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.894535266] [2347]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.894638534] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.896937622] [2254]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.897600508] [2347]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.897728721] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.897822147] [2254]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.898368537] [2347]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 10 16:07:48 VIVIC sh[2254]: [0:05:31.898460869] [2254]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 10 16:07:48 VIVIC sh[2254]: [node] WARNING: no calibration - run tools/calibrate.py; counting needs ground coordinates
+Oct 10 16:07:48 VIVIC sh[2254]: [node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-160748_cw-01-imx219
+Oct 10 16:07:48 VIVIC sh[2254]: [node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+Oct 10 16:07:50 VIVIC sh[2254]: [0:05:34.181871055] [2353]  INFO Debayer debayer_cpu.cpp:788 Processed 30 frames in 178455us, 5948 us/frame

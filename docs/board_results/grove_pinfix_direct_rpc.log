@@ -1,0 +1,12 @@
+ping -> 60209 (5.1 ms round trip)
+vehicles GREEN, peds RED
+vehicles YELLOW
+all RED
+peds GREEN (walk ticks)
+peds FLASHING (clearance ticks)
+beacon caution
+beacon DANGER
+count page
+stopping heartbeats: the lamps must go to FLASHING AMBER within 2 s (fail-safe)
+resuming heartbeats
+done - press the push button now to test the notification (Ctrl+C to quit)

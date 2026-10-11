@@ -1,0 +1,38 @@
+{
+  "frame_count": 6,
+  "distinct_frames": 6,
+  "span_s": 1.5620928249991266,
+  "samples": [
+    {
+      "elapsed_s": 54854.33598345,
+      "bytes": 21838,
+      "sha256": "5686a02d43b2a5a40199192cbf18a5348fb737453cb2297265d62df377e768f1"
+    },
+    {
+      "elapsed_s": 54854.522123068,
+      "bytes": 31397,
+      "sha256": "b969a004d5fe685f27020f544e80b67859e2043e7da9f17c8634540c7bd8139a"
+    },
+    {
+      "elapsed_s": 54854.863477414,
+      "bytes": 21297,
+      "sha256": "fbbf37421ddb1d4b975a3b5954e87bf1d37392ea15444da2d94da343fc12a986"
+    },
+    {
+      "elapsed_s": 54855.19744785,
+      "bytes": 17847,
+      "sha256": "b9bb4d58d5f4994ff8cb83e703d6829ab2db18efd15418812add9d5e20d55f02"
+    },
+    {
+      "elapsed_s": 54855.54669696,
+      "bytes": 30999,
+      "sha256": "817491930419eddc51eee682bb585b0b9df2d6d3d5d38a90c95bf3e83df890d2"
+    },
+    {
+      "elapsed_s": 54855.898076275,
+      "bytes": 32181,
+      "sha256": "bcf9c5f79fa2f59c43c1829b0b5022fcfa2e34af87ea3b94425887aee8611cbb"
+    }
+  ],
+  "media_saved": false
+}

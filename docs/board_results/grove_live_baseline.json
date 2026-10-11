@@ -1,0 +1,3943 @@
+{
+  "config": {
+    "node": {
+      "id": "cw-01-imx219",
+      "name": "HackTurin crosswalk (IMX219)",
+      "brand": "\u00f2cio",
+      "tagline": "the crosswalk that watches out for you",
+      "geo": {
+        "lat": 45.0627,
+        "lon": 7.6776,
+        "road_bearing_deg": 90
+      }
+    },
+    "scene": {
+      "crosswalk": {
+        "width": 3.0,
+        "length": 5.5
+      },
+      "curb_depth": 2.5,
+      "approach": 25.0,
+      "sidewalk_width": 3.0,
+      "lanes": 2,
+      "speed_limit_kmh": 50.0,
+      "stripe": {
+        "width": 0.5,
+        "gap": 0.5
+      },
+      "zones": {
+        "crosswalk": [
+          [
+            -1.5,
+            -2.75
+          ],
+          [
+            1.5,
+            -2.75
+          ],
+          [
+            1.5,
+            2.75
+          ],
+          [
+            -1.5,
+            2.75
+          ]
+        ],
+        "curb_a": [
+          [
+            -2.5,
+            -5.25
+          ],
+          [
+            2.5,
+            -5.25
+          ],
+          [
+            2.5,
+            -2.75
+          ],
+          [
+            -2.5,
+            -2.75
+          ]
+        ],
+        "curb_b": [
+          [
+            -2.5,
+            2.75
+          ],
+          [
+            2.5,
+            2.75
+          ],
+          [
+            2.5,
+            5.25
+          ],
+          [
+            -2.5,
+            5.25
+          ]
+        ],
+        "road": [
+          [
+            -25.0,
+            -2.75
+          ],
+          [
+            25.0,
+            -2.75
+          ],
+          [
+            25.0,
+            2.75
+          ],
+          [
+            -25.0,
+            2.75
+          ]
+        ]
+      },
+      "bounds": [
+        -31.0,
+        -14.25,
+        31.0,
+        14.25
+      ],
+      "calibrated": true,
+      "calibration": {
+        "reproj_err_m": 1.5205869585287392e-15,
+        "focal_source": "estimated",
+        "focal_px": 1215.4857943651264,
+        "hfov_deg": 29.14610933776433,
+        "center": [
+          13.12447669884754,
+          5.409659289600049,
+          5.055811958220385
+        ],
+        "mirrored": false,
+        "auto_flipped_x": true,
+        "camera_height_m": 5.055811958220385,
+        "tilt_deg": 15.310181220172216
+      },
+      "camera": {
+        "position": [
+          13.12447669884754,
+          5.409659289600049,
+          5.055811958220385
+        ],
+        "forward": [
+          -0.9066687817534479,
+          -0.3289867048838085,
+          -0.26404444361397195
+        ],
+        "up": [
+          -0.25103339067108726,
+          -0.08225476394528307,
+          0.9644772628613298
+        ],
+        "hfov_deg": 29.14610933776433,
+        "vfov_deg": 22.33896938550863,
+        "width": 632,
+        "height": 480,
+        "tilt_deg": 15.310181220172216
+      },
+      "H": [
+        [
+          -0.018075846881675746,
+          0.1604359552507976,
+          -48.43136712474021
+        ],
+        [
+          0.05516360024226949,
+          0.06607533944815175,
+          -36.693665135030464
+        ],
+        [
+          9.212219138987706e-05,
+          0.011093986822844416,
+          1.0
+        ]
+      ]
+    },
+    "bev": {
+      "x0": -31.0,
+      "y0": -14.25,
+      "x1": 31.0,
+      "y1": 14.25,
+      "url": "/api/background.png"
+    },
+    "detector": {
+      "backend": "ncnn",
+      "model": "yolo11n_320_ncnn_model",
+      "imgsz": 320
+    },
+    "source": {
+      "type": "camera",
+      "width": 632,
+      "height": 480
+    },
+    "signal": {
+      "mode": "adaptive"
+    },
+    "mcu": {
+      "virtual": false
+    },
+    "rules": [
+      {
+        "id": "B0",
+        "group": "beacon",
+        "name": "Beacon off",
+        "when": "no condition of B1/B2 holds (and the 1.5 s hold time has expired)",
+        "then": "amber beacon off",
+        "it": "Nessuna condizione B1/B2 attiva (trascorsi 1.5 s): lampeggiante spento."
+      },
+      {
+        "id": "B1",
+        "group": "beacon",
+        "name": "Caution - people at the crossing",
+        "when": "a pedestrian, cyclist or e-scooter is ON the crosswalk, or WAITING at / WALKING UP TO the curb, AND a vehicle is approaching with time-to-arrival < 6 s",
+        "then": "amber beacon slow blink + walking icon on the LED matrix, held 1.5 s after the condition ends",
+        "it": "Se un pedone/ciclista \u00e8 sulle strisce, in attesa o in avvicinamento al marciapiede E un veicolo arriva entro 6 s: lampeggiante giallo lento + icona pedone, mantenuto per 1.5 s."
+      },
+      {
+        "id": "B2",
+        "group": "beacon",
+        "name": "Danger - imminent conflict",
+        "when": "a vehicle is on a collision course with a person on the carriageway: time-to-collision <= 2 s AND the vehicle would need > 3 m/s2 braking to stop (DRAC)",
+        "then": "beacon turns RED, fast blink + buzzer + warning icon (overrides B1)",
+        "it": "Se un veicolo \u00e8 in rotta di collisione con una persona in carreggiata (TTC \u2264 2 s e frenata necessaria > 3 m/s\u00b2): lampeggiante ROSSO rapido + cicalino + icona di pericolo."
+      },
+      {
+        "id": "S0",
+        "group": "signal",
+        "name": "Rest on vehicle green",
+        "when": "nobody is waiting to cross",
+        "then": "vehicles GREEN, pedestrians RED (no useless stops for traffic)",
+        "it": "Nessuno in attesa: verde ai veicoli, rosso ai pedoni."
+      },
+      {
+        "id": "S1",
+        "group": "signal",
+        "name": "Pedestrian call (by camera or button)",
+        "when": "someone waits at a curb for >= 0.8 s (or presses the button) AND vehicles have had green for >= 8 s AND no vehicle is about to cross (< 3 s away) - or vehicle green reached 40 s",
+        "then": "vehicles YELLOW 3 s -> ALL RED 1.5 s -> pedestrians GREEN",
+        "it": "Persona in attesa \u2265 0.8 s (o pulsante) e verde veicoli da \u2265 8 s senza veicoli a meno di 3 s (o verde veicoli \u2265 40 s): giallo 3 s, tutto rosso 1.5 s, verde pedoni."
+      },
+      {
+        "id": "S2",
+        "group": "signal",
+        "name": "Walk phase",
+        "when": "pedestrian green has lasted >= 5 s and nobody else is waiting - or it reached 20 s",
+        "then": "pedestrians FLASHING (clearance)",
+        "it": "Verde pedoni per almeno 5 s, prolungato finch\u00e9 arrivano altre persone (max 20 s), poi lampeggiante di sgombero."
+      },
+      {
+        "id": "S3",
+        "group": "signal",
+        "name": "Clearance + Green Man+ extension",
+        "when": "clearance lasts L / 1.2 m/s = 4.6 s; if someone is still on the crosswalk, it is extended by their measured time to reach the curb (max +8 s)",
+        "then": "pedestrians FLASHING until everyone is off the crosswalk, then ALL RED",
+        "it": "Sgombero di 4.6 s (L / 1.2 m/s), prolungato di quanto serve a chi \u00e8 ancora sulle strisce (max +8 s): nessuno resta in mezzo alla strada."
+      },
+      {
+        "id": "S4",
+        "group": "signal",
+        "name": "Return to traffic",
+        "when": "all red has lasted >= 1.5 s AND the crosswalk is empty (or 6 s have passed)",
+        "then": "vehicles GREEN, pedestrians RED",
+        "it": "Tutto rosso \u2265 1.5 s e strisce libere (o 6 s): verde ai veicoli."
+      },
+      {
+        "id": "SF",
+        "group": "signal",
+        "name": "Fixed-time baseline",
+        "when": "signal mode = fixed (used only to compare against the adaptive rules)",
+        "then": "fixed cycle: vehicles green 20 s, yellow, all red, pedestrians green, clearance, all red",
+        "it": "Modalit\u00e0 a tempo fisso (solo come confronto): ciclo fisso indipendente da chi c'\u00e8."
+      },
+      {
+        "id": "F1",
+        "group": "mcu",
+        "name": "Fail-safe",
+        "when": "the STM32 receives no heartbeat from the vision side for 2 s (crash, reboot, cable)",
+        "then": "vehicle lamp FLASHING AMBER, pedestrian lamps off, '!' on the LED matrix - like a real controller fault",
+        "it": "Se il microcontrollore non riceve segnali dalla parte di visione per 2 s: giallo lampeggiante, pedonali spente, '!' sulla matrice LED."
+      }
+    ]
+  },
+  "state": {
+    "perf": {
+      "loop_fps": 60.0,
+      "det_hz": 1.9,
+      "det_ms": 159.8,
+      "infer_ms": 150.1,
+      "pre_ms": 5.0,
+      "post_ms": 4.6,
+      "pipeline_ms": 9.2,
+      "decision_ms": 171.3,
+      "duty": 0.077,
+      "gate_reason": "heartbeat",
+      "motion": 0.0013,
+      "frames": 1172,
+      "det_runs": 90,
+      "on_device": true,
+      "camera_fps": 46.9,
+      "width": 632,
+      "height": 480,
+      "raw": "632x480",
+      "frame_age_s": 0.01,
+      "camera_reopens": 0,
+      "cpu_pct": 45.7,
+      "cpu_temp_c": 41.3,
+      "mem_used_mb": 779.0,
+      "load1": 2.02,
+      "uptime_s": 33.0
+    },
+    "mcu": {
+      "veh": "green",
+      "ped": "red",
+      "warning": 0,
+      "matrix": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        7,
+        7,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        7,
+        7,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        7,
+        0,
+        7,
+        0,
+        7,
+        7,
+        7,
+        0,
+        7,
+        0,
+        0,
+        0,
+        7,
+        0,
+        7,
+        0,
+        7,
+        0,
+        0,
+        0,
+        7,
+        7,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        7,
+        0,
+        7,
+        7,
+        7,
+        0,
+        0,
+        0,
+        0,
+        0,
+        7,
+        7,
+        7,
+        0
+      ],
+      "connected": true,
+      "page": "icon:bicycle",
+      "error": null,
+      "rtt_ms": 7.4,
+      "vision_age_s": 0.44,
+      "failsafe": false
+    },
+    "signal": {
+      "mode": "adaptive",
+      "state": "veh_green",
+      "veh": "green",
+      "ped": "red",
+      "t_in_state": 33.4,
+      "demand": false,
+      "extension_s": 0.0,
+      "cycles": 0,
+      "extensions": 0,
+      "mean_ped_wait_s": null,
+      "rule": {
+        "id": "S0",
+        "why": "nobody waiting to cross",
+        "t": 0.0
+      },
+      "history": []
+    },
+    "counts": {
+      "counts": {
+        "pedestrian": 0,
+        "bicycle": 0,
+        "micromobility": 0,
+        "vehicle": 0
+      },
+      "sub_counts": {},
+      "directions": {
+        "pedestrian": {
+          "A>B": 0,
+          "B>A": 0
+        },
+        "bicycle": {
+          "A>B": 0,
+          "B>A": 0,
+          "+X": 0,
+          "-X": 0
+        },
+        "micromobility": {
+          "A>B": 0,
+          "B>A": 0
+        },
+        "vehicle": {
+          "+X": 0,
+          "-X": 0
+        }
+      },
+      "direction_names": {
+        "A>B": "A \u2192 B",
+        "B>A": "B \u2192 A",
+        "+X": "\u2192 (+X)",
+        "-X": "\u2190 (\u2212X)"
+      },
+      "vehicle_v85_kmh": null,
+      "vehicle_mean_kmh": null,
+      "ped_mean_speed": null,
+      "ped_mean_crossing_s": null,
+      "crossings": 0,
+      "jaywalks": 0,
+      "timeline": []
+    }
+  },
+  "public": {
+    "schema_version": 1,
+    "generated_at": 1791711553.921449,
+    "node": {
+      "id": "cw-01-imx219",
+      "name": "HackTurin crosswalk (IMX219)",
+      "geo": {
+        "lat": 45.0627,
+        "lon": 7.6776,
+        "road_bearing_deg": 90
+      },
+      "brand": "\u00f2cio"
+    },
+    "data_mode": "live",
+    "statistics_available": true,
+    "statistics": {
+      "since": 1791711519.9528842,
+      "since_local": "2026-10-11T09:38:39.952884+00:00",
+      "timezone": "UTC",
+      "date": "2026-10-11",
+      "lifetime": {
+        "counts": {
+          "pedestrian": 0,
+          "bicycle": 0,
+          "micromobility": 0,
+          "vehicle": 0
+        },
+        "total": 0,
+        "near_misses": {
+          "potential": 0,
+          "serious": 0,
+          "critical": 0
+        },
+        "safety_score": null,
+        "yield_rate": null,
+        "yield_observations": 0,
+        "alerts": 0,
+        "red_light_flags": 1,
+        "pet_flags": 0,
+        "speeding_flags": 0,
+        "vehicle_mean_kmh": null,
+        "ped_mean_crossing_s": null,
+        "observed_hours": 0.009182,
+        "observed_seconds": 33.054,
+        "directions": {
+          "pedestrian": {},
+          "bicycle": {},
+          "micromobility": {},
+          "vehicle": {}
+        }
+      },
+      "today": {
+        "counts": {
+          "pedestrian": 0,
+          "bicycle": 0,
+          "micromobility": 0,
+          "vehicle": 0
+        },
+        "total": 0,
+        "near_misses": {
+          "potential": 0,
+          "serious": 0,
+          "critical": 0
+        },
+        "safety_score": null,
+        "yield_rate": null,
+        "yield_observations": 0,
+        "alerts": 0,
+        "red_light_flags": 1,
+        "pet_flags": 0,
+        "speeding_flags": 0,
+        "vehicle_mean_kmh": null,
+        "ped_mean_crossing_s": null,
+        "observed_hours": 0.009182,
+        "observed_seconds": 33.054,
+        "directions": {
+          "pedestrian": {},
+          "bicycle": {},
+          "micromobility": {},
+          "vehicle": {}
+        }
+      },
+      "week": {
+        "counts": {
+          "pedestrian": 0,
+          "bicycle": 0,
+          "micromobility": 0,
+          "vehicle": 0
+        },
+        "total": 0,
+        "near_misses": {
+          "potential": 0,
+          "serious": 0,
+          "critical": 0
+        },
+        "safety_score": null,
+        "yield_rate": null,
+        "yield_observations": 0,
+        "alerts": 0,
+        "red_light_flags": 1,
+        "pet_flags": 0,
+        "speeding_flags": 0,
+        "vehicle_mean_kmh": null,
+        "ped_mean_crossing_s": null,
+        "observed_hours": 0.009182,
+        "observed_seconds": 33.054,
+        "directions": {
+          "pedestrian": {},
+          "bicycle": {},
+          "micromobility": {},
+          "vehicle": {}
+        }
+      },
+      "hourly": [
+        {
+          "hour": 0,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 1,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 2,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 3,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 4,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 5,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 6,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 7,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 8,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 9,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 1,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.009182,
+          "observed_seconds": 33.054,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 10,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 11,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 12,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 13,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 14,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 15,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 16,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 17,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 18,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 19,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 20,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 21,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 22,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "hour": 23,
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        }
+      ],
+      "hourly_profiles": {
+        "today": [
+          {
+            "hour": 0,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 1,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 2,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 3,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 4,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 5,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 6,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 7,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 8,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 9,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 1,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.009182,
+            "observed_seconds": 33.054,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 10,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 11,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 12,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 13,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 14,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 15,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 16,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 17,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 18,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 19,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 20,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 21,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 22,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 23,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          }
+        ],
+        "week": [
+          {
+            "hour": 0,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 1,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 2,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 3,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 4,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 5,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 6,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 7,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 8,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 9,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 1,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.009182,
+            "observed_seconds": 33.054,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 10,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 11,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 12,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 13,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 14,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 15,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 16,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 17,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 18,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 19,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 20,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 21,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 22,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 23,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          }
+        ],
+        "lifetime": [
+          {
+            "hour": 0,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 1,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 2,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 3,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 4,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 5,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 6,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 7,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 8,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 9,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 1,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.009182,
+            "observed_seconds": 33.054,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 10,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 11,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 12,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 13,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 14,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 15,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 16,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 17,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 18,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 19,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 20,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 21,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 22,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          },
+          {
+            "hour": 23,
+            "counts": {
+              "pedestrian": 0,
+              "bicycle": 0,
+              "micromobility": 0,
+              "vehicle": 0
+            },
+            "total": 0,
+            "near_misses": {
+              "potential": 0,
+              "serious": 0,
+              "critical": 0
+            },
+            "safety_score": null,
+            "yield_rate": null,
+            "yield_observations": 0,
+            "alerts": 0,
+            "red_light_flags": 0,
+            "pet_flags": 0,
+            "speeding_flags": 0,
+            "vehicle_mean_kmh": null,
+            "ped_mean_crossing_s": null,
+            "observed_hours": 0.0,
+            "observed_seconds": 0,
+            "directions": {
+              "pedestrian": {},
+              "bicycle": {},
+              "micromobility": {},
+              "vehicle": {}
+            }
+          }
+        ]
+      },
+      "daily": [
+        {
+          "date": "2026-10-05",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "date": "2026-10-06",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "date": "2026-10-07",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "date": "2026-10-08",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "date": "2026-10-09",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "date": "2026-10-10",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 0,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.0,
+          "observed_seconds": 0,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        },
+        {
+          "date": "2026-10-11",
+          "counts": {
+            "pedestrian": 0,
+            "bicycle": 0,
+            "micromobility": 0,
+            "vehicle": 0
+          },
+          "total": 0,
+          "near_misses": {
+            "potential": 0,
+            "serious": 0,
+            "critical": 0
+          },
+          "safety_score": null,
+          "yield_rate": null,
+          "yield_observations": 0,
+          "alerts": 0,
+          "red_light_flags": 1,
+          "pet_flags": 0,
+          "speeding_flags": 0,
+          "vehicle_mean_kmh": null,
+          "ped_mean_crossing_s": null,
+          "observed_hours": 0.009182,
+          "observed_seconds": 33.054,
+          "directions": {
+            "pedestrian": {},
+            "bicycle": {},
+            "micromobility": {},
+            "vehicle": {}
+          }
+        }
+      ],
+      "mock_history": null,
+      "daily_history": [],
+      "peak_today": null,
+      "recent_notices": [
+        {
+          "at": 1791711522.3440685,
+          "type": "violation",
+          "level": null,
+          "detail": "pedestrian_on_red",
+          "ttc": null,
+          "pet": null,
+          "local_time": "2026-10-11T09:38:42.344069+00:00"
+        }
+      ]
+    },
+    "live": {
+      "healthy": true,
+      "calibrated": true,
+      "last_frame_at": 1791711553.916753,
+      "visible": {
+        "pedestrian": 0,
+        "bicycle": 0,
+        "micromobility": 0,
+        "vehicle": 0
+      },
+      "signal": {
+        "mode": "adaptive",
+        "veh": "green",
+        "ped": "red"
+      },
+      "warning_level": 0
+    },
+    "direction_names": {
+      "A>B": "A \u2192 B",
+      "B>A": "B \u2192 A",
+      "+X": "\u2192 (+X)",
+      "-X": "\u2190 (\u2212X)"
+    },
+    "speed_limit_kmh": 50,
+    "notes": [
+      "Counts are detected passages, not unique people or registered vehicles.",
+      "Safety notices are automated estimates, not confirmed accidents.",
+      "Hours use the node's local timezone. Gaps are unobserved, not zero traffic.",
+      "Fast person tracks (including e-scooters) are counted as bicycles."
+    ]
+  }
+}

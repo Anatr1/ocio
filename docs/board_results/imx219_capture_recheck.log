@@ -1,0 +1,73 @@
+[0:10:18.574378437] [3172] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:10:18.600996414] [3175] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:354 [0;32m'imx219 0-0010': [0mRecommended V4L2 control 0x009a0922 not supported
+[0:10:18.601065521] [3175] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:426 [0;32m'imx219 0-0010': [0mThe sensor kernel driver needs to be fixed
+[0:10:18.601080832] [3175] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:428 [0;32m'imx219 0-0010': [0mSee Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+[0:10:18.601917464] [3175] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:594 [0;32m'imx219 0-0010': [0mFailed to retrieve the camera location
+[0:10:18.601956158] [3175] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:616 [0;32m'imx219 0-0010': [0mRotation control not available, default to 0 degrees
+[0:10:18.608688639] [3175] [1;33m WARN [1;37mIPAProxy [1;34mipa_proxy.cpp:160 [0mConfiguration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+Camera configuration adjusted
+Using camera /base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10 as cam0
+[0:10:18.610993401] [3172] [1;32m INFO [1;37mCamera [1;34mcamera.cpp:1202 [0mconfiguring streams: (0) 632x480-RGB888
+[0:10:18.611652031] [3175] [1;32m INFO [1;37mIPASoft [1;34msoft_simple.cpp:251 [0;32mIPASoft: [0mExposure 4-1703, gain 1-10.6667 (0.0966667)
+cam0: Capture 60 frames
+618.783149 (0.00 fps) cam0-stream0 seq: 000000 bytesused: 910080
+618.799796 (60.07 fps) cam0-stream0 seq: 000001 bytesused: 910080
+618.816481 (59.93 fps) cam0-stream0 seq: 000002 bytesused: 910080
+618.833167 (59.93 fps) cam0-stream0 seq: 000003 bytesused: 910080
+618.849863 (59.89 fps) cam0-stream0 seq: 000004 bytesused: 910080
+618.866539 (59.97 fps) cam0-stream0 seq: 000005 bytesused: 910080
+618.883227 (59.92 fps) cam0-stream0 seq: 000006 bytesused: 910080
+618.899911 (59.94 fps) cam0-stream0 seq: 000007 bytesused: 910080
+618.916596 (59.93 fps) cam0-stream0 seq: 000008 bytesused: 910080
+618.933283 (59.93 fps) cam0-stream0 seq: 000009 bytesused: 910080
+618.949970 (59.93 fps) cam0-stream0 seq: 000010 bytesused: 910080
+618.966655 (59.93 fps) cam0-stream0 seq: 000011 bytesused: 910080
+618.983340 (59.93 fps) cam0-stream0 seq: 000012 bytesused: 910080
+619.000024 (59.94 fps) cam0-stream0 seq: 000013 bytesused: 910080
+619.016710 (59.93 fps) cam0-stream0 seq: 000014 bytesused: 910080
+619.033396 (59.93 fps) cam0-stream0 seq: 000015 bytesused: 910080
+619.050084 (59.92 fps) cam0-stream0 seq: 000016 bytesused: 910080
+619.066768 (59.94 fps) cam0-stream0 seq: 000017 bytesused: 910080
+619.083454 (59.93 fps) cam0-stream0 seq: 000018 bytesused: 910080
+619.100143 (59.92 fps) cam0-stream0 seq: 000019 bytesused: 910080
+619.116825 (59.94 fps) cam0-stream0 seq: 000020 bytesused: 910080
+619.133513 (59.92 fps) cam0-stream0 seq: 000021 bytesused: 910080
+619.150197 (59.94 fps) cam0-stream0 seq: 000022 bytesused: 910080
+619.166883 (59.93 fps) cam0-stream0 seq: 000023 bytesused: 910080
+619.183569 (59.93 fps) cam0-stream0 seq: 000024 bytesused: 910080
+619.200255 (59.93 fps) cam0-stream0 seq: 000025 bytesused: 910080
+619.216940 (59.93 fps) cam0-stream0 seq: 000026 bytesused: 910080
+619.233627 (59.93 fps) cam0-stream0 seq: 000027 bytesused: 910080
+619.250312 (59.93 fps) cam0-stream0 seq: 000028 bytesused: 910080
+619.266999 (59.93 fps) cam0-stream0 seq: 000029 bytesused: 910080
+619.283684 (59.93 fps) cam0-stream0 seq: 000030 bytesused: 910080
+619.300372 (59.92 fps) cam0-stream0 seq: 000031 bytesused: 910080
+619.317055 (59.94 fps) cam0-stream0 seq: 000032 bytesused: 910080
+619.333741 (59.93 fps) cam0-stream0 seq: 000033 bytesused: 910080
+619.350427 (59.93 fps) cam0-stream0 seq: 000034 bytesused: 910080
+619.367113 (59.93 fps) cam0-stream0 seq: 000035 bytesused: 910080
+619.383798 (59.93 fps) cam0-stream0 seq: 000036 bytesused: 910080
+619.400485 (59.93 fps) cam0-stream0 seq: 000037 bytesused: 910080
+619.417170 (59.93 fps) cam0-stream0 seq: 000038 bytesused: 910080
+619.433856 (59.93 fps) cam0-stream0 seq: 000039 bytesused: 910080
+619.450542 (59.93 fps) cam0-stream0 seq: 000040 bytesused: 910080
+619.467229 (59.93 fps) cam0-stream0 seq: 000041 bytesused: 910080
+619.483914 (59.93 fps) cam0-stream0 seq: 000042 bytesused: 910080
+619.500600 (59.93 fps) cam0-stream0 seq: 000043 bytesused: 910080
+619.517286 (59.93 fps) cam0-stream0 seq: 000044 bytesused: 910080
+619.533972 (59.93 fps) cam0-stream0 seq: 000045 bytesused: 910080
+619.550658 (59.93 fps) cam0-stream0 seq: 000046 bytesused: 910080
+619.567343 (59.93 fps) cam0-stream0 seq: 000047 bytesused: 910080
+619.584028 (59.93 fps) cam0-stream0 seq: 000048 bytesused: 910080
+619.600715 (59.93 fps) cam0-stream0 seq: 000049 bytesused: 910080
+619.617400 (59.93 fps) cam0-stream0 seq: 000050 bytesused: 910080
+619.634086 (59.93 fps) cam0-stream0 seq: 000051 bytesused: 910080
+619.650773 (59.93 fps) cam0-stream0 seq: 000052 bytesused: 910080
+619.667457 (59.94 fps) cam0-stream0 seq: 000053 bytesused: 910080
+619.684143 (59.93 fps) cam0-stream0 seq: 000054 bytesused: 910080
+619.700830 (59.93 fps) cam0-stream0 seq: 000055 bytesused: 910080
+619.717516 (59.93 fps) cam0-stream0 seq: 000056 bytesused: 910080
+619.734202 (59.93 fps) cam0-stream0 seq: 000057 bytesused: 910080
+619.750887 (59.93 fps) cam0-stream0 seq: 000058 bytesused: 910080
+619.767572 (59.93 fps) cam0-stream0 seq: 000059 bytesused: 910080
+[0:10:19.778844854] [3177] [1;32m INFO [1;37mDebayer [1;34mdebayer_cpu.cpp:788 [0mProcessed 30 frames in 328966us, 10965 us/frame

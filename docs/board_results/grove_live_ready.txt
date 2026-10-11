@@ -1,0 +1,31 @@
+MainPID=5232
+NRestarts=0
+ActiveState=active
+SubState=running
+
+MainPID=0
+NRestarts=0
+ActiveState=active
+SubState=exited
+{"ok":true,"t":1791711528.0234253,"node":"cw-01-imx219","vision_age_s":0.23,"mcu_connected":true,"failsafe":false}
+READ_ONLY_BOOT_STATUS [1, 1, 0, 3, 1, 0, 1, 222]
+5232 /home/arduino/occhio/.venv/bin/python -u -m crosswalk --config configs/board_grove_local.yaml
+5378 /bin/bash -c cd /home/arduino/occhio; systemctl show occhio occhio-mcu -p ActiveState -p SubState -p MainPID -p NRestarts; curl -s --max-time 3 http://127.0.0.1:8000/api/health; printf "\n"; .venv/bin/python runs/direct_check.py; pgrep -af "python.*crosswalk|mcu_test.py"; journalctl -u occhio -b --no-pager -n 18
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.882317135] [5362]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.882443176] [5232]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.886609322] [5232]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.887357812] [5362]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.887530468] [5232]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.887668072] [5232]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.888378905] [5362]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.888527239] [5232]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.891332707] [5232]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.892128228] [5362]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.892308020] [5232]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.892446510] [5232]  INFO Camera camera.cpp:1202 configuring streams: (0) 632x480-RGB888
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.893122968] [5362]  INFO IPASoft soft_simple.cpp:251 IPASoft: Exposure 4-1703, gain 1-10.6667 (0.0966667)
+Oct 11 09:38:39 VIVIC sh[5232]: [0:15:53.893272082] [5232]  WARN V4L2Compat v4l2_camera_proxy.cpp:215 Camera does not support FrameDurationLimits
+Oct 11 09:38:39 VIVIC sh[5232]: [node] calibrated: camera height 5.06 m, tilt 15.3 deg, hfov 29 deg (estimated), reproj 0.000 m
+Oct 11 09:38:39 VIVIC sh[5232]: [node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261011-093839_cw-01-imx219
+Oct 11 09:38:39 VIVIC sh[5232]: [node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+Oct 11 09:38:41 VIVIC sh[5232]: [0:15:55.391149269] [5368]  INFO Debayer debayer_cpu.cpp:788 Processed 30 frames in 209342us, 6978 us/frame

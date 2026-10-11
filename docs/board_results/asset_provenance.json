@@ -1,0 +1,42 @@
+{
+  "host": "x86_64",
+  "python": "3.12.14",
+  "packages": {
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1",
+    "ultralytics": "8.4.175",
+    "onnx": "1.23.2",
+    "onnxslim": "0.1.98",
+    "onnxruntime": "1.31.0",
+    "ncnn": "1.0.20260526",
+    "numpy": "2.5.2"
+  },
+  "export_command": "python tools/fetch_assets.py --models",
+  "calibration_inputs": [
+    "data/videos/vtest.avi",
+    "data/videos/people-detection.mp4",
+    "data/videos/person-bicycle-car-detection.mp4"
+  ],
+  "sha256": {
+    "models/yolo11n_416_int8.onnx": "5e4de8f09b78db85676751eb9e4c699e59a4a400cfd33f79911c45f6f5386e46",
+    "models/yolo11n_256_int8.onnx": "f8d811c5698dc0d910eabd90a5ac0bef4f550c4100d7b106e51e7897a7fe8a33",
+    "models/yolo11n_416.onnx": "a2203af8b6c072d727a3c0bfc36792c67b49dbf91ed05d0bd78ee5f321c98b43",
+    "models/yolo11n_320_int8.onnx": "b032963a1efdb2839ed9349f75188abf1dc5dba4550c998fd0544621de892971",
+    "models/yolo11n_256.onnx": "35932ac8a7ee12375225ed72531d980a80ea4965867c540b042aca4a17e933fa",
+    "models/yolo26n_256.onnx": "f459eb74918e50467ae1d63ae75e66f40f17a9cac4cbf18a49b9916e0ab1b12c",
+    "models/yolo11n_320.onnx": "25cf5c9182c663b24f29932196235560f7179389836221d46814b8a0b856636b",
+    "models/yolo26n_320_int8.onnx": "758fa73e1fddf168bd925d369e43726852a8af4d589c6ced970f1cc8ec8ab1d0",
+    "models/yolo26n_320.onnx": "a648f35e314a38120ee50399bb5c5bb001bad8c89805787188d081e7f9ed5467",
+    "models/yolo26n_256_int8.onnx": "61eababcc13d4bad10a6e9adc1d35821578173ba149ce68e7b1713b80fdfb8fb",
+    "models/yolo26n_416.onnx": "3ddca7b64e11412a5f4b6333f7ac2fcb1bda801c90253118740d3df847737cf1",
+    "models/yolo26n_416_int8.onnx": "75976abfed311aa6669d43679bdfa4a0c6f5ed4c15aa5a517efa47ba494eff02",
+    "models/yolo26n_320_ncnn_model/model.ncnn.param": "906bfc2faab37ce4f351cd31dd3247e74e1c4c48b65fc2f133bdd477e52a9159",
+    "models/yolo26n_320_ncnn_model/model.ncnn.bin": "46b25571cb0d1edfba4c977927c37dde751cb9a84438cc3968ca47c96e77d9ed",
+    "models/yolo11n_320_ncnn_model/model.ncnn.param": "6105e1c4e46fc8eef0c738da7233fb156250d1dc62d2487970dbc7563ecb2280",
+    "models/yolo11n_320_ncnn_model/model.ncnn.bin": "19d896532bfb9f095d0bdde3d1e4e8dfe037b9db874fa46f1b88c8d844413c9c",
+    "data/videos/vtest.avi": "45cddc9490be69345cbdab64ca583be65987e864ca408038e648db99e10516cf",
+    "data/videos/car-detection.mp4": "d31e0ebf194cc16e50eea784e7c3b0b1bb7976a4fb9b3fec26cb92a6704cca34",
+    "data/videos/people-detection.mp4": "18ffe8672d741e3e29c9d891d22c59d453720b086c25b35c88b393d55f92f693",
+    "data/videos/person-bicycle-car-detection.mp4": "452b11b7e0efbd019f1d9570d0c790e90416ad4ad29eec6003872d08443140ef"
+  }
+}

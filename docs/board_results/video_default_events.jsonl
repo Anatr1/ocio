@@ -1,0 +1,54 @@
+{"type": "mode", "t": 10.083, "mode": "adaptive", "id": 1, "node": "demo-video", "wall": "13:26:49"}
+{"type": "ped_button", "t": 10.083, "log_only": true, "id": 2, "node": "demo-video", "wall": "13:26:49"}
+{"type": "signal", "t": 10.083, "from": "veh_green", "to": "veh_yellow", "veh": "yellow", "ped": "red", "rule": "S1", "why": "push button for 0.0 s; vehicles green for 10 s; no vehicle about to cross", "log_only": true, "id": 3, "node": "demo-video", "wall": "13:26:49"}
+{"type": "signal", "t": 13.083, "from": "veh_yellow", "to": "all_red_1", "veh": "red", "ped": "red", "rule": "S1", "why": "yellow 3 s elapsed", "log_only": true, "id": 4, "node": "demo-video", "wall": "13:26:51"}
+{"type": "signal", "t": 14.667, "from": "all_red_1", "to": "ped_green", "veh": "red", "ped": "green", "rule": "S1", "why": "all-red 1.5 s elapsed - walk", "log_only": true, "id": 5, "node": "demo-video", "wall": "13:26:53"}
+{"type": "signal", "t": 19.833, "from": "ped_green", "to": "ped_clear", "veh": "red", "ped": "flash", "rule": "S2", "why": "walk 5 s, nobody else waiting", "log_only": true, "id": 6, "node": "demo-video", "wall": "13:26:58"}
+{"type": "signal", "t": 29.833, "from": "ped_clear", "to": "all_red_2", "veh": "red", "ped": "red", "rule": "S3", "why": "clearance 10.0 s elapsed", "log_only": true, "id": 7, "node": "demo-video", "wall": "13:27:08"}
+{"type": "signal", "t": 31.333, "from": "all_red_2", "to": "veh_green", "veh": "green", "ped": "red", "rule": "S4", "why": "crosswalk empty", "log_only": true, "id": 8, "node": "demo-video", "wall": "13:27:09"}
+{"type": "beacon", "t": 45.25, "rule": "B2", "level": 2, "why": "vehicle #6 -> person #4: TTC 1.4 s (serious)", "log_only": true, "id": 9, "node": "demo-video", "wall": "13:27:24"}
+{"type": "passage", "t": 45.63, "track": 6, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.12, "speed": 4.49, "total": 1, "id": 10, "node": "demo-video", "wall": "13:27:24"}
+{"type": "vehicle_pass", "t": 45.63, "track": 6, "cls": "car", "dir": "-X", "speed_kmh": 22.4, "speeding": false, "id": 11, "node": "demo-video", "wall": "13:27:24"}
+{"type": "beacon", "t": 47.083, "rule": "B0", "level": 0, "why": "no person at the crossing with a vehicle arriving", "log_only": true, "id": 12, "node": "demo-video", "wall": "13:27:25"}
+{"type": "violation", "t": 56.583, "violation": "pedestrian_on_red", "vru": 9, "id": 13, "node": "demo-video", "wall": "13:27:35"}
+{"type": "mode", "t": 76.167, "mode": "beacon", "id": 14, "node": "demo-video", "wall": "13:27:54"}
+{"type": "beacon", "t": 99.417, "rule": "B2", "level": 2, "why": "vehicle #14 -> person #13: TTC 1.8 s (serious)", "log_only": true, "id": 15, "node": "demo-video", "wall": "13:28:18"}
+{"type": "passage", "t": 99.689, "track": 14, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.05, "speed": 5.66, "total": 2, "id": 16, "node": "demo-video", "wall": "13:28:18"}
+{"type": "vehicle_pass", "t": 99.689, "track": 14, "cls": "car", "dir": "-X", "speed_kmh": 23.5, "speeding": false, "id": 17, "node": "demo-video", "wall": "13:28:18"}
+{"type": "conflict", "t": 99.75, "level": "serious", "ttc": 1.05, "drac": 3.3, "vru": 13, "vru_kind": "pedestrian", "veh": 14, "veh_cls": "car", "veh_speed_kmh": 20.4, "x": -7.34, "y": -2.8, "replay": true, "id": 18, "node": "demo-video", "wall": "13:28:18"}
+{"type": "beacon", "t": 101.583, "rule": "B0", "level": 0, "why": "no person at the crossing with a vehicle arriving", "log_only": true, "id": 19, "node": "demo-video", "wall": "13:28:20"}
+{"type": "conflict", "t": 153.583, "level": "serious", "ttc": 1.14, "drac": 3.1, "vru": 22, "vru_kind": "pedestrian", "veh": 23, "veh_cls": "car", "veh_speed_kmh": 20.8, "x": -7.32, "y": -2.87, "replay": true, "id": 20, "node": "demo-video", "wall": "13:29:12"}
+{"type": "beacon", "t": 153.583, "rule": "B2", "level": 2, "why": "vehicle #23 -> person #22: TTC 1.1 s (serious)", "log_only": true, "id": 21, "node": "demo-video", "wall": "13:29:12"}
+{"type": "passage", "t": 153.607, "track": 23, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.03, "speed": 5.22, "total": 3, "id": 22, "node": "demo-video", "wall": "13:29:12"}
+{"type": "vehicle_pass", "t": 153.607, "track": 23, "cls": "car", "dir": "-X", "speed_kmh": 23.6, "speeding": false, "id": 23, "node": "demo-video", "wall": "13:29:12"}
+{"type": "beacon", "t": 155.167, "rule": "B0", "level": 0, "why": "no person at the crossing with a vehicle arriving", "log_only": true, "id": 24, "node": "demo-video", "wall": "13:29:14"}
+{"type": "beacon", "t": 207.25, "rule": "B2", "level": 2, "why": "vehicle #32 -> person #31: TTC 1.6 s (serious)", "log_only": true, "id": 25, "node": "demo-video", "wall": "13:30:06"}
+{"type": "passage", "t": 207.506, "track": 32, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.11, "speed": 4.9, "total": 4, "id": 26, "node": "demo-video", "wall": "13:30:06"}
+{"type": "vehicle_pass", "t": 207.506, "track": 32, "cls": "car", "dir": "-X", "speed_kmh": 17.3, "speeding": false, "id": 27, "node": "demo-video", "wall": "13:30:06"}
+{"type": "conflict", "t": 208.25, "level": "critical", "ttc": 0.34, "drac": 9.9, "vru": 31, "vru_kind": "pedestrian", "veh": 32, "veh_cls": "car", "veh_speed_kmh": 23.6, "x": -7.89, "y": -2.19, "replay": true, "id": 28, "node": "demo-video", "wall": "13:30:07"}
+{"type": "beacon", "t": 210.0, "rule": "B0", "level": 0, "why": "no person at the crossing with a vehicle arriving", "log_only": true, "id": 29, "node": "demo-video", "wall": "13:30:09"}
+{"type": "beacon", "t": 261.167, "rule": "B2", "level": 2, "why": "vehicle #40 -> person #38: TTC 1.8 s (serious)", "log_only": true, "id": 30, "node": "demo-video", "wall": "13:31:00"}
+{"type": "passage", "t": 261.431, "track": 40, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.06, "speed": 5.54, "total": 5, "id": 31, "node": "demo-video", "wall": "13:31:00"}
+{"type": "vehicle_pass", "t": 261.431, "track": 40, "cls": "car", "dir": "-X", "speed_kmh": 23.7, "speeding": false, "id": 32, "node": "demo-video", "wall": "13:31:00"}
+{"type": "conflict", "t": 261.5, "level": "serious", "ttc": 1.06, "drac": 3.1, "vru": 38, "vru_kind": "pedestrian", "veh": 40, "veh_cls": "car", "veh_speed_kmh": 19.9, "x": -7.34, "y": -2.81, "replay": true, "id": 33, "node": "demo-video", "wall": "13:31:00"}
+{"type": "beacon", "t": 263.083, "rule": "B0", "level": 0, "why": "no person at the crossing with a vehicle arriving", "log_only": true, "id": 34, "node": "demo-video", "wall": "13:31:01"}
+{"type": "mode", "t": 308.75, "mode": "beacon", "id": 35, "node": "demo-video", "wall": "13:31:47"}
+{"type": "mode", "t": 308.75, "mode": "adaptive", "id": 36, "node": "demo-video", "wall": "13:31:47"}
+{"type": "ped_button", "t": 308.917, "log_only": true, "id": 37, "node": "demo-video", "wall": "13:31:47"}
+{"type": "signal", "t": 309.0, "from": "veh_green", "to": "veh_yellow", "veh": "yellow", "ped": "red", "rule": "S1", "why": "push button for 0.0 s; vehicles green for 278 s; no vehicle about to cross", "log_only": true, "id": 38, "node": "demo-video", "wall": "13:31:47"}
+{"type": "signal", "t": 312.167, "from": "veh_yellow", "to": "all_red_1", "veh": "red", "ped": "red", "rule": "S1", "why": "yellow 3 s elapsed", "log_only": true, "id": 39, "node": "demo-video", "wall": "13:31:51"}
+{"type": "signal", "t": 313.667, "from": "all_red_1", "to": "ped_green", "veh": "red", "ped": "green", "rule": "S1", "why": "all-red 1.5 s elapsed - walk", "log_only": true, "id": 40, "node": "demo-video", "wall": "13:31:52"}
+{"type": "violation", "t": 315.083, "violation": "vehicle_on_red", "veh": 47, "speed_kmh": 17.6, "replay": true, "id": 41, "node": "demo-video", "wall": "13:31:54"}
+{"type": "passage", "t": 315.391, "track": 47, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.08, "speed": 5.65, "total": 6, "id": 42, "node": "demo-video", "wall": "13:31:54"}
+{"type": "vehicle_pass", "t": 315.391, "track": 47, "cls": "car", "dir": "-X", "speed_kmh": 24.7, "speeding": false, "id": 43, "node": "demo-video", "wall": "13:31:54"}
+{"type": "conflict", "t": 315.5, "level": "critical", "ttc": 0.97, "drac": 3.2, "vru": 46, "vru_kind": "pedestrian", "veh": 47, "veh_cls": "car", "veh_speed_kmh": 20.3, "x": -7.44, "y": -2.71, "replay": true, "id": 44, "node": "demo-video", "wall": "13:31:54"}
+{"type": "beacon", "t": 315.5, "rule": "B2", "level": 2, "why": "vehicle #47 -> person #46: TTC 1.0 s (critical)", "log_only": true, "id": 45, "node": "demo-video", "wall": "13:31:54"}
+{"type": "beacon", "t": 317.333, "rule": "B0", "level": 0, "why": "no person at the crossing with a vehicle arriving", "log_only": true, "id": 46, "node": "demo-video", "wall": "13:31:56"}
+{"type": "signal", "t": 318.917, "from": "ped_green", "to": "ped_clear", "veh": "red", "ped": "flash", "rule": "S2", "why": "walk 5 s, nobody else waiting", "log_only": true, "id": 47, "node": "demo-video", "wall": "13:31:57"}
+{"type": "signal", "t": 329.167, "from": "ped_clear", "to": "all_red_2", "veh": "red", "ped": "red", "rule": "S3", "why": "clearance 10.0 s elapsed", "log_only": true, "id": 48, "node": "demo-video", "wall": "13:32:08"}
+{"type": "signal", "t": 330.917, "from": "all_red_2", "to": "veh_green", "veh": "green", "ped": "red", "rule": "S4", "why": "crosswalk empty", "log_only": true, "id": 49, "node": "demo-video", "wall": "13:32:09"}
+{"type": "passage", "t": 339.917, "track": 51, "kind": "vehicle", "cls": "car", "how": "coverage", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": -1.41, "y": -4.53, "speed": 4.84, "total": 7, "id": 50, "node": "demo-video", "wall": "13:32:18"}
+{"type": "vehicle_pass", "t": 339.697, "track": 51, "cls": "car", "dir": "-X", "speed_kmh": 16.8, "speeding": false, "id": 51, "node": "demo-video", "wall": "13:32:19"}
+{"type": "beacon", "t": 368.75, "rule": "B2", "level": 2, "why": "vehicle #54 -> person #53: TTC 1.8 s (serious)", "log_only": true, "id": 52, "node": "demo-video", "wall": "13:32:47"}
+{"type": "passage", "t": 369.162, "track": 54, "kind": "vehicle", "cls": "car", "how": "crossline", "dir": "-X", "dir_name": "\u2190 (\u2212X)", "x": 0.0, "y": -5.09, "speed": 4.31, "total": 8, "id": 53, "node": "demo-video", "wall": "13:32:48"}
+{"type": "vehicle_pass", "t": 369.162, "track": 54, "cls": "car", "dir": "-X", "speed_kmh": 14.4, "speeding": false, "id": 54, "node": "demo-video", "wall": "13:32:48"}

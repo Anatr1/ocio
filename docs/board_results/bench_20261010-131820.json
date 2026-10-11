@@ -1,0 +1,59 @@
+{
+ "info": {
+  "machine": "aarch64",
+  "python": "3.13.5",
+  "cpus": 4,
+  "time": "2026-10-10 13:18:04",
+  "temp_start_c": 52.0
+ },
+ "results": [
+  {
+   "model": "yolo11n_320_ncnn_model",
+   "backend": "ncnn",
+   "imgsz": 320,
+   "threads": 2,
+   "pre_ms": 4.0,
+   "infer_ms": 157.2,
+   "post_ms": 5.8,
+   "total_ms": 166.9,
+   "fps": 6.0,
+   "p90_infer_ms": 164.6,
+   "load_s": 0.23,
+   "dets_per_frame": 8.3,
+   "mean_conf": 0.559,
+   "temp_c": 53.3
+  },
+  {
+   "model": "yolo11n_320_ncnn_model",
+   "backend": "ncnn",
+   "imgsz": 320,
+   "threads": 3,
+   "pre_ms": 4.0,
+   "infer_ms": 149.1,
+   "post_ms": 5.7,
+   "total_ms": 158.8,
+   "fps": 6.3,
+   "p90_infer_ms": 159.6,
+   "load_s": 0.12,
+   "dets_per_frame": 8.3,
+   "mean_conf": 0.559,
+   "temp_c": 56.1
+  },
+  {
+   "model": "yolo11n_320_ncnn_model",
+   "backend": "ncnn",
+   "imgsz": 320,
+   "threads": 4,
+   "pre_ms": 3.8,
+   "infer_ms": 83.2,
+   "post_ms": 4.8,
+   "total_ms": 91.8,
+   "fps": 10.9,
+   "p90_infer_ms": 97.6,
+   "load_s": 0.1,
+   "dets_per_frame": 8.3,
+   "mean_conf": 0.559,
+   "temp_c": 61.1
+  }
+ ]
+}

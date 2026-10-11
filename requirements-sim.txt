@@ -1,0 +1,8 @@
+-r requirements-board.txt
+scipy
+pytest
+playwright
+# Model recreation with tools/fetch_assets.py:
+ultralytics
+onnx
+onnxslim

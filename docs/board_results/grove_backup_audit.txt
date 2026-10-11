@@ -1,0 +1,9 @@
+-rw-rw-r-- 1 arduino arduino 1.2K Oct 10 16:20 /home/arduino/occhio-before-grove-20261011-0dc35bc-eoyv90/configs/board_imx219.yaml
+-rw-rw-r-- 1 arduino arduino 6.7K Oct 10 13:10 /home/arduino/occhio-before-grove-20261011-0dc35bc-eoyv90/crosswalk_mcu/sketch/sketch.ino
+-rw-r--r-- 1 arduino arduino  189 Oct 10 15:57 /home/arduino/occhio-before-grove-20261011-0dc35bc-eoyv90/occhio.env
+-rw-rw-r-- 1 arduino arduino 594K Oct 10 17:06 /home/arduino/occhio-before-grove-20261011-0dc35bc-eoyv90/production-code.tar.gz
+backup_archive_integrity_OK
+no_stats_backup_directory
+no_current_stats_directory
+inactive
+inactive

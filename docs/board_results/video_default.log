@@ -1,0 +1,4 @@
+[node] calibrated: camera height 17.98 m, tilt 90.0 deg, hfov 60 deg (fov), reproj 0.000 m
+[node] detector: onnx models/yolo11n_416.onnx  run dir: runs/20261010-132638_demo-video
+[node] dashboard on http://localhost:8002  (LAN: http://<board-ip>:8002)
+[node] final counts: {'pedestrian': 0, 'bicycle': 0, 'micromobility': 0, 'vehicle': 8}  safety: {'near_miss': {'critical': 2, 'serious': 3, 'potential': 0}, 'yield': {'yielded': 0, 'not_yielded': 0}, 'pet_count': 0}

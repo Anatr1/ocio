@@ -1,0 +1,32 @@
+Sat Oct 10 14:42:26 UTC 2026
+ 14:42:26 up 10 min,  2 users,  load average: 0.07, 0.27, 0.29
+media-carrier  [current: enabled]       [next: enabled]
+  camera0:     [current: type1-2lanes]  [next boot: type1-2lanes]
+  camera1:     [current: none]          [next boot: none]
+  display:     [current: none]          [next boot: none]
+
+
+/sys/bus/i2c/drivers/imx219
+[0:10:34.347410117] [3249] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:10:34.374350802] [3252] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:354 [0;32m'imx219 0-0010': [0mRecommended V4L2 control 0x009a0922 not supported
+[0:10:34.374419233] [3252] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:426 [0;32m'imx219 0-0010': [0mThe sensor kernel driver needs to be fixed
+[0:10:34.374435221] [3252] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:428 [0;32m'imx219 0-0010': [0mSee Documentation/sensor_driver_requirements.rst in the libcamera sources for more information
+[0:10:34.375274001] [3252] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:594 [0;32m'imx219 0-0010': [0mFailed to retrieve the camera location
+[0:10:34.375311029] [3252] [1;33m WARN [1;37mCameraSensor [1;34mcamera_sensor_legacy.cpp:616 [0;32m'imx219 0-0010': [0mRotation control not available, default to 0 degrees
+[0:10:34.382173962] [3252] [1;33m WARN [1;37mIPAProxy [1;34mipa_proxy.cpp:160 [0mConfiguration file 'imx219.yaml' not found for IPA module 'simple', falling back to 'uncalibrated.yaml'
+Available cameras:
+1: 'imx219' (/base/soc@0/cci@5c1b000/i2c-bus@0/sensor@10)
+Oct 10 14:30:22 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 14:30:22 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 14:30:22 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 14:30:22 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 14:30:22 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 14:30:22 VIVIC kernel: platform 5c11000.camss: Adding to iommu group 4
+Oct 10 14:30:22 VIVIC kernel: /soc@0/camss@5c11000: Fixed dependency cycle(s) with /soc@0/cci@5c1b000/i2c-bus@0/sensor@10
+Oct 10 14:30:22 VIVIC kernel: /soc@0/cci@5c1b000/i2c-bus@0/sensor@10: Fixed dependency cycle(s) with /soc@0/camss@5c11000
+Oct 10 14:30:22 VIVIC kernel: pca953x 0-0026: supply vcc not found, using dummy regulator
+Oct 10 14:30:22 VIVIC kernel: pca953x 0-0026: using no auto increment
+Oct 10 14:30:26 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 14:30:26 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator
+Oct 10 14:30:26 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p2 not found, using dummy regulator
+Oct 10 14:30:26 VIVIC kernel: qcom-camss 5c11000.camss: supply vdd-csiphy-1p8 not found, using dummy regulator

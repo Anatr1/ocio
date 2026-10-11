@@ -1,0 +1,63 @@
+Sat Oct 10 13:50:48 UTC 2026
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 1a40:0801 Terminus Technology Inc. USB 2.0 Hub
+Bus 001 Device 003: ID 25a4:9311 USB C   USB C Video Adaptor      
+Bus 001 Device 004: ID 2b03:f681 STEREOLABS ZED-M HID Interface
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 002 Device 004: ID 2b03:f682 STEREOLABS ZED-M camera
+/:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=xhci-hcd/1p, 480M
+    |__ Port 001: Dev 002, If 0, Class=Hub, Driver=hub/4p, 480M
+        |__ Port 001: Dev 004, If 0, Class=Human Interface Device, Driver=usbhid, 12M
+        |__ Port 003: Dev 003, If 0, Class=Billboard, Driver=[none], 12M
+/:  Bus 002.Port 001: Dev 001, Class=root_hub, Driver=xhci-hcd/1p, 5000M
+    |__ Port 001: Dev 004, If 0, Class=Video, Driver=uvcvideo, 5000M
+    |__ Port 001: Dev 004, If 1, Class=Video, Driver=uvcvideo, 5000M
+Qualcomm Venus video decoder (plat:5a00000.video-codec:dec):
+	/dev/video10
+
+Qualcomm Venus video encoder (plat:5a00000.video-codec:enc):
+	/dev/video11
+
+Qualcomm Camera Subsystem (platform:5c11000.camss):
+	/dev/video2
+	/dev/video3
+	/dev/video4
+	/dev/video5
+	/dev/video6
+	/dev/video7
+	/dev/video8
+	/dev/video9
+	/dev/media1
+
+ZED-M: ZED-M (usb-xhci-hcd.2.auto-1):
+	/dev/video0
+	/dev/video1
+	/dev/media0
+ioctl: VIDIOC_ENUM_FMT
+	Type: Video Capture
+
+	[0]: 'YUYV' (YUYV 4:2:2)
+		Size: Discrete 2560x720
+			Interval: Discrete 0.017s (60.000 fps)
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 1344x376
+			Interval: Discrete 0.010s (100.000 fps)
+			Interval: Discrete 0.017s (60.000 fps)
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 3840x1080
+			Interval: Discrete 0.033s (30.000 fps)
+			Interval: Discrete 0.067s (15.000 fps)
+		Size: Discrete 4416x1242
+			Interval: Discrete 0.067s (15.000 fps)
+Available cameras:
+1: 'ZED-M: ZED-M' (/base/soc@0/usb@4ef8800/usb@4e00000-1:1.0-2b03:f682)
+media-carrier  [current: enabled]       [next: enabled]
+  camera0:     [current: type1-2lanes]  [next boot: type1-2lanes]
+  camera1:     [current: none]          [next boot: none]
+  display:     [current: none]          [next boot: none]
+
+
+[0:01:31.260493921] [1363] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:01:31.277879677] [1366] [1;32m INFO [1;37mSimplePipeline [1;34msimple.cpp:1581 [0mNo sensor found for /dev/media1

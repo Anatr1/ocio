@@ -1,0 +1,15 @@
+{
+  "profile": "grove",
+  "oled": true,
+  "revision": "0dc35bcd9f590947e72562e478cb11a9efc311a4",
+  "files_sha256": {
+    "README.md": "38b0ed01a47bfe310b610c62c24cbe10bdd8483402e6416b65d767bfa541bd08",
+    "app.yaml": "b5b1b2633b2fa1874d2b4d8baf53740e7138951f90f4e0475354a735343e9dbe",
+    "python/main.py": "0218ef8837e539d962017e24d2a28e9e9069b377f2a40eb71efbbe4ad2886938",
+    "sketch/hardware.h": "864f70a591ab9f159827c6a0e880e5ebedf619b6553b70515c52bddcc00c8c2b",
+    "sketch/sketch.ino": "6ae5d3533eb58053151a8d6d785e4e7ca479b59eecd1c8e6433b8d64e91ba845",
+    "sketch/sketch.yaml": "e122b3a2580a5d0d7c09c342245669def51ce2f29732200fbbb12f1c2e18553f"
+  },
+  "wiring_reference": "origin/codex/setup-GPIO-app@21f2aeb",
+  "evidence_scope": "laptop packaging preview only; not flashed or target-compiled"
+}

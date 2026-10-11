@@ -1,0 +1,37 @@
+{
+  "master": "4a2d8f8",
+  "timing_fix": true,
+  "record_wall_s": 10.466237280001224,
+  "record": {
+    "recording": false,
+    "name": "test_20261010-162836",
+    "seconds": null,
+    "frames": 157,
+    "dropped": 0,
+    "file": null,
+    "files": [
+      "test_20261010-162836_part1.mp4"
+    ]
+  },
+  "files": [
+    {
+      "name": "test_20261010-162836_part1.mp4",
+      "bytes": 502387,
+      "decoded_frames": 157,
+      "fps": 15.0,
+      "duration_s": 10.466666666666667,
+      "image_size": [
+        632,
+        480
+      ]
+    }
+  ],
+  "health": {
+    "ok": true,
+    "t": 1791649729.9562516,
+    "node": "cw-01-imx219",
+    "vision_age_s": 0.01,
+    "mcu_connected": true,
+    "failsafe": false
+  }
+}

@@ -1,0 +1,233 @@
+Sat Oct 10 13:45:54 UTC 2026
+ 13:45:54 up 1 min,  1 user,  load average: 2.45, 1.18, 0.44
+media-carrier  [current: enabled]       [next: enabled]
+  camera0:     [current: type1-2lanes]  [next boot: type1-2lanes]
+  camera1:     [current: none]          [next boot: none]
+  display:     [current: none]          [next boot: none]
+
+
+Available cameras:
+Oct 10 13:44:29 VIVIC kernel: pca953x 0-0026: supply vcc not found, using dummy regulator
+Oct 10 13:44:29 VIVIC kernel: pca953x 0-0026: using no auto increment
+Oct 10 13:44:33 VIVIC kernel: imx219 0-0010: Error reading reg 0x0000: -6
+Oct 10 13:44:33 VIVIC kernel: imx219 0-0010: error -ENXIO: failed to read chip id 219
+[0:01:18.047195534] [1406] [1;32m INFO [1;37mCamera [1;34mcamera_manager.cpp:327 [0mlibcamera v0.4.0
+[0:01:18.060407483] [1409] [1;32m INFO [1;37mSimplePipeline [1;34msimple.cpp:1581 [0mNo sensor found for /dev/media0
+gpiochip0 - 10 lines:
+	line   0:	unnamed         	input
+	line   1:	unnamed         	output
+	line   2:	unnamed         	input
+	line   3:	unnamed         	input
+	line   4:	unnamed         	input
+	line   5:	unnamed         	input
+	line   6:	unnamed         	input
+	line   7:	unnamed         	input
+	line   8:	unnamed         	input
+	line   9:	unnamed         	output
+gpiochip1 - 127 lines:
+	line   0:	unnamed         	input consumer=kernel
+	line   1:	unnamed         	input consumer=kernel
+	line   2:	unnamed         	input
+	line   3:	unnamed         	input
+	line   4:	unnamed         	input consumer=kernel
+	line   5:	unnamed         	input consumer=kernel
+	line   6:	unnamed         	input consumer=kernel
+	line   7:	unnamed         	input consumer=kernel
+	line   8:	unnamed         	input consumer=kernel
+	line   9:	unnamed         	input consumer=kernel
+	line  10:	unnamed         	input consumer=kernel
+	line  11:	unnamed         	input consumer=kernel
+	line  12:	unnamed         	input consumer=kernel
+	line  13:	unnamed         	input consumer=kernel
+	line  14:	unnamed         	input consumer=kernel
+	line  15:	unnamed         	input consumer=kernel
+	line  16:	unnamed         	input consumer=kernel
+	line  17:	unnamed         	input consumer=kernel
+	line  18:	unnamed         	input
+	line  19:	unnamed         	input
+	line  20:	unnamed         	input
+	line  21:	unnamed         	input
+	line  22:	unnamed         	input consumer=kernel
+	line  23:	unnamed         	input consumer=kernel
+	line  24:	unnamed         	input
+	line  25:	unnamed         	input
+	line  26:	unnamed         	input
+	line  27:	unnamed         	input
+	line  28:	unnamed         	input
+	line  29:	unnamed         	input consumer=kernel
+	line  30:	unnamed         	input consumer=kernel
+	line  31:	unnamed         	input
+	line  32:	unnamed         	input
+	line  33:	unnamed         	input
+	line  34:	unnamed         	input
+	line  35:	unnamed         	input
+	line  36:	unnamed         	input active-low consumer=Volume Down
+	line  37:	unnamed         	output
+	line  38:	unnamed         	input
+	line  39:	unnamed         	output consumer=unoq:panic-red2
+	line  40:	unnamed         	output consumer=unoq:wlan-green2
+	line  41:	unnamed         	output consumer=unoq:user-red1
+	line  42:	unnamed         	output consumer=unoq:user-green1
+	line  43:	unnamed         	input
+	line  44:	unnamed         	input
+	line  45:	unnamed         	input
+	line  46:	unnamed         	input
+	line  47:	unnamed         	output consumer=unoq:bt-blue2
+	line  48:	unnamed         	input
+	line  49:	unnamed         	input
+	line  50:	unnamed         	input
+	line  51:	unnamed         	input
+	line  52:	unnamed         	input
+	line  53:	unnamed         	input
+	line  54:	unnamed         	input
+	line  55:	unnamed         	input
+	line  56:	unnamed         	input
+	line  57:	unnamed         	input
+	line  58:	unnamed         	input
+	line  59:	unnamed         	input
+	line  60:	unnamed         	output consumer=unoq:user-blue1
+	line  61:	unnamed         	input
+	line  62:	unnamed         	input
+	line  63:	unnamed         	input
+	line  64:	unnamed         	input
+	line  65:	unnamed         	input
+	line  66:	unnamed         	input
+	line  67:	unnamed         	input
+	line  68:	unnamed         	input
+	line  69:	unnamed         	input
+	line  70:	unnamed         	output
+	line  71:	unnamed         	output consumer=kernel
+	line  72:	unnamed         	input
+	line  73:	unnamed         	input
+	line  74:	unnamed         	input
+	line  75:	unnamed         	input
+	line  76:	unnamed         	input
+	line  77:	unnamed         	input
+	line  78:	unnamed         	input
+	line  79:	unnamed         	input
+	line  80:	unnamed         	input consumer=kernel
+	line  81:	unnamed         	input
+	line  82:	unnamed         	input
+	line  83:	unnamed         	input
+	line  84:	unnamed         	input
+	line  85:	unnamed         	input
+	line  86:	unnamed         	input
+	line  87:	unnamed         	output consumer=enable
+	line  88:	unnamed         	input
+	line  89:	unnamed         	input
+	line  90:	unnamed         	input
+	line  91:	unnamed         	input
+	line  92:	unnamed         	input
+	line  93:	unnamed         	input
+	line  94:	unnamed         	input
+	line  95:	unnamed         	input
+	line  96:	unnamed         	input active-low consumer=Volume Up
+	line  97:	unnamed         	input
+	line  98:	unnamed         	input
+	line  99:	unnamed         	input
+	line 100:	unnamed         	input
+	line 101:	unnamed         	input
+	line 102:	unnamed         	input
+	line 103:	unnamed         	input
+	line 104:	unnamed         	input
+	line 105:	unnamed         	input
+	line 106:	unnamed         	input
+	line 107:	unnamed         	input
+	line 108:	unnamed         	input
+	line 109:	unnamed         	input
+	line 110:	unnamed         	input
+	line 111:	unnamed         	input
+	line 112:	unnamed         	input
+	line 113:	unnamed         	input
+	line 114:	unnamed         	input
+	line 115:	unnamed         	input
+	line 116:	unnamed         	input
+	line 117:	unnamed         	input
+	line 118:	unnamed         	input
+	line 119:	unnamed         	input
+	line 120:	unnamed         	input
+	line 121:	unnamed         	input
+	line 122:	unnamed         	input
+	line 123:	unnamed         	input
+	line 124:	unnamed         	input
+	line 125:	unnamed         	input
+	line 126:	unnamed         	input
+gpiochip2 - 16 lines:
+	line   0:	unnamed         	output
+	line   1:	unnamed         	output consumer=cam-pwr-csi0
+	line   2:	unnamed         	input
+	line   3:	unnamed         	output consumer=cam-pwr-csi1
+	line   4:	unnamed         	output active-low consumer=media-carrier:red4
+	line   5:	unnamed         	output active-low consumer=media-carrier:blue4
+	line   6:	unnamed         	output active-low consumer=media-carrier:green4
+	line   7:	unnamed         	output active-low consumer=media-carrier:red3
+	line   8:	unnamed         	output active-low consumer=media-carrier:blue3
+	line   9:	unnamed         	output active-low consumer=media-carrier:green3
+	line  10:	unnamed         	output active-low consumer=media-carrier:red2
+	line  11:	unnamed         	output active-low consumer=media-carrier:blue2
+	line  12:	unnamed         	output active-low consumer=media-carrier:green2
+	line  13:	unnamed         	output active-low consumer=media-carrier:red1
+	line  14:	unnamed         	output active-low consumer=media-carrier:blue1
+	line  15:	unnamed         	output active-low consumer=media-carrier:green1
+gpiochip3 - 19 lines:
+	line   0:	unnamed         	input
+	line   1:	unnamed         	input
+	line   2:	unnamed         	input
+	line   3:	unnamed         	input
+	line   4:	unnamed         	input
+	line   5:	unnamed         	input
+	line   6:	unnamed         	input
+	line   7:	unnamed         	input
+	line   8:	unnamed         	input
+	line   9:	unnamed         	input
+	line  10:	unnamed         	input
+	line  11:	unnamed         	input
+	line  12:	unnamed         	input
+	line  13:	unnamed         	input
+	line  14:	unnamed         	input
+	line  15:	unnamed         	input
+	line  16:	unnamed         	input
+	line  17:	unnamed         	input
+	line  18:	unnamed         	input
+lrwxrwxrwx 1 root root 0 Oct 10 13:44 /sys/bus/i2c/devices/0-0026/driver -> ../../../../../../bus/i2c/drivers/pca953x
+/sys/class/regulator/regulator.0 regulator-dummy
+/sys/class/regulator/regulator.1 vph_pwr
+/sys/class/regulator/regulator.10 l7
+/sys/class/regulator/regulator.11 l10
+/sys/class/regulator/regulator.12 l11
+/sys/class/regulator/regulator.13 l12
+/sys/class/regulator/regulator.14 l13
+/sys/class/regulator/regulator.15 l14
+/sys/class/regulator/regulator.16 l15
+/sys/class/regulator/regulator.17 l20
+/sys/class/regulator/regulator.18 l21
+/sys/class/regulator/regulator.19 l22
+/sys/class/regulator/regulator.2 anx30
+/sys/class/regulator/regulator.20 usb_vbus
+/sys/class/regulator/regulator.21 cam-pwr
+/sys/class/regulator/regulator.22 cam-pwr
+/sys/class/regulator/regulator.3 s3
+/sys/class/regulator/regulator.4 s4
+/sys/class/regulator/regulator.5 l2
+/sys/class/regulator/regulator.6 l3
+/sys/class/regulator/regulator.7 l4
+/sys/class/regulator/regulator.8 l5
+/sys/class/regulator/regulator.9 l6
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from crosswalk.mcu import RouterClient; c=RouterClient(); c.connect(); print("MCU ping after reboot:",c.call("ping")); c.close()
+                                                                                                          ~~~~~~^^^^^^^^
+  File "/home/arduino/occhio/crosswalk/mcu.py", line 92, in call
+    raise RuntimeError(f"{method}: {slot['error']}")
+RuntimeError: ping: [2, 'method ping not available']
+
+Manual bind retry, 2026-10-10 13:47:26 UTC:
+$ sudo gpioget --as-is -c gpiochip2 0
+"0"=inactive
+$ sudo sh -c 'echo 0-0010 > /sys/bus/i2c/drivers/imx219/bind'
+sh: 1: echo: echo: I/O error
+$ sudo gpioget --as-is -c gpiochip2 0
+"0"=inactive
+imx219 0-0010: Error reading reg 0x0000: -6
+imx219 0-0010: error -ENXIO: failed to read chip id 219
+GPIO read used --as-is: no GPIO direction or level changed.

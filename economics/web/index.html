@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>&ograve;cio | Turin Deployment Planner</title>
+  <link rel="stylesheet" href="/vendor/leaflet.css"><link rel="stylesheet" href="/style.css">
+  <script defer src="/vendor/leaflet.js"></script><script defer src="/vendor/chart.js"></script>
+  <script defer src="/vendor/lucide.js"></script><script defer src="/app.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><i data-lucide="scan-eye"></i><strong>&ograve;cio</strong><span>Deployment Lab</span></div>
+  <span class="model-tag"><span class="status-dot"></span>Scenario model &middot; not a forecast</span>
+  <button class="icon" id="reset" title="Reset scenario" aria-label="Reset scenario"><i data-lucide="rotate-ccw"></i></button>
+</header>
+<div class="page-heading"><div><p class="eyebrow">CITY OF TORINO</p><h1>Turin deployment planner</h1></div>
+  <div class="heading-tools"><div class="dataset-summary" id="dataset-summary">Loading official data&hellip;</div><button class="primary" id="run-top"><i data-lucide="play"></i><span>Run simulation</span></button></div></div>
+<nav class="tabs" aria-label="Planner views">
+  <button data-view="deployment" class="active"><i data-lucide="map"></i>Deployment</button>
+  <button data-view="results"><i data-lucide="chart-no-axes-combined"></i>Results <span id="results-dot" hidden></span></button>
+  <button data-view="settings"><i data-lucide="sliders-horizontal"></i>Settings</button>
+  <button data-view="sources"><i data-lucide="database"></i>Data &amp; methodology</button>
+</nav>
+<div id="notice" role="alert" hidden></div>
+<main>
+<section id="deployment" class="view active">
+  <section class="scenario-controls">
+    <fieldset><legend>Turin traffic</legend><div class="traffic-options" id="traffic-options"></div><p class="small-note" id="traffic-source-note"></p></fieldset>
+    <fieldset class="priority-control"><legend>Priority</legend><div class="traffic-options priority-options">
+      <label class="traffic-option"><input type="radio" name="priority" value="co2" checked><span><i data-lucide="leaf"></i>CO2 saved</span></label>
+      <label class="traffic-option"><input type="radio" name="priority" value="time"><span><i data-lucide="clock"></i>Time saved</span></label>
+    </div></fieldset>
+  </section>
+  <div class="workspace">
+    <aside class="selection-pane">
+      <div class="section-title"><h2>Deployment area</h2><button id="clear" class="icon" title="Clear selection" aria-label="Clear selection"><i data-lucide="eraser"></i></button></div>
+      <label class="sr-only" for="area-preset">Area preset</label>
+      <select id="area-preset"><option value="all">All Turin city districts</option><option value="custom">Custom district selection</option></select>
+      <div class="search"><i data-lucide="search"></i><input id="search" aria-label="Search districts or neighbourhoods" placeholder="District or neighbourhood"></div>
+      <div class="area-list" id="area-list"></div>
+      <div class="selection-total"><strong id="selection-count">0 districts</strong><span id="selection-pop">0 residents</span></div>
+      <label class="coverage-control" for="coverage_pct">Crossings equipped<div class="percentage-entry"><input id="coverage_pct" type="number" min="0" max="100" step="1" aria-label="Percentage of estimated crossings equipped"><span>%</span></div></label>
+      <input id="coverage-range" type="range" min="0" max="100" step="1" aria-label="Crossing coverage slider">
+      <div class="rollout-total"><span>Estimated crossings equipped</span><strong id="proposed-sites">0</strong></div>
+      <p class="small-note" id="coverage-basis"></p>
+      <button class="primary run" id="run"><i data-lucide="play"></i><span>Run simulation</span></button>
+      <div id="progress" hidden><progress max="1" value="0"></progress><span></span></div>
+    </aside>
+    <div class="map-pane">
+      <div class="map-toolbar"><div><strong>Turin circoscrizioni</strong><span id="map-coverage"></span></div><div class="map-actions"><label class="checkbox"><input type="checkbox" id="basemap">Road basemap</label><button id="fit-map" class="icon" title="Fit Turin city" aria-label="Fit Turin city"><i data-lucide="maximize"></i></button></div></div>
+      <div id="map" aria-label="Map of the eight Turin city districts"></div>
+      <div class="map-footer"><span><b class="legend-swatch"></b>Selected district</span><span id="map-reference">City district boundaries &middot; population 2025</span></div>
+    </div>
+  </div>
+</section>
+<section id="settings" class="view">
+  <div class="section-title"><h2>Model settings</h2><span>Planning assumptions, not surveyed crossing specifications</span></div>
+  <div class="cost-preset"><label>Deployment budget<select id="cost_profile"><option value="pilot">Pilot retrofit</option><option value="production">Production rollout</option></select></label><div id="cost-preset-summary"></div><p class="small-note" id="cost-preset-note"></p></div>
+  <div class="prototype-cost-fields">
+    <label>Installed prototype cost / crossing (EUR)<input id="installed_price_eur" type="number" min="0" max="100000" step="0.01"><span class="small-note">Final all-in cost per equipped crossing, including hardware and installation. No extra supplier margin is added.</span></label>
+    <label>Shared setup, one-off total (EUR)<input id="platform_cost_eur" type="number" min="0" max="10000000" step="0.01"><span class="small-note">Deployment-wide commissioning and shared software configuration, charged once, not per crossing. Provisional allowance; zero if no separate setup cost applies.</span></label>
+    <label>Annual maintenance / crossing (EUR / year)<input id="maintenance_fee_eur" type="number" min="0" max="10000" step="0.01"><span class="small-note">Final routine maintenance charge. Electricity and major device replacements are separate; no extra margin is added.</span></label>
+    <label>Devices replaced across appraisal (%)<input id="replacement_fraction" type="number" min="0" max="100" step="1" data-percent><span class="small-note" id="replacement-note">10% across 10 years, spread as 1% per year. Each replacement uses the installed prototype cost.</span></label>
+  </div>
+  <section id="rollout-settings" class="methodology">
+    <h2>Crossing inventory</h2>
+    <div class="inventory-fields">
+      <div><span class="small-note">Inventory basis</span><p>Mapped signalized crossing nodes</p></div>
+      <label id="node-factor-field">Crossings / mapped signal node<input id="installations_per_node" type="number" min="0" max="1" step="0.05"></label>
+    </div><p id="inventory-note"></p>
+  </section>
+  <section class="assumptions">
+    <div class="section-title"><h2>Scenario assumptions</h2><span class="small-note">Editable inputs &middot; unmeasured values are provisional</span></div>
+    <div class="assumption-grid">
+      <fieldset><legend>Crossing &amp; demand</legend>
+        <label>Existing control<select id="baseline"><option value="button">Demand-actuated / push button</option><option value="fixed">Simulator fixed cycle</option><option value="beacon">Unsignalized / beacon only</option></select></label>
+        <label>Peak pedestrians / hour<input id="pedestrian_pph" type="number" min="0" max="1200" step="10"></label>
+        <div class="field-grid"><label>Fixed-cycle vehicle green (seconds)<input id="fixed_green_s" type="number" min="8" max="180"></label><label>Time before pressing button (seconds)<input id="button_delay_s" type="number" min="0" max="120"></label></div>
+        <p class="small-note">Vehicle green is the time cars get a green light in the fixed-cycle comparator only. Button delay is the assumed wait from pedestrian arrival to pressing the button, not controller response time. Both are provisional.</p>
+      </fieldset>
+      <fieldset><legend>Deployment cost</legend>
+        <label>Estimated supplier gross margin (%)<input id="supplier_gross_margin" type="number" min="0" max="75" step="1" data-percent></label>
+        <p class="small-note">Margin estimates supplier delivery costs within the entered installed price and maintenance charge; it does not increase either charge.</p>
+        <div class="field-grid"><label>Horizon (years)<input id="horizon_years" type="number" min="1" max="30"></label><label>Real discount rate (%)<input id="discount_rate" type="number" min="0" max="30" step="0.5" data-percent></label></div>
+        <p class="small-note">Existing-controller retrofit allowance. No new signal heads, civil works or approval of a road deployment.</p>
+      </fieldset>
+      <fieldset><legend>Operations &amp; value</legend>
+        <div class="field-grid"><label>Detection recall (%)<input id="recall" type="number" min="0" max="100" step="5" data-percent></label><label>System uptime (%)<input id="uptime" type="number" min="0" max="100" step="5" data-percent></label></div>
+        <div class="field-grid"><label>Time value (EUR / person-hour)<input id="vot_eur_h" type="number" min="0" max="200" step="1"></label><label>Carbon value (EUR / tonne)<input id="carbon_eur_t" type="number" min="0" max="1000" step="10"></label></div>
+        <p class="small-note">Social time value is not a cash saving to the municipality. Safety benefits are not monetized.</p>
+      </fieldset>
+    </div>
+    <section class="methodology gdp-settings">
+      <div class="section-title"><h2>GDP contribution assumptions</h2><span>Unmeasured scenario inputs, not a Turin GDP forecast</span></div>
+      <div class="gdp-input-grid">
+        <label>Time allocated to work (%)<input id="work_time_fraction" type="number" min="0" max="100" data-percent></label>
+        <label>Work time becoming productive output (%)<input id="productivity_realization" type="number" min="0" max="100" data-percent></label>
+        <label>Value added / productive hour (EUR)<input id="labour_value_eur_h" type="number" min="0" max="200" step="0.01"></label>
+        <label>Time allocated to spending (%)<input id="spending_time_fraction" type="number" min="0" max="100" data-percent></label>
+        <label>Potential spending / allocated hour (EUR)<input id="spending_eur_h" type="number" min="0" max="1000" step="0.01"></label>
+        <label>Net-new, non-overlapping spending (%)<input id="spending_additionality" type="number" min="0" max="100" data-percent></label>
+        <label>Domestic value added / spending (%)<input id="domestic_value_added_fraction" type="number" min="0" max="100" data-percent></label>
+      </div>
+      <p id="time-allocation-note"></p>
+      <p>Work and spending allocations are separate and cannot exceed 100% together. Net-new spending excludes shifted purchases and output already counted in the work component; its default is zero without evidence. Value added is not wages or gross sales. Domestic value added need not occur within Turin. This proxy excludes net product taxes and multipliers, and is not added to social NPV.</p>
+    </section>
+    <details class="advanced"><summary>Additional financial &amp; operational inputs</summary><div class="advanced-grid" id="advanced-fields"></div></details>
+  </section>
+</section>
+<section id="results" class="view">
+  <div id="results-empty" class="empty"><i data-lucide="chart-no-axes-combined"></i><h2>No simulation yet</h2><p>Select Turin districts and run a scenario.</p><button class="secondary" id="back-to-deployment">Deployment</button></div>
+  <div id="results-body" hidden>
+    <div class="results-toolbar"><div><h2 id="result-title"></h2><p id="result-subtitle"></p></div><div class="toolbar-actions"><button id="save-scenario" class="secondary"><i data-lucide="bookmark-plus"></i>Save comparison</button><button id="export-json" class="icon" title="Download full reproducible scenario JSON" aria-label="Download JSON"><i data-lucide="file-json"></i></button><a id="export-csv" class="icon" title="Download district CSV" aria-label="Download CSV"><i data-lucide="download"></i></a></div></div>
+    <div class="result-caveat"><i data-lucide="flask-conical"></i><span>Conditional scenario estimate, not a validated forecast. Local delays are added across estimated crossings; citywide journey-time effects are unknown.</span></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="accounting-strip" id="accounting-strip"></div>
+    <section class="supplier-section"><div class="section-title"><h2>Fuel &amp; timing</h2><span id="optimization-summary"></span></div><p class="small-note" id="timing-detail"></p><div class="accounting-strip" id="fuel-metrics"></div></section>
+    <section class="supplier-section" id="gdp-section"><div class="section-title"><h2>GDP contribution scenario</h2><span>Annual gross-value-added proxy, not measured GDP growth</span></div><div class="accounting-strip" id="gdp-metrics"></div></section>
+    <section class="supplier-section"><div class="section-title"><h2>Maintenance &amp; replacement</h2><span id="lifecycle-title"></span></div><div class="accounting-strip" id="lifecycle-metrics"></div></section>
+    <section class="supplier-section"><div class="section-title"><h2>Supplier business case</h2><span>Assumed pricing &middot; contribution, not audited profit</span></div><div class="accounting-strip" id="supplier-metrics"></div></section>
+    <div class="charts-grid">
+      <section class="chart-section"><div class="section-title"><h2>Annual social value</h2><span>EUR / year</span></div><div class="chart-wrap"><canvas id="benefit-chart"></canvas></div></section>
+      <section class="chart-section"><div class="section-title"><h2>Discounted balance</h2><span>Social benefit less deployment cost</span></div><div class="chart-wrap"><canvas id="cashflow-chart"></canvas></div></section>
+      <section class="chart-section"><div class="section-title"><h2>Scale of deployment</h2><span>Proportional crossing mix &middot; fixed shared cost</span></div><div class="chart-wrap"><canvas id="scale-chart"></canvas></div></section>
+      <section class="chart-section"><div class="section-title"><h2>Crossing delay benchmark</h2><select id="delay-mode" aria-label="Delay benchmark road user"><option value="pedestrian">Pedestrians</option><option value="vehicle">Vehicles</option></select></div><div class="chart-wrap"><canvas id="delay-chart"></canvas></div><p class="small-note" id="delay-note"></p></section>
+    </div>
+    <section class="table-section"><div class="section-title"><h2>District breakdown</h2><span>Annual change &middot; negative values mean a loss</span></div><div class="table-scroll"><table id="results-table"><thead><tr><th>Circoscrizione</th><th>Crossings</th><th>Residents</th><th>Ped. hours saved</th><th>Veh. hours saved</th><th>Net CO2 saved (t)</th><th>Social net (EUR)</th><th>GDP scenario (EUR)</th><th>Capital (EUR)</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div><p class="small-note">GDP scenario is an annual value-added proxy, excluded from social net and NPV. District rows exclude the shared platform cost; overall capital and NPV include it.</p></section>
+    <section class="comparison-section" id="comparison-section" hidden><div class="section-title"><h2>Saved scenarios</h2><button class="icon" id="clear-comparisons" title="Clear saved comparisons" aria-label="Clear saved comparisons"><i data-lucide="trash-2"></i></button></div><div class="table-scroll"><table id="comparison-table"><thead><tr><th>Scenario</th><th>Crossings</th><th>Capital</th><th>Social net / year</th><th>NPV</th><th>Net CO2 / year</th><th></th></tr></thead><tbody></tbody></table></div></section>
+    <details class="warnings" open><summary>Model limitations &amp; sensitivity</summary><ul id="warnings"></ul></details>
+  </div>
+</section>
+<section id="sources" class="view">
+  <section class="methodology"><h2>Priority and fuel assumptions</h2><p>Five vehicle minimum-green timings (8, 15, 30, 45 and 60 seconds) are tested in each of four independent demand periods: 625 schedules plus baseline fallback. Both priorities prohibit extra combined road-user waiting. CO2 priority maximizes net savings after device electricity within that constraint; Time priority minimizes pedestrian and occupancy-weighted vehicle waiting subject to nonnegative net CO2 savings. If both targets cannot be met, the least-emitting time-safe option is reported with an unmet-target warning, not fabricated savings. Both modes can legitimately select the same schedule. Yellow, all-red and pedestrian clearance settings remain unchanged. Period transitions are not simulated, and the daily profile is provisional. Selection uses the same simulated samples as appraisal, not independent validation or citywide routing. Individual pedestrian waiting can still increase even when aggregate road-user waiting falls. No observed district-specific ranking is available.</p><p>The default compact-car no-load idle reference is 0.62 litres per engine-on hour (10.3 mL/minute), not litres per kilometre. It is not a measured Turin fleet average. Registered petrol/diesel share and assumed engine-on share reduce modelled consumption further. Annual fuel totals cover all equipped crossings; repeat visits are crossing events, not unique cars. Driving, acceleration and restart fuel are not included.</p></section>
+  <section class="methodology" id="inventory-provenance"></section>
+  <div class="section-title"><h2>Data provenance</h2><span id="source-version"></span></div>
+  <div id="source-list"></div><section class="methodology" id="traffic-provenance"></section><section class="methodology" id="cost-profile-provenance"></section><section class="methodology" id="gdp-provenance"></section>
+  <section class="methodology"><h2>Calculation boundary</h2>
+    <p>Paired Poisson arrivals feed the same &ograve;cio signal controller used by the simulator. Each demand period has a 5-minute warm-up and a 30-minute measurement, repeated with four seeds. Two road lanes discharge at 1,800 vehicles/hour/lane. Pedestrians cross at 0.8&ndash;1.6 m/s; no detector frames, route assignment or intersection coordination are simulated.</p>
+    <p>Demand follows a provisional 24-hour profile: night 6h at 8% of peak, off-peak 10h at 45%, shoulder 4h at 70%, peak 4h at 100%. The profile and daily pedestrian rates are not measured citywide. Both demand-actuated policies retain the same button fallback; vision can register a request sooner. During assumed downtime the baseline controller remains active.</p>
+    <p>Annual time value = (pedestrian hours + vehicle hours &times; occupancy) &times; time value. Fuel = stationary vehicle hours &times; idle litres/hour &times; modelled petrol/diesel share &times; engine-running share. Net operational CO2 subtracts device electricity emissions. Annual social value adds time, fuel and carbon values, then subtracts routine maintenance, electricity and average major replacement cost. NPV discounts actual yearly flows and includes installed cost, shared setup and replacement. The default replacement budget is 10% of units cumulatively across ten years, spread as 1% per year, at the installed prototype price.</p>
+    <p>GDP contribution is a separate conditional gross-value-added proxy from work and net-new, non-overlapping spending. Its conversion inputs are unmeasured assumptions; it is not causal GDP growth and is excluded from NPV to avoid counting time twice. Safety, pollution other than CO2, induced demand, embodied carbon, new signals and civil works are outside this model. Actual procurement and deployment require surveyed crossings and certified controller integration.</p>
+  </section>
+  <section class="table-section"><div class="section-title"><h2>Production budget reference</h2><span>Quoted components + provisional engineering allowances</span></div><div class="table-scroll"><table id="bom-table"><thead><tr><th>Item</th><th>Quantity</th><th>Budget (EUR)</th><th>Evidence</th></tr></thead><tbody></tbody></table></div><div id="cost-notes"></div></section>
+</section>
+</main>
+<footer>&ograve;cio Deployment Lab <span>Citt&agrave; di Torino &middot; 5T &middot; OpenStreetMap</span></footer>
+</body></html>

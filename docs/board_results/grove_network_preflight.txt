@@ -1,0 +1,10 @@
+br-160e49b0794f:bridge:connected (externally)
+br-59a5295352ef:bridge:connected (externally)
+lo:loopback:connected (externally)
+br-833b56e0f130:bridge:connected (externally)
+br-bafba5f83269:bridge:connected (externally)
+br-cb5557119366:bridge:connected (externally)
+docker0:bridge:connected (externally)
+wlan0:wifi:disconnected
+p2p-dev-wlan0:wifi-p2p:disconnected
+vetha0aed0e:ethernet:unmanaged

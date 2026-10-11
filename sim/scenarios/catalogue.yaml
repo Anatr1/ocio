@@ -1,0 +1,173 @@
+# Every case has explicit, reviewable expectations. Conditions at L0/L1 do not
+# constitute a pixel-level weather test; run L2 for detector robustness.
+scenarios:
+  single_a_b: &single
+    duration_s: 25
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 1.35}]
+    expected: {counts: {pedestrian: 1}, directions: {"pedestrian:A>B": 1}, collisions: 0}
+  single_b_a:
+    <<: *single
+    script: [{t: 0, cls: pedestrian, side: 1, x: 0, y: 5, cross_x: 0, state: cross, v: 1.35}]
+    expected: {counts: {pedestrian: 1}, directions: {"pedestrian:B>A": 1}, collisions: 0}
+  child_crossing:
+    <<: *single
+    script: [{t: 0, cls: child, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 1.2}]
+  child_running:
+    <<: *single
+    script: [{t: 0, cls: child, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 2.7}]
+  elderly_crossing:
+    <<: *single
+    script: [{t: 0, cls: elderly, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 0.65}]
+  wheelchair_crossing:
+    <<: *single
+    script: [{t: 0, cls: wheelchair, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 0.85}]
+  stroller_crossing:
+    <<: *single
+    script: [{t: 0, cls: stroller, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 1.1}]
+  distracted_crossing:
+    <<: *single
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 1.35, distracted: true}]
+  hesitant_crossing:
+    <<: *single
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 1.35, hesitate_s: 2}]
+  group_a_b:
+    <<: *single
+    script: [{t: 0, cls: pedestrian, side: -1, n: 4, x0: -1.2, cross_x: 0, group: family}]
+    duration_s: 40
+    expected: {counts: {pedestrian: 4}, directions: {"pedestrian:A>B": 4}, collisions: 0}
+  opposing_groups:
+    <<: *single
+    script: [{t: 0, cls: pedestrian, side: -1, n: 3, x0: -1.2, group: a}, {t: 0, cls: pedestrian, side: 1, n: 3, x0: -1.2, group: b}]
+    duration_s: 50
+    expected: {counts: {pedestrian: 6}, directions: {"pedestrian:A>B": 3, "pedestrian:B>A": 3}, collisions: 0}
+  sidewalk_only:
+    duration_s: 40
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, route: sidewalk, x0: -10, exit_x: 10, side: -1, v: 1.3}]
+    expected: {counts: {pedestrian: 0}, directions: {}, forbidden_events: [conflict, jaywalk], forbidden_rules: [B1, B2], collisions: 0}
+  curb_waiting:
+    duration_s: 15
+    signal_mode: fixed
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -4.5, cross_x: 0, state: wait, violator: false}]
+    expected: {counts: {pedestrian: 0}, directions: {}, forbidden_events: [conflict], collisions: 0}
+  jaywalker:
+    <<: *single
+    script: [{t: 0, cls: pedestrian, side: -1, x: 8, y: -5, cross_x: 8, state: cross, v: 1.35, jaywalk: true}]
+    expected: {counts: {pedestrian: 0}, directions: {}, required_events: [jaywalk], collisions: 0}
+  cyclist_zebra:
+    <<: *single
+    script: [{t: 0, cls: bicycle, side: -1, crossing: true, x: 0, y: -5, cross_x: 0, state: cross, v: 3.5}]
+    expected: {counts: {bicycle: 1}, directions: {"bicycle:A>B": 1}, collisions: 0}
+  cyclist_road:
+    duration_s: 20
+    signal_mode: beacon
+    script: [{t: 0, cls: bicycle, dir: 1, v: 5}]
+    expected: {counts: {bicycle: 1}, directions: {"bicycle:+X": 1}, collisions: 0}
+  cyclist_wrong_way:
+    duration_s: 20
+    signal_mode: beacon
+    script: [{t: 0, cls: bicycle, dir: -1, y: -3.4, v: 5, wrong_way: true}]
+    expected: {counts: {bicycle: 1}, directions: {"bicycle:-X": 1}, collisions: 0}
+  scooter_zebra:
+    <<: *single
+    script: [{t: 0, cls: e-scooter, side: -1, x: 0, y: -5, cross_x: 0, state: cross, v: 4.5}]
+    expected: {counts: {micromobility: 1}, directions: {"micromobility:A>B": 1}, collisions: 0}
+  scooter_road:
+    duration_s: 20
+    signal_mode: beacon
+    script: [{t: 0, cls: e-scooter, route: road, dir: 1, v: 5}]
+    expected: {counts: {micromobility: 1}, directions: {"micromobility:+X": 1}, collisions: 0}
+  car_positive:
+    duration_s: 12
+    signal_mode: beacon
+    script: [{t: 0, cls: car, dir: 1, v: 10}]
+    expected: {counts: {vehicle: 1}, directions: {"vehicle:+X": 1}, collisions: 0}
+  car_negative:
+    duration_s: 12
+    signal_mode: beacon
+    script: [{t: 0, cls: car, dir: -1, v: 10}]
+    expected: {counts: {vehicle: 1}, directions: {"vehicle:-X": 1}, collisions: 0}
+  driver_yields:
+    duration_s: 35
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -4.4, cross_x: 0, state: wait, v: 1.2}, {t: 0, cls: car, dir: 1, v: 8, yields: true, reaction: 0.6}]
+    expected: {counts: {pedestrian: 1, vehicle: 1}, directions: {"pedestrian:A>B": 1, "vehicle:+X": 1}, required_events: [yield], required_rules: [B1], collisions: 0}
+  driver_no_yield:
+    duration_s: 20
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -4.4, cross_x: 0, state: wait, v: 1.2}, {t: 0, cls: car, dir: 1, v: 12, yields: false}]
+    expected: {counts: {pedestrian: 1, vehicle: 1}, directions: {"pedestrian:A>B": 1, "vehicle:+X": 1}, required_events: [yield], collisions: 0}
+  car_occlusion:
+    duration_s: 30
+    signal_mode: beacon
+    script: [{t: 0, cls: car, dir: 1, v: 8}, {t: 0, cls: pedestrian, side: 1, x: 0, y: 5, cross_x: 0, state: to_curb}]
+    expected: {counts: {vehicle: 1, pedestrian: 1}, directions: {"vehicle:+X": 1, "pedestrian:B>A": 1}, collisions: 0}
+  slow_walker_extension:
+    duration_s: 55
+    signal_mode: adaptive
+    script: [{t: 0, cls: elderly, side: -1, x: 0, y: -4.5, cross_x: 0, state: wait, v: 0.4, violator: false}]
+    expected: {counts: {pedestrian: 1}, directions: {"pedestrian:A>B": 1}, required_events: [ped_extension], required_rules: [S1, S2, S3], max_rule_latency_s: {S1: 1}, min_extension_s: 3, collisions: 0}
+  pedestrian_on_red:
+    <<: *single
+    signal_mode: fixed
+    script: [{t: 2, cls: pedestrian, side: -1, x: 0, y: -3.8, cross_x: 0, state: cross, v: 1.2, violator: true}]
+    expected: {counts: {pedestrian: 1}, directions: {"pedestrian:A>B": 1}, required_events: [violation], required_rules: [SF], collisions: 0}
+  red_light_runner:
+    duration_s: 40
+    signal_mode: fixed
+    script: [{t: 26, cls: car, dir: 1, x: -18, v: 12, red_runner: true}]
+    expected: {counts: {vehicle: 1}, directions: {"vehicle:+X": 1}, required_events: [violation], required_rules: [SF], collisions: 0}
+  person_motionless:
+    duration_s: 20
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: 0.5, cross_x: 0, state: cross, v: 1.2, stop_at_s: 0, stop_duration_s: 25}]
+    expected: {counts: {pedestrian: 0}, directions: {}, required_events: [alert], collisions: 0}
+  vehicle_blocking:
+    duration_s: 15
+    signal_mode: beacon
+    script: [{t: 0, cls: car, dir: 1, x: 0.5, v: 0, stop_at_s: 0, stop_duration_s: 25, blocking: true}]
+    expected: {counts: {vehicle: 0}, directions: {}, required_events: [alert], collisions: 0}
+  near_miss_late_braking:
+    duration_s: 20
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, side: -1, x: 0, y: -3.8, cross_x: 0, state: cross, v: 1.35}, {t: 0, cls: car, dir: 1, x: -16, v: 12, yields: false, reaction: 1.4}]
+    expected: {counts: {}, directions: {}, required_events: [conflict], required_rules: [B2], max_rule_latency_s: {B2: 0.5}, collisions: 1}
+  queue_two_lanes:
+    duration_s: 50
+    signal_mode: fixed
+    scene: {lanes: 4, crosswalk: {length: 14}}
+    script: [{t: 0, cls: car, n: 6, dir: 1, v: 8}, {t: 0, cls: car, n: 6, dir: -1, v: 8}]
+    expected: {counts: {vehicle: 12}, directions: {"vehicle:+X": 6, "vehicle:-X": 6}, collisions: 0}
+  empty_street:
+    duration_s: 600
+    signal_mode: beacon
+    expected: {counts: {pedestrian: 0, bicycle: 0, micromobility: 0, vehicle: 0}, directions: {}, forbidden_events: [passage, conflict, yield, alert], forbidden_rules: [B1, B2], collisions: 0}
+  curb_edge_walkers:
+    duration_s: 25
+    signal_mode: beacon
+    script: [{t: 0, cls: pedestrian, route: sidewalk, x: -10, y: -3.9, exit_x: 10, side: -1, v: 1.3}]
+    expected: {counts: {pedestrian: 0}, directions: {}, forbidden_events: [passage, conflict], forbidden_rules: [B1, B2], collisions: 0}
+  rush_hour:
+    base: rush
+    duration_s: 120
+    signal_mode: adaptive
+    expected: {min_passages: 1, max_collisions: 2}
+  night_crossing:
+    <<: *single
+    conditions: {time_of_day: night, weather: clear}
+  rain_crossing:
+    <<: *single
+    conditions: {time_of_day: day, weather: rain}
+  dusk_crossing:
+    <<: *single
+    conditions: {time_of_day: dusk, weather: clear}
+  fog_crossing:
+    <<: *single
+    conditions: {time_of_day: day, weather: fog}
+  low_sun_crossing:
+    <<: *single
+    conditions: {time_of_day: low_sun, weather: clear}
+  camera_shake:
+    <<: *single
+    conditions: {time_of_day: day, weather: clear, shake_px: 2}

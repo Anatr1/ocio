@@ -1,0 +1,5 @@
+# Virtual what-if poses, not a replacement for the real site's calibration.
+poses:
+  - {name: curb, position: [-8.75, -8, 5.5], target: [3, 0.5, 0]}
+  - {name: raised, position: [-8.75, -8, 8], target: [3, 0.5, 0]}
+  - {name: upstream, position: [-15, -8, 5.5], target: [0, 0, 0]}

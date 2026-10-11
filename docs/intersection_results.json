@@ -1,0 +1,217 @@
+[
+  {
+    "scenario": "balanced",
+    "seconds_per_seed": 300,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "observation_mode": "perfect simulator ground truth",
+    "arrivals_identical": true,
+    "totals": {
+      "fixed": {
+        "vehicle_delay_s": 18446.71,
+        "pedestrian_wait_s": 2849.8,
+        "vehicles_completed": 274,
+        "pedestrians_completed": 40,
+        "residual_vehicles": 70,
+        "residual_pedestrians": 16,
+        "dropped_vehicles": 63,
+        "possible_conflicts": 9
+      },
+      "adaptive": {
+        "vehicle_delay_s": 16034.31,
+        "pedestrian_wait_s": 2106.9,
+        "vehicles_completed": 283,
+        "pedestrians_completed": 46,
+        "residual_vehicles": 77,
+        "residual_pedestrians": 10,
+        "dropped_vehicles": 47,
+        "possible_conflicts": 11
+      }
+    },
+    "change_percent": {
+      "vehicle_delay_s": -13.1,
+      "pedestrian_wait_s": -26.1
+    },
+    "notes": [
+      "Signed changes: negative delay/wait means less accumulated delay.",
+      "No warm-up: includes start-up queues and residual waiting in the stated finite window.",
+      "Dropped arrivals are reported; compare them alongside delay and throughput.",
+      "These intersection results do not replace single-crosswalk validation or measure detector performance."
+    ]
+  },
+  {
+    "scenario": "commute",
+    "seconds_per_seed": 300,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "observation_mode": "perfect simulator ground truth",
+    "arrivals_identical": true,
+    "totals": {
+      "fixed": {
+        "vehicle_delay_s": 17453.07,
+        "pedestrian_wait_s": 2492.6,
+        "vehicles_completed": 242,
+        "pedestrians_completed": 42,
+        "residual_vehicles": 70,
+        "residual_pedestrians": 14,
+        "dropped_vehicles": 126,
+        "possible_conflicts": 8
+      },
+      "adaptive": {
+        "vehicle_delay_s": 14781.17,
+        "pedestrian_wait_s": 1658.9,
+        "vehicles_completed": 286,
+        "pedestrians_completed": 47,
+        "residual_vehicles": 79,
+        "residual_pedestrians": 9,
+        "dropped_vehicles": 73,
+        "possible_conflicts": 6
+      }
+    },
+    "change_percent": {
+      "vehicle_delay_s": -15.3,
+      "pedestrian_wait_s": -33.4
+    },
+    "notes": [
+      "Signed changes: negative delay/wait means less accumulated delay.",
+      "No warm-up: includes start-up queues and residual waiting in the stated finite window.",
+      "Dropped arrivals are reported; compare them alongside delay and throughput.",
+      "These intersection results do not replace single-crosswalk validation or measure detector performance."
+    ]
+  },
+  {
+    "scenario": "pedestrian",
+    "seconds_per_seed": 300,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "observation_mode": "perfect simulator ground truth",
+    "arrivals_identical": true,
+    "totals": {
+      "fixed": {
+        "vehicle_delay_s": 12762.5,
+        "pedestrian_wait_s": 7796.0,
+        "vehicles_completed": 222,
+        "pedestrians_completed": 121,
+        "residual_vehicles": 45,
+        "residual_pedestrians": 42,
+        "dropped_vehicles": 24,
+        "possible_conflicts": 2
+      },
+      "adaptive": {
+        "vehicle_delay_s": 12711.22,
+        "pedestrian_wait_s": 3988.4,
+        "vehicles_completed": 207,
+        "pedestrians_completed": 149,
+        "residual_vehicles": 70,
+        "residual_pedestrians": 14,
+        "dropped_vehicles": 14,
+        "possible_conflicts": 4
+      }
+    },
+    "change_percent": {
+      "vehicle_delay_s": -0.4,
+      "pedestrian_wait_s": -48.8
+    },
+    "notes": [
+      "Signed changes: negative delay/wait means less accumulated delay.",
+      "No warm-up: includes start-up queues and residual waiting in the stated finite window.",
+      "Dropped arrivals are reported; compare them alongside delay and throughput.",
+      "These intersection results do not replace single-crosswalk validation or measure detector performance."
+    ]
+  },
+  {
+    "scenario": "turning",
+    "seconds_per_seed": 300,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "observation_mode": "perfect simulator ground truth",
+    "arrivals_identical": true,
+    "totals": {
+      "fixed": {
+        "vehicle_delay_s": 17208.24,
+        "pedestrian_wait_s": 2543.2,
+        "vehicles_completed": 283,
+        "pedestrians_completed": 36,
+        "residual_vehicles": 72,
+        "residual_pedestrians": 18,
+        "dropped_vehicles": 20,
+        "possible_conflicts": 22
+      },
+      "adaptive": {
+        "vehicle_delay_s": 14786.05,
+        "pedestrian_wait_s": 1736.4,
+        "vehicles_completed": 284,
+        "pedestrians_completed": 42,
+        "residual_vehicles": 76,
+        "residual_pedestrians": 12,
+        "dropped_vehicles": 15,
+        "possible_conflicts": 27
+      }
+    },
+    "change_percent": {
+      "vehicle_delay_s": -14.1,
+      "pedestrian_wait_s": -31.7
+    },
+    "notes": [
+      "Signed changes: negative delay/wait means less accumulated delay.",
+      "No warm-up: includes start-up queues and residual waiting in the stated finite window.",
+      "Dropped arrivals are reported; compare them alongside delay and throughput.",
+      "These intersection results do not replace single-crosswalk validation or measure detector performance."
+    ]
+  },
+  {
+    "scenario": "saturated",
+    "seconds_per_seed": 300,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "observation_mode": "perfect simulator ground truth",
+    "arrivals_identical": true,
+    "totals": {
+      "fixed": {
+        "vehicle_delay_s": 34884.12,
+        "pedestrian_wait_s": 4229.5,
+        "vehicles_completed": 376,
+        "pedestrians_completed": 65,
+        "residual_vehicles": 141,
+        "residual_pedestrians": 21,
+        "dropped_vehicles": 527,
+        "possible_conflicts": 28
+      },
+      "adaptive": {
+        "vehicle_delay_s": 36691.0,
+        "pedestrian_wait_s": 4207.0,
+        "vehicles_completed": 361,
+        "pedestrians_completed": 69,
+        "residual_vehicles": 162,
+        "residual_pedestrians": 17,
+        "dropped_vehicles": 521,
+        "possible_conflicts": 27
+      }
+    },
+    "change_percent": {
+      "vehicle_delay_s": 5.2,
+      "pedestrian_wait_s": -0.5
+    },
+    "notes": [
+      "Signed changes: negative delay/wait means less accumulated delay.",
+      "No warm-up: includes start-up queues and residual waiting in the stated finite window.",
+      "Dropped arrivals are reported; compare them alongside delay and throughput.",
+      "These intersection results do not replace single-crosswalk validation or measure detector performance."
+    ]
+  }
+]

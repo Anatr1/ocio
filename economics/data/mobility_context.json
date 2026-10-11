@@ -1,0 +1,23 @@
+{
+  "id": "pums_calibration",
+  "source": "https://www.cittametropolitana.torino.it/sites/default/files/pagina/allegati/trasporti/PUMS/ALLEGATI/ALLEGATO_I_-_Rapporto_di_calibrazione_del_modello_v12.pdf",
+  "title": "CMTO PUMS calibration report, approved July 2022",
+  "baseline_year": 2019,
+  "historical_generalized_cost_value_of_time": {
+    "unit": "EUR per vehicle-hour, historical model parameter",
+    "source_page": 49,
+    "source_table": "5.1.i",
+    "light_student": 5,
+    "light_work": 7.5,
+    "light_business": 20,
+    "light_personal": 8.6,
+    "light_leisure": 8.6,
+    "heavy": 34,
+    "caveat": "Route-assignment parameters, not current recommended social appraisal values or EUR per person-hour. Price basis unspecified in table; do not silently inflate or apply occupancy twice."
+  },
+  "context": {
+    "regional_model_traffic_zones_in_metropolitan_turin": 595,
+    "source_table": "2.1.ii, page13",
+    "caveat": "Official regional four-stage transport model is distinct from the local OCCHIO crossing scenario model. Its calibration quality and system-wide benefits cannot be transferred to this application."
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "presets": {
+    "peak": {
+      "label": "Peak-hour traffic",
+      "vehicle_vph": 1128,
+      "source_arc_vph": 564,
+      "source_hours": [
+        8
+      ],
+      "derivation": "2 x maximum of the 24 published hourly network-arc means"
+    },
+    "medium": {
+      "label": "Medium traffic",
+      "vehicle_vph": 626,
+      "source_arc_vph": 313,
+      "source_hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "derivation": "2 x the published daily mean hourly network-arc flow"
+    },
+    "light": {
+      "label": "Light traffic",
+      "vehicle_vph": 107,
+      "source_arc_vph": 53.333333333333336,
+      "source_hours": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "derivation": "round(2 x arithmetic mean of hourly network-arc means at 00:00 through 05:00)"
+    }
+  },
+  "short_note": "5T Turin profile, 9 Oct 2026. Two-direction crossing proxy.",
+  "caveat": "Modelled citywide network-arc estimates, not directly measured crossing-lane counts. Two-direction conversion assumes two representative arcs. One Friday profile is not an annual traffic distribution.",
+  "sources": [
+    {
+      "title": "5T / Muoversi a Torino: I numeri della mobilita",
+      "url": "https://www.muoversiatorino.it/it/numeri-mobilita/",
+      "reference": "Flussi medi hourly chart and daily summary, 2026-10-09; Supervisore network-arc estimates"
+    }
+  ],
+  "units": "vehicles per hour across both simulated travel directions",
+  "source": {
+    "title": "5T / Muoversi a Torino: I numeri della mobilita, Flussi medi",
+    "url": "https://www.muoversiatorino.it/it/numeri-mobilita/",
+    "provider": "5T Srl for the City of Torino",
+    "observation_date": "2026-10-09",
+    "observation_weekday": "Friday",
+    "timezone": "Europe/Rome",
+    "retrieved_at": "2026-10-10T15:46:14.356086+00:00",
+    "raw_html_sha256": "4b65a56591cf013521eb17284b009b8952b8bf5790ecd31c3a0a5e361277ae6a",
+    "source_units": "modelled mean vehicles/hour per network arc (road section)",
+    "method": "Supervisore mathematical traffic model informed by travel surveys and fixed traffic detectors",
+    "update_schedule": "08:00 for the preceding day; same weekday of prior week also published",
+    "license": "No dataset-specific open licence verified for this page; numeric facts transformed with attribution"
+  },
+  "observations": [
+    {
+      "date": "2026-10-09",
+      "daily_mean_arc_vph": 313,
+      "hourly_mean_arc_vph": [
+        85,
+        55,
+        31,
+        23,
+        36,
+        90,
+        193,
+        441,
+        564,
+        497,
+        437,
+        404,
+        406,
+        409,
+        436,
+        443,
+        477,
+        528,
+        537,
+        479,
+        356,
+        227,
+        197,
+        168
+      ],
+      "published_km_travelled": 7984665
+    },
+    {
+      "date": "2026-10-02",
+      "daily_mean_arc_vph": 309,
+      "hourly_mean_arc_vph": [
+        82,
+        53,
+        32,
+        23,
+        33,
+        87,
+        188,
+        432,
+        553,
+        492,
+        437,
+        403,
+        404,
+        404,
+        433,
+        443,
+        472,
+        527,
+        531,
+        466,
+        346,
+        224,
+        191,
+        162
+      ],
+      "published_km_travelled": 7874604
+    }
+  ],
+  "conversion": {
+    "directions": 2,
+    "direction_split": [
+      0.5,
+      0.5
+    ],
+    "assumption": "Represent each of two simulated directions by one city-average network arc; total demand is twice the published arc flow. No source lane-count normalization is claimed.",
+    "rounding": "Nearest integer vehicle/hour for light; peak and medium already integer"
+  },
+  "caveats": [
+    "Source-calibrated scenario proxies, not observed demand at an individual pedestrian crossing.",
+    "Modelled citywide network-arc averages, not directly measured per-lane flow; local roads differ in lane count and demand.",
+    "Peak is a temporal maximum in published hourly estimates for one weekday, not a spatial-counter percentile or annual design peak.",
+    "Levels come from one Friday, not a representative annual or multi-day sample.",
+    "Hour24 repeats hour0 in the chart. This extra point is excluded from calculations.",
+    "Medium uses the separately published rounded daily mean; the mean of rounded hourly values can differ slightly.",
+    "Traffic presets do not validate annual operating hours, street-specific demand, benefit attribution, or economic assumptions."
+  ]
+}

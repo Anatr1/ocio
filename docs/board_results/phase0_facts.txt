@@ -1,0 +1,209 @@
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.5
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+Linux VIVIC 7.0.0-g122c2c22d838 #1 SMP PREEMPT Tue May 19 15:08:13 UTC 2026 aarch64 GNU/Linux
+Python 3.13.5
+4
+Architecture:                            aarch64
+CPU op-mode(s):                          32-bit, 64-bit
+Byte Order:                              Little Endian
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Vendor ID:                               Qualcomm
+Model name:                              Kryo-V2
+Model:                                   4
+Thread(s) per core:                      1
+Core(s) per cluster:                     4
+Socket(s):                               -
+Cluster(s):                              1
+Stepping:                                0xa
+Frequency boost:                         disabled
+CPU(s) scaling MHz:                      70%
+CPU max MHz:                             2016.0000
+CPU min MHz:                             300.0000
+BogoMIPS:                                38.40
+Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+NUMA node(s):                            1
+               total        used        free      shared  buff/cache   available
+Mem:            3667         633        2388          38         828        3034
+Swap:           1833           0        1833
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/mmcblk0p68  9.8G  6.7G  2.7G  72% /
+crw-rw----+ 1 root video 81, 0 Oct 10 12:58 /dev/video0
+crw-rw----+ 1 root video 81, 1 Oct 10 12:58 /dev/video1
+crw-rw----+ 1 root video 81, 2 Oct 10 12:58 /dev/video2
+crw-rw----+ 1 root video 81, 3 Oct 10 12:58 /dev/video3
+crw-rw----+ 1 root video 81, 4 Oct 10 12:58 /dev/video4
+crw-rw----+ 1 root video 81, 5 Oct 10 12:58 /dev/video5
+crw-rw----+ 1 root video 81, 6 Oct 10 12:58 /dev/video6
+crw-rw----+ 1 root video 81, 7 Oct 10 12:58 /dev/video7
+crw-rw----+ 1 root video 81, 8 Oct 10 12:58 /dev/video8
+crw-rw----+ 1 root video 81, 9 Oct 10 12:58 /dev/video9
+/usr/bin/v4l2-ctl
+Qualcomm Venus video decoder (plat:5a00000.video-codec:dec):
+	/dev/video9
+
+Qualcomm Venus video encoder (plat:5a00000.video-codec:enc):
+	/dev/video8
+
+Qualcomm Camera Subsystem (platform:5c11000.camss):
+	/dev/video0
+	/dev/video1
+	/dev/video2
+	/dev/video3
+	/dev/video4
+	/dev/video5
+	/dev/video6
+	/dev/video7
+	/dev/media0
+ioctl: VIDIOC_ENUM_FMT
+	Type: Video Capture Multiplanar
+
+	[0]: 'UYVY' (UYVY 4:2:2)
+		Size: Continuous 1x1 - 8191x8191
+	[1]: 'VYUY' (VYUY 4:2:2)
+		Size: Continuous 1x1 - 8191x8191
+	[2]: 'YUYV' (YUYV 4:2:2)
+		Size: Continuous 1x1 - 8191x8191
+	[3]: 'YVYU' (YVYU 4:2:2)
+		Size: Continuous 1x1 - 8191x8191
+	[4]: 'BA81' (8-bit Bayer BGBG/GRGR)
+		Size: Continuous 1x1 - 8191x8191
+	[5]: 'GBRG' (8-bit Bayer GBGB/RGRG)
+		Size: Continuous 1x1 - 8191x8191
+	[6]: 'GRBG' (8-bit Bayer GRGR/BGBG)
+		Size: Continuous 1x1 - 8191x8191
+	[7]: 'RGGB' (8-bit Bayer RGRG/GBGB)
+		Size: Continuous 1x1 - 8191x8191
+	[8]: 'pBAA' (10-bit Bayer BGBG/GRGR Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[9]: 'pGAA' (10-bit Bayer GBGB/RGRG Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[10]: 'pgAA' (10-bit Bayer GRGR/BGBG Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[11]: 'pRAA' (10-bit Bayer RGRG/GBGB Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[12]: 'BG10' (10-bit Bayer BGBG/GRGR)
+		Size: Continuous 1x1 - 8191x8191
+	[13]: 'pBCC' (12-bit Bayer BGBG/GRGR Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[14]: 'pGCC' (12-bit Bayer GBGB/RGRG Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[15]: 'pgCC' (12-bit Bayer GRGR/BGBG Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[16]: 'pRCC' (12-bit Bayer RGRG/GBGB Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[17]: 'pBEE' (14-bit Bayer BGBG/GRGR Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[18]: 'pGEE' (14-bit Bayer GBGB/RGRG Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[19]: 'pgEE' (14-bit Bayer GRGR/BGBG Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[20]: 'pREE' (14-bit Bayer RGRG/GBGB Packed)
+		Size: Continuous 1x1 - 8191x8191
+	[21]: 'GREY' (8-bit Greyscale)
+		Size: Continuous 1x1 - 8191x8191
+	[22]: 'Y10P' (10-bit Greyscale (MIPI Packed))
+		Size: Continuous 1x1 - 8191x8191
+	[23]: 'Y10 ' (10-bit Greyscale)
+		Size: Continuous 1x1 - 8191x8191
+srw-rw-rw- 1 root root 0 Oct 10 12:58 /var/run/arduino-router.sock
+● arduino-router.service - Arduino Router Service
+     Loaded: loaded (/etc/systemd/system/arduino-router.service; enabled; preset: enabled)
+    Drop-In: /run/systemd/generator/arduino-router.service.d
+             └─10-imola.conf
+     Active: active (running) since Sat 2026-10-10 12:58:59 UTC; 5min ago
+ Invocation: 1c1a516e1c1949bc895f432c77cb981b
+    Process: 755 ExecStartPre=/usr/bin/gpioset -c /dev/gpiochip1 -t0 37=0 (code=exited, status=0/SUCCESS)
+   Main PID: 765 (arduino-router)
+/sys/class/thermal/thermal_zone0
+mapss-thermal
+35700
+/sys/class/thermal/thermal_zone1
+video-thermal
+37000
+/sys/class/thermal/thermal_zone2
+wlan-thermal
+35400
+/sys/class/thermal/thermal_zone3
+cpuss0-thermal
+37600
+/sys/class/thermal/thermal_zone4
+cpuss1-thermal
+36600
+/sys/class/thermal/thermal_zone5
+mdm0-thermal
+35100
+/sys/class/thermal/thermal_zone6
+mdm1-thermal
+36600
+/sys/class/thermal/thermal_zone7
+gpu-thermal
+36300
+/sys/class/thermal/thermal_zone8
+hm-center-thermal
+37000
+/sys/class/thermal/thermal_zone9
+camera-thermal
+36000
+total 68
+drwxr-xr-x 11 arduino arduino  4096 Oct 10 10:05 .
+drwxr-xr-x  3 root    root     4096 May 28 11:20 ..
+drwxr-xr-x  4 arduino arduino  4096 Oct 10 10:05 .arduino-bricks
+drwxr-xr-x  6 arduino arduino  4096 Oct 10 12:53 .arduino15
+-rw-r--r--  1 arduino arduino  3526 Dec 10  2025 .bashrc
+drwxr-xr-x  2 arduino arduino  4096 Oct 10 10:05 .claude
+drwxr-xr-x  2 arduino arduino  4096 Oct 10 10:05 .codex
+drwxr-xr-x  2 arduino arduino  4096 Oct 10 10:05 .copilot
+-rwxrwxr-x  1 arduino arduino  2576 Dec 10  2025 .face
+drwxr-xr-x  2 arduino arduino  4096 Oct 10 10:05 .gemini
+drwxr-xr-x  4 arduino arduino  4096 Oct 10 10:22 .local
+-rw-r--r--  1 arduino arduino    43 Dec 10  2025 .profile
+-rw-r--r--  1 arduino arduino     0 Dec 10  2025 .sudo_as_admin_successful
+drwxr-xr-x  2 arduino arduino  4096 Dec 10  2025 ArduinoApps
+drwx------  2 root    root    16384 Dec 10  2025 lost+found
+/usr/bin/arduino-app-cli
+/usr/bin/arduino-cli
+/usr/bin/media-ctl
+    PID COMMAND         COMMAND
+      1 systemd         /sbin/init
+      2 kthreadd        [kthreadd]
+      3 pool_workqueue_ [pool_workqueue_release]
+      4 kworker/R-rcu_g [kworker/R-rcu_gp]
+      5 kworker/R-sync_ [kworker/R-sync_wq]
+      6 kworker/R-kvfre [kworker/R-kvfree_rcu_reclaim]
+      7 kworker/R-slub_ [kworker/R-slub_flushwq]
+      8 kworker/R-netns [kworker/R-netns]
+     11 kworker/0:0H-kb [kworker/0:0H-kblockd]
+     12 kworker/u16:0-e [kworker/u16:0-events_unbound]
+     13 kworker/R-mm_pe [kworker/R-mm_percpu_wq]
+     14 ksoftirqd/0     [ksoftirqd/0]
+     15 rcu_preempt     [rcu_preempt]
+     16 rcu_exp_par_gp_ [rcu_exp_par_gp_kthread_worker/0]
+     17 rcu_exp_gp_kthr [rcu_exp_gp_kthread_worker]
+     18 migration/0     [migration/0]
+     19 cpuhp/0         [cpuhp/0]
+     20 cpuhp/1         [cpuhp/1]
+     21 migration/1     [migration/1]
+     22 ksoftirqd/1     [ksoftirqd/1]
+     24 kworker/1:0H    [kworker/1:0H]
+     25 cpuhp/2         [cpuhp/2]
+     26 migration/2     [migration/2]
+     27 ksoftirqd/2     [ksoftirqd/2]
+     28 kworker/2:0-cgr [kworker/2:0-cgroup_free]
+     29 kworker/2:0H    [kworker/2:0H]
+     30 cpuhp/3         [cpuhp/3]
+     31 migration/3     [migration/3]
+     32 ksoftirqd/3     [ksoftirqd/3]
+     33 kworker/3:0-eve [kworker/3:0-events]
+     34 kworker/3:0H-kb [kworker/3:0H-kblockd]
+     35 kdevtmpfs       [kdevtmpfs]
+     36 kworker/R-inet_ [kworker/R-inet_frag_wq]
+     37 rcu_tasks_kthre [rcu_tasks_kthread]

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f1e9" />
+  <title>òcio · Your crossing, in numbers</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e9edda'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='13' fill='none' stroke='%23274f3d' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%23274f3d'/%3E%3C/svg%3E" />
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="public.css" />
+  <script src="public.js" defer></script>
+</head>
+<body class="citizen">
+  <header class="public-header">
+    <a class="public-brand" href="./" aria-label="òcio crossing statistics">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="26" ry="15"/><circle cx="32" cy="32" r="8"/></svg>
+      <span>òcio</span>
+    </a>
+    <span class="header-note">A closer look at your crossing</span>
+    <span class="public-status" id="connection" role="status">Connecting</span>
+  </header>
+  <main class="public-main">
+    <div class="public-banner" id="demo-banner" hidden>Demonstration data · this is a simulated or replayed crossing. Statistics belong to this run.</div>
+    <div class="public-banner warning-banner" id="error-banner" role="status" hidden></div>
+    <section class="public-hero">
+      <div class="hero-copy">
+        <div class="eyebrow">YOUR NEIGHBOURHOOD, IN MOTION</div>
+        <h1 id="crossing-name">Your crossing,<br>in numbers.</h1>
+        <p>Every journey adds to the story of this street. Explore how people move through this crossing, and what òcio sees along the way.</p>
+        <div class="hero-meta"><span id="node-id">Crossing information</span><a id="map-link" target="_blank" rel="noopener" hidden>Find on map ↗</a></div>
+      </div>
+      <div class="street-card">
+        <div class="street-top"><span class="eyebrow">HERE & NOW</span><span id="signal-label">Waiting for the crossing</span></div>
+        <svg class="street-drawing" viewBox="0 0 440 170" aria-hidden="true">
+          <rect x="0" y="0" width="440" height="170" fill="#e3e8d7"/>
+          <path d="M0 34h440v103H0z" fill="#78857d"/><path d="M0 34h440M0 137h440" stroke="#c7c6ae" stroke-width="8"/>
+          <path d="M20 86h75m42 0h35m98 0h35m42 0h75" stroke="#d9dcca" stroke-width="3" stroke-dasharray="16 13"/>
+          <path d="M184 45h72v10h-72zm0 17h72v10h-72zm0 17h72v10h-72zm0 17h72v10h-72zm0 17h72v10h-72z" fill="#f8f6e9"/>
+          <g fill="#536f40"><circle cx="50" cy="15" r="24"/><circle cx="380" cy="155" r="25"/></g>
+          <g fill="#a7b681"><circle cx="44" cy="9" r="12"/><circle cx="374" cy="149" r="13"/></g>
+          <rect x="293" y="53" width="62" height="29" rx="10" fill="#a76b53"/>
+          <rect x="309" y="56" width="26" height="23" rx="5" fill="#d1dcd3"/>
+          <circle cx="226" cy="24" r="6" fill="#a25536"/><circle cx="217" cy="133" r="6" fill="#397455"/>
+        </svg>
+        <div class="street-bottom"><div><strong id="live-total">—</strong><span>road users visible now</span></div><p id="live-breakdown">Waiting for fresh observations</p></div>
+      </div>
+    </section>
+
+    <section class="totals-section" aria-labelledby="totals-heading">
+      <div class="section-heading"><div><div class="eyebrow">PASSING THROUGH</div><h2 id="totals-heading">Small journeys. A bigger picture.</h2></div>
+        <div class="period-switch" role="group" aria-label="Statistics period"><button data-period="today" aria-pressed="false">Today</button><button data-period="week" aria-pressed="false">7 days</button><button data-period="lifetime" aria-pressed="true" class="selected">All time</button></div>
+      </div>
+      <div class="public-count-grid">
+        <article class="public-count ped"><span class="count-symbol" aria-hidden="true">↟</span><div class="eyebrow">PEDESTRIANS</div><strong id="total-pedestrian">—</strong><p>Walks through the crossing</p></article>
+        <article class="public-count bike"><span class="count-symbol" aria-hidden="true">◎</span><div class="eyebrow">BICYCLES & RIDERS</div><strong id="total-bicycle">—</strong><p>Including fast e-scooter riders</p></article>
+        <article class="public-count veh"><span class="count-symbol" aria-hidden="true">↔</span><div class="eyebrow">VEHICLES</div><strong id="total-vehicle">—</strong><p>Cars and other motor vehicles</p></article>
+        <article class="public-count micro"><span class="count-symbol" aria-hidden="true">↗</span><div class="eyebrow">OTHER MICROMOBILITY</div><strong id="total-micromobility">—</strong><p>Separately classified e-scooters</p></article>
+      </div>
+      <p class="data-caption" id="coverage">Waiting for statistics. All time begins when monitoring starts.</p>
+    </section>
+
+    <div class="public-two-column">
+      <section class="public-panel traffic-panel" aria-labelledby="traffic-heading">
+        <div class="eyebrow">THE RHYTHM OF THIS STREET</div><h2 id="traffic-heading">When does it get busy?</h2>
+        <div class="peak-callout"><strong id="peak-hour">—</strong><span id="peak-detail">Today’s busiest observed hour</span></div>
+        <div id="hour-chart" class="hour-chart" aria-label="Today's detected passages by hour"></div>
+        <div class="chart-axis"><span>00</span><span>06</span><span>12</span><span>18</span><span>24</span></div>
+        <div class="chart-legend"><span class="ped-key">Walking</span><span class="bike-key">Riding</span><span class="veh-key">Vehicles</span><span class="micro-key">Other</span></div>
+        <p class="data-caption" id="hour-note">Observed volume today, in the crossing’s local time. Hatched hours have no coverage.</p>
+        <div class="week-heading"><h3 id="daily-heading">The past seven days</h3><span>detected passages</span></div>
+        <div id="day-chart" class="day-chart" aria-label="Detected passages over the last seven days"></div>
+      </section>
+
+      <section class="public-panel" aria-labelledby="safety-heading">
+        <div class="eyebrow">LOOKING OUT FOR EACH OTHER</div><h2 id="safety-heading">Safety, with context.</h2>
+        <div class="safety-summary"><div class="public-score"><strong id="safety-score">—</strong><span>/ 100</span></div><div><h3>Vision-based indicator</h3><p id="score-detail">More observations are needed.</p></div></div>
+        <div class="safety-tiles">
+          <div><strong id="near-miss-total">—</strong><span>Possible near-misses</span><small id="near-miss-detail">Detected conflict episodes</small></div>
+          <div><strong id="yield-rate">—</strong><span>Drivers seen yielding</span><small id="yield-detail">Among observed opportunities</small></div>
+          <div><strong id="speeding-total">—</strong><span>Speeding flags</span><small id="speeding-detail">Estimated from trajectories</small></div>
+          <div><strong id="alert-total">—</strong><span>Crossing alerts</span><small>Stopped people or blocking vehicles</small></div>
+        </div>
+        <p class="safety-context">òcio estimates close encounters from motion. These are <strong>automated flags, not confirmed accidents</strong> or a guarantee that a crossing is safe. A flagged episode is counted once, at its highest detected severity.</p>
+        <div class="safety-foot"><span>Red-light flags <b id="red-total">—</b></span><span>Close-passage flags <b id="pet-total">—</b></span></div>
+      </section>
+    </div>
+
+    <div class="public-two-column details-row">
+      <section class="public-panel" aria-labelledby="direction-heading"><div class="eyebrow">FROM HERE TO THERE</div><h2 id="direction-heading">Which way do we go?</h2><div id="directions" class="direction-list"></div><p class="data-caption">Directions follow this crossing’s calibration.</p><div class="journey-metrics"><div><strong id="mean-speed">—</strong><span>Mean observed vehicle speed</span></div><div><strong id="mean-crossing">—</strong><span>Mean pedestrian crossing time</span></div></div></section>
+      <section class="public-panel" aria-labelledby="recent-heading"><div class="eyebrow">RECENT OBSERVATIONS</div><h2 id="recent-heading">Around the crossing.</h2><ol id="recent-notices" class="notice-list"><li class="empty-notice">Waiting for observations.</li></ol><p class="data-caption">Latest safety notices across monitoring sessions.</p></section>
+    </div>
+    <section class="public-about"><div><div class="eyebrow">LOCAL INTELLIGENCE. PUBLIC KNOWLEDGE.</div><h2>A street story, without personal stories.</h2></div><p>The camera processes traffic locally. This page shares counts and anonymous indicators, without photos, video or individual trajectories. Counts represent passages: someone crossing twice contributes two journeys. Historical totals begin with this feature; earlier recordings are not included.</p></section>
+    <footer class="public-footer"><span id="last-updated">Waiting for the node</span><a href="api/stats" download="òcio-crossing.json">Download current data ↓</a><span>òcio · the crosswalk that watches out for you</span></footer>
+  </main>
+</body>
+</html>

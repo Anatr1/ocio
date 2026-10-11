@@ -1,0 +1,5 @@
+0802223001382d4eeea433ef79e921bd20886f8a7adf615c66402645dc5dbc82  /home/arduino/occhio/crosswalk/__main__.py
+737f3a66ef3bb6b9f1dd0eefa35282828658b69c57c55e1830dec524816b382f  /home/arduino/occhio/crosswalk/pipeline.py
+Prepared grove MCU app at /home/arduino/ArduinoApps/crosswalk_grove_live_20261011_0dc35bc_r2 (OLED: True)
+Nothing was flashed or started. See docs/HANDOFF_LIVE_GPIO.md for installation and verification.
+board dependencies OK

@@ -1,0 +1,43 @@
+[node] WARNING: no calibration - run tools/calibrate.py; counting needs ground coordinates
+[node] detector: ncnn models/yolo11n_320_ncnn_model  run dir: runs/20261010-135432_cw-01-zed
+[node] dashboard on http://localhost:8000  (LAN: http://<board-ip>:8000)
+[ WARN:0@1794.725] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1804.745] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1814.756] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1824.776] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1834.795] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1844.815] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1854.832] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1864.852] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1874.873] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1884.893] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1894.904] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1904.919] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1914.939] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1924.955] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1934.968] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1944.988] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1955.009] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1965.029] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1975.050] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1985.070] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@1995.083] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2005.104] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2015.119] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2025.139] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2035.160] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2045.175] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2055.195] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2065.216] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2075.237] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2085.257] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2095.278] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2105.298] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2115.318] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2125.335] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2135.348] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2145.368] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2155.380] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2165.401] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2175.421] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.
+[ WARN:0@2185.442] global cap_v4l.cpp:1049 tryIoctl VIDEOIO(V4L2:/dev/v4l/by-id/usb-Technologies__Inc._ZED-M-video-index0): select() timeout.

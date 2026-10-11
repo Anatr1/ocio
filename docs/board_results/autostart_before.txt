@@ -1,0 +1,8 @@
+ID                                                                                             NAME                                                     ICON STATUS        EXAMPLE 
+user:grove_oled_buzzer_test                                                                    Grove OLED e buzzer test                                 🔊   running       false   
+user:crosswalk_mcu                                                                             OCCHIO crosswalk MCU                                     🚦   stopped       false   
+{"ok":true,"t":1791647722.8581085,"node":"cw-01-imx219"}Sat Oct 10 15:55:22 UTC 2026
+.venv/bin/python 7
+models/yolo11n_320_ncnn_model/model.ncnn.param 22711
+24a2bfab4d8e5c97d96cf9a3b5dd159605f11a4117baec90bcbc5fb7e013f23c  configs/board_imx219.yaml
+d2b3836cc090f40e61febe06cc94859477b03c9f87935f613a7801cfdc3106d7  firmware/crosswalk_mcu/sketch/sketch.ino
