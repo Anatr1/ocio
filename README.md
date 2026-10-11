@@ -145,3 +145,5 @@ python -m pytest -q tests
 ---
 
 Built at **HackTurin 2026** for **GOMA Elettronica**. Three.js: MIT · Manrope: SIL OFL 1.1 · Ultralytics YOLO: AGPL-3.0. Renderer asset attribution and licences: [sim/ASSETS.md](sim/ASSETS.md).
+
+**Federico Mustich, Enrico Sabbatini** and **Federico Fantastico**
